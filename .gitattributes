@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
-* text=auto
+# Jag tror att mina program kan hantera samma filslut.
+# * text=auto
+

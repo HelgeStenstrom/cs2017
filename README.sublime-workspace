@@ -1,0 +1,314 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"align",
+				"align-self"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"dis",
+				"discNo"
+			],
+			[
+				"Wa",
+				"wasSetUp"
+			],
+			[
+				"test",
+				"testRunning"
+			],
+			[
+				"Tes",
+				"TestCaseTest"
+			],
+			[
+				"w",
+				"wasRun"
+			],
+			[
+				"ref",
+				"referencedFiles"
+			],
+			[
+				"try",
+				"try\tTry/Except/Else"
+			],
+			[
+				"full",
+				"fullname"
+			],
+			[
+				"Power",
+				"powerOnState"
+			],
+			[
+				"A",
+				"AlbanHardware"
+			],
+			[
+				"Wr",
+				"WriteLine"
+			],
+			[
+				"COnso",
+				"Console"
+			],
+			[
+				"Se",
+				"SetUp"
+			],
+			[
+				"Te",
+				"TestFixture"
+			],
+			[
+				"imax",
+				"imaxk"
+			],
+			[
+				"Alban",
+				"AlbanHardware"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 127.0,
+		"last_filter": "Package Control:ins",
+		"selected_items":
+		[
+			[
+				"Package Control:ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Install Package Control"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 127.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/helge/Dropbox/hack/haskell/limitfile/OneTeSyntax.hs",
+		"/Users/helge/Dropbox/hack/haskell/limitfile/test_OneTeSyntax.hs",
+		"/Users/helge/hack/git/HelgeStenstrom.github.io/module3/index.html",
+		"/Users/helge/hack/git/fullstack-course4/examples/Lecture32/after/css/styles.css",
+		"/Users/helge/hack/git/fullstack-course4/examples/Lecture32/after/index.html",
+		"/Users/helge/hack/git/HelgeStenstrom.github.io/zen/style.css",
+		"/Users/helge/hack/git/HelgeStenstrom.github.io/zen/index.html",
+		"/Users/helge/hack/git/fullstack-course4/examples/Lecture29/before/index.html",
+		"/Users/helge/hack/git/fullstack-course4/examples/Lecture10/Displaying Images.html",
+		"/Users/helge/hack/git/coursera-test/module2/style.css",
+		"/Users/helge/Sites/test_site/index.html",
+		"/Users/helge/Dropbox/hack/adventofcode/2016/MyParser.hs",
+		"/Users/helge/Dropbox/hack/Euler/p023.hs",
+		"/Users/helge/Dropbox/hack/adventofcode/2016/day15.hs",
+		"/Users/helge/Dropbox/hack/haskell/parser/hsparser.hs",
+		"/Users/helge/Dropbox/hack/py/myUnit/myUnit.org",
+		"/Users/helge/Dropbox/hack/py/myUnit/myUnit.py",
+		"/Users/helge/hack/git/myUnit/my2.py",
+		"/Users/helge/hack/hg/cPython/Lib/unittest/test/test_case.py",
+		"/Users/helge/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/helge/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/Users/helge/Dropbox/hack/py/jobb/csvinfo.py",
+		"/Users/helge/Dropbox/delade/Ann-Marie och Helge/planera20dec.txt",
+		"/Users/helge/Dropbox/jobb/alban/synthDriver.cs",
+		"/home/helge/Dropbox/hack/sublime-license.txt",
+		"/home/helge/Dropbox/hack/csharp/alban/albanTest.cs",
+		"/home/helge/Dropbox/hack/csharp/alban/alban.cs",
+		"/home/helge/Dropbox/jobb/py/alban_hardware_tests.py",
+		"/home/helge/Dropbox/jobb/py/alban_hardware.py",
+		"/home/helge/Dropbox/jobb/py/alban.py",
+		"/home/helge/Dropbox/jobb/py/alban_tests.py",
+		"/home/helge/Dropbox/hack/csharp/hello.cs",
+		"/home/helge/Dropbox/hack/csharp/money/Money.cs",
+		"/home/helge/Dropbox/hack/csharp/money/MoneyTest.cs",
+		"/home/helge/.config/sublime-text-3/Packages/User/myCSharp.sublime-build",
+		"/home/helge/Dropbox/hack/csharp/alban.cs",
+		"/home/helge/Dropbox/hack/csharp/albanTest.cs",
+		"/home/helge/Dropbox/hack/csharp/albanHardwareTest.cs",
+		"/home/helge/Dropbox/hack/csharp/albanHardware.cs",
+		"/home/helge/Dropbox/hack/csharp/money/MoneyTest.cs.gz",
+		"/home/helge/Dropbox/jobb/alban 2014-11-04/albanDevice.cc",
+		"/home/helge/Dropbox/jobb/py/albanpy.org"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"0em",
+			"testfoo",
+			"wassetup",
+			"SetPllFuncLatch",
+			"pll",
+			"interpret",
+			"albanhw",
+			"testSelectCore"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "README.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Dropbox/hack/csharp/alban/learn.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 208.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
