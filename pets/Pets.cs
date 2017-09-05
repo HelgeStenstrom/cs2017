@@ -8,7 +8,10 @@ namespace PetApplication
         private int age;
         private bool isFemale;
 
-        private string gender()
+        public string gender()
+        // I want gender to be public, so that I can test it.
+        // I need at least some way to interface with the class
+        // programmatically, without a user dialog.
         {
             if (isFemale) 
             return "Female";
