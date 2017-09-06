@@ -11,6 +11,7 @@ namespace AlbumProgram
       Album album = new Album();
       album.start();
 
+      Console.WriteLine();
       Console.WriteLine("Press Enter to exit.");
       Console.ReadLine();
     }

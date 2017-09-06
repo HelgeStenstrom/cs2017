@@ -1,3 +1,8 @@
+// Author: Helge Stenström
+// Date: 2016-09-06
+// petownermain.cs, part of Assignment1A
+
+
 using System;
 
 namespace PetApplication
@@ -17,7 +22,7 @@ namespace PetApplication
     {
       Pet pet = new Pet();
       pet.start();
-      Console.WriteLine("Press Enter to exit.");
+      Console.WriteLine("Press Enter to exit!");
       Console.ReadLine();
     }
   }
