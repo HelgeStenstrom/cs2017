@@ -81,9 +81,9 @@ namespace Assignment2
           exit = true;
           break;
         case "1":
-          Console.WriteLine("Running Whole Numbers");
-            //WholeNumbersForAdd subProgram = new WholeNumbersForAdd();
-            // subProgram.Start();
+          //Console.WriteLine("Running Whole Numbers");
+          WholeNumbersForAdd subProgram = new WholeNumbersForAdd();
+          subProgram.Start();
           break;
         case "2":
           Console.WriteLine("Running Floating Point");
