@@ -74,11 +74,10 @@ namespace Assignment2
     private void RunChoice(string choice)
     {
 
-      bool exit = false;
       switch (choice)
       {
         case "0":
-          exit = true;
+          Console.WriteLine("This can't happen!");
           break;
         case "1":
           //Console.WriteLine("Running Whole Numbers");
@@ -86,10 +85,14 @@ namespace Assignment2
           subProgram.Start();
           break;
         case "2":
-          Console.WriteLine("Running Floating Point");
+          //Console.WriteLine("Running Floating Point");
+          FloatingPointsNumberWhileAdd fpnwa = new FloatingPointsNumberWhileAdd();
+          fpnwa.Start();
           break;
         case "3":
-          Console.WriteLine("Running Currency Converter");
+          //Console.WriteLine("Running Currency Converter");
+          CurrencyConverter cc = new CurrencyConverter();
+          cc.Start();
           break;
         case "4":
           Console.WriteLine("Running Work Schedule");

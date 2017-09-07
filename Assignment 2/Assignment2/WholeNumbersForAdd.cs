@@ -10,8 +10,6 @@ namespace Assignment2
       int count = GetValueCount();
       int sum = GetAndSumNumbers(count);
       PresentResult(sum);
-      //Console.WriteLine("count = " + count);
-      //PromptForNumber(4);
     }
 
     private void Banner()
