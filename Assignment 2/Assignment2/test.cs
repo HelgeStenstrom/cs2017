@@ -5,5 +5,33 @@ using NUnit.Framework;
 
 
 // using MainProgram;
-using Assignment2;
+namespace Assignment2
+{
+	[TestFixture]
+	public class SomeTests
+	{
+		[SetUp]
+		protected void SetUp()
+		{
+			// Nothing yet.
+		}
 
+		[Test]
+		public void dummyTest()
+		{
+			System.Console.WriteLine("Dummy test ");
+		}
+
+	 	[Test]
+        public void willPass()
+        {
+            Assert.AreEqual(2, 2);
+        }
+
+        [Test]
+        public void willFail()
+        {
+            Assert.AreEqual(1, 2);
+        }
+	}
+}
