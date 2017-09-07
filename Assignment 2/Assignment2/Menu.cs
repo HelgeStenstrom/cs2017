@@ -10,7 +10,7 @@ namespace Assignment2
             Console.Clear();
             PrintBanner();
             PrintChoices();
-            GetChoice();
+            RunChoice();
             Console.ReadLine();
         }
 
@@ -42,7 +42,7 @@ namespace Assignment2
             PC("Whole Numbers with For                : 1");
             PC("Floating Point Numbers with While     : 2");
             PC("Currency Converter with Do While loop : 3");
-            PC("Work Shedule                          : 4");
+            PC("Work Schedule                         : 4");
             PC("Exit the program                      : 0");
             Console.Write(aline);
         }
@@ -51,6 +51,39 @@ namespace Assignment2
         {
             Console.Write("Your choice: ");
             return Console.ReadLine();
+        }
+
+        private void RunChoice()
+        {
+            while (true)
+            {
+
+                bool exit = false;
+                switch (GetChoice())
+                {
+                    case "0":
+                        exit = true;
+                        break;
+                    case "1":
+                        Console.WriteLine("Running Whole Numbers");
+                        WholeNumbersForAdd subProgram = new WholeNumbersForAdd();
+                        subProgram.Start();
+                        break;
+                    case "2":
+                        Console.WriteLine("Running Floating Point");
+                        break;
+                    case "3":
+                        Console.WriteLine("Running Currency Converter");
+                        break;
+                    case "4":
+                        Console.WriteLine("Running Work Schedule");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+                if (exit) break;
+            }
         }
 
     }
