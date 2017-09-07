@@ -274,6 +274,11 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/
 
+# Helge's additions
 
 # Mac files
 .DS_Store
+
+# Visual studio, only interesting localy on one machine
+*.csproj
+*.sln

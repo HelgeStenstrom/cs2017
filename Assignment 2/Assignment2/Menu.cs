@@ -11,6 +11,7 @@ namespace Assignment2
             PrintBanner();
             PrintChoices();
             GetChoice();
+            Console.ReadLine();
         }
 
         private string Banner ()
