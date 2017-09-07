@@ -1,0 +1,17 @@
+How I use nunit:
+
+csc petTests.cs Pets.cs -reference:/Users/helge/hack/NUnit.Framework-3.8.0/bin/net-4.5/nunit.framework.dll 
+
+mono /Users/helge/hack/NUnit.Framework-3.8.0/bin/net-4.5/nunitlite-runner.exe petTests.exe
+
+
+
+The nunit installation could be moved to a more convenient place.
+There is an nunit in the mono installation too, but it's deprecated and doesn't seem to work.
+
+
+Useful aliases:
+alias kompilera="csc test.cs MainProgram.cs Menu.cs -reference:/Users/helge/hack/NUnit.Framework-3.8.0/bin/net-4.5/nunit.framework.dll "
+
+alias run="mono MainProgram.exe"
+alias testa="mono /Users/helge/hack/NUnit.Framework-3.8.0/bin/net-4.5/nunitlite-runner.exe MainProgram.exe "
