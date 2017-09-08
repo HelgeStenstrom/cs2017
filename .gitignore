@@ -282,3 +282,7 @@ __pycache__/
 # Visual studio, only interesting localy on one machine
 *.csproj
 *.sln
+
+# Exe-filer tar för stor plats.
+*.exe
+

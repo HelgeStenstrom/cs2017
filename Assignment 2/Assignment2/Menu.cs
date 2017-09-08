@@ -81,8 +81,8 @@ namespace Assignment2
           break;
         case "1":
           //Console.WriteLine("Running Whole Numbers");
-          WholeNumbersForAdd subProgram = new WholeNumbersForAdd();
-          subProgram.Start();
+          WholeNumbersForAdd wnfa = new WholeNumbersForAdd();
+          wnfa.Start();
           break;
         case "2":
           //Console.WriteLine("Running Floating Point");
@@ -95,7 +95,9 @@ namespace Assignment2
           cc.Start();
           break;
         case "4":
-          Console.WriteLine("Running Work Schedule");
+          //Console.WriteLine("Running Work Schedule");
+          WorkingSchedule ws = new WorkingSchedule();
+          ws.Start();
           break;
         default:
           Console.WriteLine("Invalid choice");
