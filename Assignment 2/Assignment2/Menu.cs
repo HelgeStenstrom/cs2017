@@ -61,6 +61,7 @@ namespace Assignment2
       PC("Floating Point Numbers with While     : 2");
       PC("Currency Converter with Do While loop : 3");
       PC("Work Schedule                         : 4");
+      PC("Temperature Table                     : 5");
       PC("Exit the program                      : 0");
       Console.Write(aline);
     }
@@ -98,6 +99,9 @@ namespace Assignment2
           //Console.WriteLine("Running Work Schedule");
           WorkingSchedule ws = new WorkingSchedule();
           ws.Start();
+          break;
+        case "5":
+          Console.WriteLine("temperature table");
           break;
         default:
           Console.WriteLine("Invalid choice");
