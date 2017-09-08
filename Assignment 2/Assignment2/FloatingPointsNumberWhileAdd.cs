@@ -1,3 +1,8 @@
+// Helge Stenström
+// 2017-09-08
+// Programmering med C#
+
+
 using System;
 
 namespace Assignment2
@@ -20,10 +25,16 @@ namespace Assignment2
       Console.WriteLine();
     }
 
-    private double PromptForNumber()
+    private double PromptForNumber2()
     {
       Console.Write("Write an amount to sum or zero to finish: ");
       return double.Parse(Console.ReadLine());
+    }
+
+    private double PromptForNumber()
+    {
+      Console.Write("Write an amount to sum or zero to finish: ");
+      return Input.ReadDoubleConsole();
     }
 
     private double GetAndSumNumbers()

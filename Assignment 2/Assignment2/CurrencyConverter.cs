@@ -1,3 +1,8 @@
+// Helge Stenström
+// 2017-09-08
+// Programmering med C#
+
+
 using System;
 
 namespace Assignment2

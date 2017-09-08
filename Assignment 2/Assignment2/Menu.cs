@@ -1,3 +1,8 @@
+// Helge Stenström
+// 2017-09-08
+// Programmering med C#
+
+
 using System;
 
 namespace Assignment2
@@ -11,6 +16,7 @@ namespace Assignment2
       Cycle();
       Console.WriteLine();
       //Console.ReadLine();
+      // On my Mac, having the above ReadLine() active is only irritating.
 
     }
 
@@ -45,6 +51,9 @@ namespace Assignment2
     }
 
     private void PC (string text)
+    // This function with a short name makes 
+    // the code lines in PrintChoices shorter.
+    // PC is for Print Choice.
     {
       Console.WriteLine(MenuItem(text));
     }
@@ -72,33 +81,40 @@ namespace Assignment2
     {
 
       switch (choice)
+      // objects created here have names that are abbreviations of class names.
       {
         case "0":
           Console.WriteLine("This can't happen!");
+          // Can't happen because we will not call the 
+          // method if choice == 0.
           break;
+
         case "1":
-          //Console.WriteLine("Running Whole Numbers");
           WholeNumbersForAdd wnfa = new WholeNumbersForAdd();
           wnfa.Start();
           break;
+
         case "2":
-          //Console.WriteLine("Running Floating Point");
           FloatingPointsNumberWhileAdd fpnwa = new FloatingPointsNumberWhileAdd();
           fpnwa.Start();
           break;
+
         case "3":
-          //Console.WriteLine("Running Currency Converter");
           CurrencyConverter cc = new CurrencyConverter();
           cc.Start();
           break;
+
         case "4":
-          //Console.WriteLine("Running Work Schedule");
           WorkingSchedule ws = new WorkingSchedule();
           ws.Start();
           break;
+
         case "5":
           Console.WriteLine("temperature table");
+          TempTable tt = new TempTable();
+          tt.Start();
           break;
+
         default:
           Console.WriteLine("Invalid choice");
           break;
