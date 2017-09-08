@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 
 namespace Assignment2
 {
@@ -55,12 +57,12 @@ namespace Assignment2
       switch (choice)
       {
         case 1:
-          Console.WriteLine("weekends to work");
-          Weekends();
+          //Console.WriteLine("weekends to work");
+          PrintSchedule(1, 3, 52);
           break;
         case 2:
-          Console.WriteLine("nights to work");
-          Nights();
+          //Console.WriteLine("nights to work");
+          PrintSchedule(6, 5, 52);
           break;
         default:
           Console.WriteLine("Invalid choice, try again!");
@@ -68,11 +70,39 @@ namespace Assignment2
       }
     }
 
-    private void Weekends()
-    {}
+    private void PrintSchedule(int start, int step, int end)
+    {
+      Console.WriteLine("Your schedule of the above option is as follows:");
+      Console.WriteLine();
+      List<int> weeks = new List<int>();
+      for (int w = start; w <= end; w += step)
+      {
+        weeks.Add(w);
+      }
 
-    private void Nights()
-    {}
+      int col = 1;
+
+      // Console.WriteLine(weeks);
+      foreach (int week in weeks)
+      {
+        PrintWeek(week);
+        col += 1;
+        if (col > 3)
+        {
+          Console.WriteLine();
+          col = 1;
+        }
+      }
+      Console.WriteLine();
+      Console.WriteLine("------------------");
+      Console.WriteLine();
+
+    }
+
+    private void PrintWeek(int w)
+    {
+      Console.Write("           Week {0,2}", w);
+    }
 
   }
 }

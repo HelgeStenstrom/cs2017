@@ -8,10 +8,7 @@ namespace Assignment2
     public void Start()
     {
       Console.Clear();
-      //PrintBanner();
       Cycle();
-      //PrintChoices();
-      //RunChoice();
       Console.WriteLine();
       //Console.ReadLine();
 
@@ -19,7 +16,6 @@ namespace Assignment2
 
     private string Banner ()
     {
-      //string line   = "--------------------------------------------------\n";
       string header = "                MAIN MENU                         \n";
       return aline+header+aline;
     }
