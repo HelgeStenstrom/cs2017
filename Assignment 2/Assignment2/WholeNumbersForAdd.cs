@@ -25,20 +25,13 @@ namespace Assignment2
       Console.WriteLine();
     }
 
-    private int GetValueCount2()
-    {
-      Console.Write("Number of values to sum? ");
-      int count = int.Parse(Console.ReadLine());
-      Console.WriteLine();
-      return count;
-    }
-
     private int GetValueCount()
     {
       return Input.ReadIntegerConsole("Number of values to sum? ");
     }
 
     private int GetAndSumNumbers(int count)
+    // The main loop. We know beforehand how many iterations should be performed.
     {
       int sum = 0;
       for (int i = 1; i <= count; i++)
@@ -46,15 +39,6 @@ namespace Assignment2
         sum += PromptForNumber(i);
       }
       return sum;
-    }
-
-    private int PromptForNumber2(int order)
-    {
-      Console.Write("Please give the value no ");
-      Console.Write(order);
-      Console.Write(" (whole number): ");
-      int answer = int.Parse(Console.ReadLine());      
-      return answer;
     }
 
     private int PromptForNumber(int order)

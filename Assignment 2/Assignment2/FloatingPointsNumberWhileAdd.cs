@@ -25,12 +25,6 @@ namespace Assignment2
       Console.WriteLine();
     }
 
-    private double PromptForNumber2()
-    {
-      Console.Write("Write an amount to sum or zero to finish: ");
-      return double.Parse(Console.ReadLine());
-    }
-
     private double PromptForNumber()
     {
       Console.Write("Write an amount to sum or zero to finish: ");
@@ -38,6 +32,7 @@ namespace Assignment2
     }
 
     private double GetAndSumNumbers()
+    // The main loop. Probably a do-while loop would work just fine.
     {
       double sum = 0;
       while ( true)

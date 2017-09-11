@@ -6,6 +6,7 @@
 namespace Assignment2 
 {
   class NullAction : Startable {
+    // A Null object which provides a method that does nothing.
     public void Start() {}
   }
 }

@@ -21,6 +21,7 @@ namespace Assignment2
     }
 
     private string Banner ()
+    // Define the text that appears topmost in the main program.
     {
       string header = "                MAIN MENU                         \n";
       return aline+header+aline;
@@ -32,6 +33,7 @@ namespace Assignment2
     }
 
     private void Cycle()
+    // Main UI loop. Repeat until exit is selected by "0" 
     {
       while (true)
       {
@@ -46,6 +48,7 @@ namespace Assignment2
     }
 
     private string MenuItem (string text)
+    // Format the menu items with a bit of prepending whitespace.
     {
       return "   " + text;
     }
@@ -72,6 +75,7 @@ namespace Assignment2
     }
 
     private string GetChoice()
+    // Return the selection code of the subprogram that the user has chosen.
     {
       Console.Write("Your choice: ");
       return Console.ReadLine();
@@ -79,11 +83,9 @@ namespace Assignment2
 
     private void RunChoice(string choice)
     {
-      Startable action = new NullAction(); // This actions does nothing.
-      // TODO: Find a better name than "action"
+      Startable subprogram = new NullAction(); // This subprograms does nothing.
 
       switch (choice)
-      // objects created here have names that are abbreviations of class names.
       {
         case "0":
           Console.WriteLine("This can't happen!");
@@ -92,31 +94,30 @@ namespace Assignment2
           break;
 
         case "1":
-          action = new WholeNumbersForAdd();
+          subprogram = new WholeNumbersForAdd();
           break;
 
         case "2":
-          action = new FloatingPointsNumberWhileAdd();
+          subprogram = new FloatingPointsNumberWhileAdd();
           break;
 
         case "3":
-          action = new CurrencyConverter();
+          subprogram = new CurrencyConverter();
           break;
 
         case "4":
-          action = new WorkingSchedule();
+          subprogram = new WorkingSchedule();
           break;
 
         case "5":
-          action = new TempTable();
+          subprogram = new TempTable();
           break;
 
         default:
           Console.WriteLine("Invalid choice");
           break;
       }
-      action.Start();
-    }
-
-  }
-}
+      subprogram.Start();
+    } // RunChoice
+  } // class Menu
+} // namespace

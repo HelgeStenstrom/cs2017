@@ -34,4 +34,22 @@ namespace Assignment2
             Assert.AreEqual(1, 2);
         }
 	}
+
+  [TestFixture]
+  public class CurrencyTests
+  {
+    Startable sub;
+
+    [SetUp]
+    protected void SetUp()
+    {
+      sub = new CurrencyConverter();
+    }
+
+    [Test]
+    public void test_a_known_unit_conversion()
+    {
+      Assert.AreEqual(17/3, sub.convert(17,3), "a simple test");
+    }
+  }
 }
