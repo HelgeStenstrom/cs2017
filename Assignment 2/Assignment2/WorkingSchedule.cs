@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Assignment2
 {
-  class WorkingSchedule
+  class WorkingSchedule : Startable
   {
     public void Start()
     {

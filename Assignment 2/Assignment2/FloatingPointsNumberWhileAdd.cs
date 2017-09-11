@@ -7,7 +7,7 @@ using System;
 
 namespace Assignment2
 {
-  class FloatingPointsNumberWhileAdd
+  class FloatingPointsNumberWhileAdd : Startable
   {
     public void Start()
     {

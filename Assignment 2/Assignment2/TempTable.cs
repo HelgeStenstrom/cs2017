@@ -1,8 +1,12 @@
+// Helge Stenström
+// 2017-09-08
+// Programmering med C#
+
 using System;
 
 namespace Assignment2
 {
-  class TempTable
+  class TempTable : Startable
   {
     public void Start()
     {
@@ -56,14 +60,14 @@ namespace Assignment2
       {
         case "fc":
           Console.WriteLine("Changing Fahrenheit (F) to Celsius (C)");
-          fromUnit = "F";
-          toUnit = "C";
+          fromUnit = "°F";
+          toUnit = "°C";
           break;
 
         case "cf":
           Console.WriteLine("Changing Celsius (C) to Fahrenheit (F)");
-          fromUnit = "C";
-          toUnit = "F";
+          fromUnit = "°C";
+          toUnit = "°F";
           break;
 
         default:
@@ -89,8 +93,9 @@ namespace Assignment2
             converted = toC(temp);
             break;
         }
-        Console.WriteLine("    {0:3.0} {1} = {2:3.00} {3}", 
+        Console.WriteLine("    {0,5} {1} = {2,6:F2} {3}", 
                           temp, fromUnit, converted, toUnit);
+        // See https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting
       }      
     }
 

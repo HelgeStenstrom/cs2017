@@ -7,7 +7,7 @@ using System;
 
 namespace Assignment2
 {
-  class WholeNumbersForAdd
+  class WholeNumbersForAdd : Startable
   {
     public void Start()
     {

@@ -1,3 +1,6 @@
+// Helge Stenström
+// 2017-09-11
+
 How I use nunit:
 
 csc petTests.cs Pets.cs -reference:/Users/helge/hack/NUnit.Framework-3.8.0/bin/net-4.5/nunit.framework.dll 

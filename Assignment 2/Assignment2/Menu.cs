@@ -79,6 +79,8 @@ namespace Assignment2
 
     private void RunChoice(string choice)
     {
+      Startable action = new NullAction(); // This actions does nothing.
+      // TODO: Find a better name than "action"
 
       switch (choice)
       // objects created here have names that are abbreviations of class names.
@@ -90,35 +92,30 @@ namespace Assignment2
           break;
 
         case "1":
-          WholeNumbersForAdd wnfa = new WholeNumbersForAdd();
-          wnfa.Start();
+          action = new WholeNumbersForAdd();
           break;
 
         case "2":
-          FloatingPointsNumberWhileAdd fpnwa = new FloatingPointsNumberWhileAdd();
-          fpnwa.Start();
+          action = new FloatingPointsNumberWhileAdd();
           break;
 
         case "3":
-          CurrencyConverter cc = new CurrencyConverter();
-          cc.Start();
+          action = new CurrencyConverter();
           break;
 
         case "4":
-          WorkingSchedule ws = new WorkingSchedule();
-          ws.Start();
+          action = new WorkingSchedule();
           break;
 
         case "5":
-          Console.WriteLine("temperature table");
-          TempTable tt = new TempTable();
-          tt.Start();
+          action = new TempTable();
           break;
 
         default:
           Console.WriteLine("Invalid choice");
           break;
       }
+      action.Start();
     }
 
   }

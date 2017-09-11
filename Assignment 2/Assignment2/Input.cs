@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Minor modifications by Helge Stenström
+// 2017-09-08
+
+
+using System;
 // using System.Collections.Generic;
 // using System.Linq;
 // using System.Text;

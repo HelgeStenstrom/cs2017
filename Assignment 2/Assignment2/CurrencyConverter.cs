@@ -7,24 +7,16 @@ using System;
 
 namespace Assignment2
 {
-  class CurrencyConverter
+  class CurrencyConverter : Startable
   {
     public void Start()
     {
-      // Console.WriteLine("CurrencyConverter!");
       Banner();
 
       decimal sum = GetAndSumNumbers();
-      //Console.WriteLine(sum);
       Console.WriteLine();
-
       string currency = PromptForCurrency();
-      //Console.WriteLine(currency);
-
       decimal rate = PromptForRate();
-      //Console.WriteLine(rate);
-
-      //decimal value = sum/rate;
 
       PresentResult(sum, rate, currency);
 
