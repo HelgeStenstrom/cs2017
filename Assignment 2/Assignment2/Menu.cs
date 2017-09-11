@@ -7,7 +7,7 @@ using System;
 
 namespace Assignment2
 {
-  class Menu
+  class Menu : Startable
   {
     private static string aline = "--------------------------------------------------\n";
     public void Start()

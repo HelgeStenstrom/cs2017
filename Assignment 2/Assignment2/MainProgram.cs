@@ -15,7 +15,7 @@ namespace Assignment2
   {
     static void Main(string[] args)
     {
-      Menu menu = new Menu();
+      Startable menu = new Menu();
       menu.Start();
     }
   }
