@@ -1,3 +1,8 @@
+// Helge Stenström
+// 2017-09-08
+// Programmering med C#
+
+
 using System;
 
 namespace Assignment2
@@ -20,12 +25,17 @@ namespace Assignment2
       Console.WriteLine();
     }
 
-    private int GetValueCount()
+    private int GetValueCount2()
     {
       Console.Write("Number of values to sum? ");
       int count = int.Parse(Console.ReadLine());
       Console.WriteLine();
       return count;
+    }
+
+    private int GetValueCount()
+    {
+      return Input.ReadIntegerConsole("Number of values to sum? ");
     }
 
     private int GetAndSumNumbers(int count)
@@ -38,12 +48,21 @@ namespace Assignment2
       return sum;
     }
 
-    private int PromptForNumber(int order)
+    private int PromptForNumber2(int order)
     {
       Console.Write("Please give the value no ");
       Console.Write(order);
       Console.Write(" (whole number): ");
-      return int.Parse(Console.ReadLine());
+      int answer = int.Parse(Console.ReadLine());      
+      return answer;
+    }
+
+    private int PromptForNumber(int order)
+    { 
+      string prompt = String.Format("Please give the value no {0} "
+                                  + "(whole number) ", order);
+      int answer = Input.ReadIntegerConsole(prompt);
+      return answer;
     }
 
     private void PresentResult(int sum)

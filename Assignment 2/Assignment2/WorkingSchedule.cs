@@ -1,4 +1,11 @@
+// Helge Stenström
+// 2017-09-08
+// Programmering med C#
+
+
 using System;
+using System.Collections.Generic;
+
 
 namespace Assignment2
 {
@@ -6,7 +13,6 @@ namespace Assignment2
   {
     public void Start()
     {
-      //Console.WriteLine("Assignment2 called");
       Banner();
       SelectAndRun();
     }
@@ -28,13 +34,12 @@ namespace Assignment2
       // solution.
       {
         int choice = GetChoice();
-        // Console.WriteLine("You choose {0}.", choice);
         if (choice == 0) break;
         RunChoice(choice);
       }
     }
 
-    private void PrintChoices ()
+    private void PrintChoices()
     {
       Console.WriteLine(" 1 Show a list of the weekends to work");
       Console.WriteLine(" 2 Show a list of the nights to work");
@@ -45,8 +50,9 @@ namespace Assignment2
     private int GetChoice()
     {
       PrintChoices();
-      Console.Write("Your choice: ");
-      return int.Parse(Console.ReadLine());
+      // Console.Write("Your choice: ");
+      // return int.Parse(Console.ReadLine());
+      return Input.ReadIntegerConsole("Your choice: ");
     }
 
     private void RunChoice(int choice)
@@ -55,24 +61,51 @@ namespace Assignment2
       switch (choice)
       {
         case 1:
-          Console.WriteLine("weekends to work");
-          Weekends();
+          PrintSchedule(1, 3, 52);
           break;
+
         case 2:
-          Console.WriteLine("nights to work");
-          Nights();
+          PrintSchedule(6, 5, 52);
           break;
+
         default:
           Console.WriteLine("Invalid choice, try again!");
           break;
       }
     }
 
-    private void Weekends()
-    {}
+    private void PrintSchedule(int start, int step, int end)
+    {
+      Console.WriteLine("Your schedule of the above option is as follows:");
+      Console.WriteLine();
+      List<int> weeks = new List<int>();
+      for (int w = start; w <= end; w += step)
+      {
+        weeks.Add(w);
+      }
 
-    private void Nights()
-    {}
+      int col = 1;
+
+      foreach (int week in weeks)
+      {
+        PrintWeek(week);
+        col += 1;
+        if (col > 3)
+        {
+          Console.WriteLine();
+          col = 1;
+        }
+      }
+      Console.WriteLine();
+      Console.WriteLine("------------------");
+      Console.WriteLine();
+
+    }
+
+    private void PrintWeek(int w)
+    {
+      Console.Write("           Week {0,2}", w);
+    }
 
   }
 }
