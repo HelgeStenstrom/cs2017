@@ -280,8 +280,9 @@ __pycache__/
 .DS_Store
 
 # Visual studio, only interesting localy on one machine
-*.csproj
-*.sln
+# men jag vill ju versionshantera de filerna också!
+# *.csproj
+# *.sln
 
 # Exe-filer tar för stor plats.
 *.exe

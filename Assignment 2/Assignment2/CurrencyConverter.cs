@@ -57,8 +57,6 @@ namespace Assignment2
       {
         f = PromptForNumber();
         sum += f;
-        if (f == 0)
-          break;
       }
       while (f != 0);
       return sum;
