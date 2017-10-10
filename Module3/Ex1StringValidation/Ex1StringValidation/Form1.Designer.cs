@@ -41,7 +41,7 @@
             this.prompt.Size = new System.Drawing.Size(118, 13);
             this.prompt.TabIndex = 0;
             this.prompt.Text = "Write your name please";
-            this.prompt.Click += new System.EventHandler(this.label1_Click);
+            this.prompt.Click += new System.EventHandler(this.prompt_Click);
             // 
             // NameBox
             // 
