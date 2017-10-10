@@ -20,7 +20,6 @@ namespace Ex1StringValidation
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(String.Format("namn: {0}.", name));
             if (isOk(name))
                 MessageBox.Show("Welcome " + name.ToUpper(), "Message");
             else
@@ -30,7 +29,6 @@ namespace Ex1StringValidation
         private void NameBox_TextChanged(object sender, EventArgs e)
         {
             name = NameBox.Text.Trim();
-            Console.WriteLine(String.Format("NameBox_TextChanged name: {0}.", name));
         }
 
         private static bool isOk(string str)
