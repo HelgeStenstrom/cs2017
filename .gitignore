@@ -285,5 +285,7 @@ __pycache__/
 # *.sln
 
 # Exe-filer tar för stor plats.
-*.exe
+# *.exe
+# Men det är OK ändå.
+
 
