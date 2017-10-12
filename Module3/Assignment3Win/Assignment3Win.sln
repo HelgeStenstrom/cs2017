@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3Win", "Assignment3Win\Assignment3Win.csproj", "{F44CBC61-5259-4E39-9D57-664C49F4FFC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{CBAD396F-62EB-4ABC-B14C-7A176686F69E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,10 +13,6 @@ Global
 		{F44CBC61-5259-4E39-9D57-664C49F4FFC7}.Debug|x86.Build.0 = Debug|x86
 		{F44CBC61-5259-4E39-9D57-664C49F4FFC7}.Release|x86.ActiveCfg = Release|x86
 		{F44CBC61-5259-4E39-9D57-664C49F4FFC7}.Release|x86.Build.0 = Release|x86
-		{CBAD396F-62EB-4ABC-B14C-7A176686F69E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CBAD396F-62EB-4ABC-B14C-7A176686F69E}.Debug|x86.Build.0 = Debug|Any CPU
-		{CBAD396F-62EB-4ABC-B14C-7A176686F69E}.Release|x86.ActiveCfg = Release|Any CPU
-		{CBAD396F-62EB-4ABC-B14C-7A176686F69E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
