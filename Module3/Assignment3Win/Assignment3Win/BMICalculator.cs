@@ -9,7 +9,8 @@ namespace Assignment3Win
     {
         private double height;
 
-        public double Height => height;
+        // Syntaxen nedan är för modern.
+        //public double Height => height;
 
         private double weight;
         private UnitSystem system;

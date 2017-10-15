@@ -24,12 +24,21 @@ namespace Assignment3Win
 
         }
 
+        private void Calc_click(object sender, EventArgs e)
+        {
+        }
+
         private void InitializeGui()
         {
             Text = @"The Body Mass Calculator";
 
             // input controls
             SelectSystem(UnitSystem.Metric);
+            //SelectSystem(UnitSystem.UsImperial);
+            textBoxHeight.Text = string.Empty;
+            textBoxWeight.Text = string.Empty;
+            labelBmiOut.Text = string.Empty;
+            labelCatOut.Text = string.Empty;
         }
 
         private void ReadHeight()
