@@ -33,36 +33,45 @@
             this.currFuelBux = new System.Windows.Forms.TextBox();
             this.prevOdoBox = new System.Windows.Forms.TextBox();
             this.currOdoBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.calcFuelButton = new System.Windows.Forms.Button();
             this.priceLabel = new System.Windows.Forms.Label();
             this.currFuelLabel = new System.Windows.Forms.Label();
             this.prevLabel = new System.Windows.Forms.Label();
             this.currentLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.fuelCostPerDist = new System.Windows.Forms.Label();
+            this.fuelConsLitSwMil = new System.Windows.Forms.Label();
+            this.fuelConsLitMile = new System.Windows.Forms.Label();
+            this.fuelConsLitKm = new System.Windows.Forms.Label();
+            this.fuelConsKmLit = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxBMI = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.calcBmiButton = new System.Windows.Forms.Button();
+            this.weightBox = new System.Windows.Forms.TextBox();
+            this.heightBox = new System.Windows.Forms.TextBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.UsRadio = new System.Windows.Forms.RadioButton();
+            this.metricRadio = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBoxBmiResults = new System.Windows.Forms.GroupBox();
+            this.BmrBox = new System.Windows.Forms.GroupBox();
+            this.BmrResultLabel = new System.Windows.Forms.Label();
+            this.activityLevelBox = new System.Windows.Forms.GroupBox();
+            this.ageBox = new System.Windows.Forms.TextBox();
+            this.ageLabel = new System.Windows.Forms.Label();
+            this.maleButton = new System.Windows.Forms.RadioButton();
+            this.femaleButton = new System.Windows.Forms.RadioButton();
+            this.CalcBmrButton = new System.Windows.Forms.Button();
             this.groupBoxFuel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxBMI.SuspendLayout();
+            this.BmrBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxFuel
@@ -71,7 +80,7 @@
             this.groupBoxFuel.Controls.Add(this.currFuelBux);
             this.groupBoxFuel.Controls.Add(this.prevOdoBox);
             this.groupBoxFuel.Controls.Add(this.currOdoBox);
-            this.groupBoxFuel.Controls.Add(this.button1);
+            this.groupBoxFuel.Controls.Add(this.calcFuelButton);
             this.groupBoxFuel.Controls.Add(this.priceLabel);
             this.groupBoxFuel.Controls.Add(this.currFuelLabel);
             this.groupBoxFuel.Controls.Add(this.prevLabel);
@@ -113,14 +122,14 @@
             this.currOdoBox.Size = new System.Drawing.Size(100, 20);
             this.currOdoBox.TabIndex = 6;
             // 
-            // button1
+            // calcFuelButton
             // 
-            this.button1.Location = new System.Drawing.Point(131, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Calculate";
-            this.button1.UseVisualStyleBackColor = true;
+            this.calcFuelButton.Location = new System.Drawing.Point(131, 135);
+            this.calcFuelButton.Name = "calcFuelButton";
+            this.calcFuelButton.Size = new System.Drawing.Size(75, 23);
+            this.calcFuelButton.TabIndex = 5;
+            this.calcFuelButton.Text = "Calculate";
+            this.calcFuelButton.UseVisualStyleBackColor = true;
             // 
             // priceLabel
             // 
@@ -161,11 +170,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.fuelCostPerDist);
+            this.groupBox2.Controls.Add(this.fuelConsLitSwMil);
+            this.groupBox2.Controls.Add(this.fuelConsLitMile);
+            this.groupBox2.Controls.Add(this.fuelConsLitKm);
+            this.groupBox2.Controls.Add(this.fuelConsKmLit);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
@@ -178,60 +187,60 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results";
             // 
-            // label17
+            // fuelCostPerDist
             // 
-            this.label17.AutoSize = true;
-            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label17.Location = new System.Drawing.Point(257, 109);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(37, 15);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "kr/km";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.fuelCostPerDist.AutoSize = true;
+            this.fuelCostPerDist.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fuelCostPerDist.Location = new System.Drawing.Point(257, 109);
+            this.fuelCostPerDist.Name = "fuelCostPerDist";
+            this.fuelCostPerDist.Size = new System.Drawing.Size(37, 15);
+            this.fuelCostPerDist.TabIndex = 9;
+            this.fuelCostPerDist.Text = "kr/km";
+            this.fuelCostPerDist.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label16
+            // fuelConsLitSwMil
             // 
-            this.label16.AutoSize = true;
-            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label16.Location = new System.Drawing.Point(257, 87);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 15);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Lit/\"mil\"";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.fuelConsLitSwMil.AutoSize = true;
+            this.fuelConsLitSwMil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fuelConsLitSwMil.Location = new System.Drawing.Point(257, 87);
+            this.fuelConsLitSwMil.Name = "fuelConsLitSwMil";
+            this.fuelConsLitSwMil.Size = new System.Drawing.Size(47, 15);
+            this.fuelConsLitSwMil.TabIndex = 8;
+            this.fuelConsLitSwMil.Text = "Lit/\"mil\"";
+            this.fuelConsLitSwMil.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label15
+            // fuelConsLitMile
             // 
-            this.label15.AutoSize = true;
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label15.Location = new System.Drawing.Point(257, 66);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 15);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "lit/mile";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.fuelConsLitMile.AutoSize = true;
+            this.fuelConsLitMile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fuelConsLitMile.Location = new System.Drawing.Point(257, 66);
+            this.fuelConsLitMile.Name = "fuelConsLitMile";
+            this.fuelConsLitMile.Size = new System.Drawing.Size(39, 15);
+            this.fuelConsLitMile.TabIndex = 7;
+            this.fuelConsLitMile.Text = "lit/mile";
+            this.fuelConsLitMile.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label14
+            // fuelConsLitKm
             // 
-            this.label14.AutoSize = true;
-            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label14.Location = new System.Drawing.Point(257, 46);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 15);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "lit/km";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.fuelConsLitKm.AutoSize = true;
+            this.fuelConsLitKm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fuelConsLitKm.Location = new System.Drawing.Point(257, 46);
+            this.fuelConsLitKm.Name = "fuelConsLitKm";
+            this.fuelConsLitKm.Size = new System.Drawing.Size(35, 15);
+            this.fuelConsLitKm.TabIndex = 6;
+            this.fuelConsLitKm.Text = "lit/km";
+            this.fuelConsLitKm.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label13
+            // fuelConsKmLit
             // 
-            this.label13.AutoSize = true;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Location = new System.Drawing.Point(257, 24);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 15);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "km/lit";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.fuelConsKmLit.AutoSize = true;
+            this.fuelConsKmLit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fuelConsKmLit.Location = new System.Drawing.Point(257, 24);
+            this.fuelConsKmLit.Name = "fuelConsKmLit";
+            this.fuelConsKmLit.Size = new System.Drawing.Size(35, 15);
+            this.fuelConsKmLit.TabIndex = 5;
+            this.fuelConsKmLit.Text = "km/lit";
+            this.fuelConsKmLit.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label9
             // 
@@ -286,12 +295,12 @@
             // 
             // groupBoxBMI
             // 
-            this.groupBoxBMI.Controls.Add(this.button2);
-            this.groupBoxBMI.Controls.Add(this.textBox7);
-            this.groupBoxBMI.Controls.Add(this.textBox6);
-            this.groupBoxBMI.Controls.Add(this.textBox5);
-            this.groupBoxBMI.Controls.Add(this.radioButton2);
-            this.groupBoxBMI.Controls.Add(this.radioButton1);
+            this.groupBoxBMI.Controls.Add(this.calcBmiButton);
+            this.groupBoxBMI.Controls.Add(this.weightBox);
+            this.groupBoxBMI.Controls.Add(this.heightBox);
+            this.groupBoxBMI.Controls.Add(this.nameBox);
+            this.groupBoxBMI.Controls.Add(this.UsRadio);
+            this.groupBoxBMI.Controls.Add(this.metricRadio);
             this.groupBoxBMI.Controls.Add(this.label12);
             this.groupBoxBMI.Controls.Add(this.label11);
             this.groupBoxBMI.Controls.Add(this.label10);
@@ -303,57 +312,57 @@
             this.groupBoxBMI.TabStop = false;
             this.groupBoxBMI.Text = "BMI";
             // 
-            // button2
+            // calcBmiButton
             // 
-            this.button2.Location = new System.Drawing.Point(100, 135);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Calculate";
-            this.button2.UseVisualStyleBackColor = true;
+            this.calcBmiButton.Location = new System.Drawing.Point(100, 135);
+            this.calcBmiButton.Name = "calcBmiButton";
+            this.calcBmiButton.Size = new System.Drawing.Size(75, 23);
+            this.calcBmiButton.TabIndex = 9;
+            this.calcBmiButton.Text = "Calculate";
+            this.calcBmiButton.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // weightBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(76, 72);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 8;
+            this.weightBox.Location = new System.Drawing.Point(76, 72);
+            this.weightBox.Name = "weightBox";
+            this.weightBox.Size = new System.Drawing.Size(100, 20);
+            this.weightBox.TabIndex = 8;
             // 
-            // textBox6
+            // heightBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(76, 45);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 7;
+            this.heightBox.Location = new System.Drawing.Point(76, 45);
+            this.heightBox.Name = "heightBox";
+            this.heightBox.Size = new System.Drawing.Size(100, 20);
+            this.heightBox.TabIndex = 7;
             // 
-            // textBox5
+            // nameBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(76, 18);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(230, 20);
-            this.textBox5.TabIndex = 6;
+            this.nameBox.Location = new System.Drawing.Point(76, 18);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(230, 20);
+            this.nameBox.TabIndex = 6;
             // 
-            // radioButton2
+            // UsRadio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(201, 73);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(105, 17);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "US Unit (lb, inch)";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.UsRadio.AutoSize = true;
+            this.UsRadio.Location = new System.Drawing.Point(201, 73);
+            this.UsRadio.Name = "UsRadio";
+            this.UsRadio.Size = new System.Drawing.Size(105, 17);
+            this.UsRadio.TabIndex = 5;
+            this.UsRadio.TabStop = true;
+            this.UsRadio.Text = "US Unit (lb, inch)";
+            this.UsRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // metricRadio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(201, 46);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(117, 17);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Metric Unit (kg, cm)";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.metricRadio.AutoSize = true;
+            this.metricRadio.Location = new System.Drawing.Point(201, 46);
+            this.metricRadio.Name = "metricRadio";
+            this.metricRadio.Size = new System.Drawing.Size(117, 17);
+            this.metricRadio.TabIndex = 4;
+            this.metricRadio.TabStop = true;
+            this.metricRadio.Text = "Metric Unit (kg, cm)";
+            this.metricRadio.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -391,11 +400,93 @@
             this.groupBoxBmiResults.TabStop = false;
             this.groupBoxBmiResults.Text = "Results for NoName";
             // 
+            // BmrBox
+            // 
+            this.BmrBox.Controls.Add(this.CalcBmrButton);
+            this.BmrBox.Controls.Add(this.BmrResultLabel);
+            this.BmrBox.Controls.Add(this.activityLevelBox);
+            this.BmrBox.Controls.Add(this.ageBox);
+            this.BmrBox.Controls.Add(this.ageLabel);
+            this.BmrBox.Controls.Add(this.maleButton);
+            this.BmrBox.Controls.Add(this.femaleButton);
+            this.BmrBox.Location = new System.Drawing.Point(12, 367);
+            this.BmrBox.Name = "BmrBox";
+            this.BmrBox.Size = new System.Drawing.Size(677, 282);
+            this.BmrBox.TabIndex = 2;
+            this.BmrBox.TabStop = false;
+            this.BmrBox.Text = "BMR";
+            // 
+            // BmrResultLabel
+            // 
+            this.BmrResultLabel.BackColor = System.Drawing.SystemColors.Info;
+            this.BmrResultLabel.Location = new System.Drawing.Point(263, 20);
+            this.BmrResultLabel.Name = "BmrResultLabel";
+            this.BmrResultLabel.Size = new System.Drawing.Size(378, 240);
+            this.BmrResultLabel.TabIndex = 5;
+            this.BmrResultLabel.Text = "BMR results go here";
+            // 
+            // activityLevelBox
+            // 
+            this.activityLevelBox.Location = new System.Drawing.Point(10, 104);
+            this.activityLevelBox.Name = "activityLevelBox";
+            this.activityLevelBox.Size = new System.Drawing.Size(200, 100);
+            this.activityLevelBox.TabIndex = 4;
+            this.activityLevelBox.TabStop = false;
+            this.activityLevelBox.Text = "Activity level per week";
+            // 
+            // ageBox
+            // 
+            this.ageBox.Location = new System.Drawing.Point(68, 57);
+            this.ageBox.Name = "ageBox";
+            this.ageBox.Size = new System.Drawing.Size(100, 20);
+            this.ageBox.TabIndex = 3;
+            // 
+            // ageLabel
+            // 
+            this.ageLabel.AutoSize = true;
+            this.ageLabel.Location = new System.Drawing.Point(9, 57);
+            this.ageLabel.Name = "ageLabel";
+            this.ageLabel.Size = new System.Drawing.Size(26, 13);
+            this.ageLabel.TabIndex = 2;
+            this.ageLabel.Text = "Age";
+            // 
+            // maleButton
+            // 
+            this.maleButton.AutoSize = true;
+            this.maleButton.Location = new System.Drawing.Point(92, 20);
+            this.maleButton.Name = "maleButton";
+            this.maleButton.Size = new System.Drawing.Size(48, 17);
+            this.maleButton.TabIndex = 1;
+            this.maleButton.TabStop = true;
+            this.maleButton.Text = "Male";
+            this.maleButton.UseVisualStyleBackColor = true;
+            // 
+            // femaleButton
+            // 
+            this.femaleButton.AutoSize = true;
+            this.femaleButton.Location = new System.Drawing.Point(10, 20);
+            this.femaleButton.Name = "femaleButton";
+            this.femaleButton.Size = new System.Drawing.Size(59, 17);
+            this.femaleButton.TabIndex = 0;
+            this.femaleButton.TabStop = true;
+            this.femaleButton.Text = "Female";
+            this.femaleButton.UseVisualStyleBackColor = true;
+            // 
+            // CalcBmrButton
+            // 
+            this.CalcBmrButton.Location = new System.Drawing.Point(68, 211);
+            this.CalcBmrButton.Name = "CalcBmrButton";
+            this.CalcBmrButton.Size = new System.Drawing.Size(75, 23);
+            this.CalcBmrButton.TabIndex = 6;
+            this.CalcBmrButton.Text = "button1";
+            this.CalcBmrButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 372);
+            this.ClientSize = new System.Drawing.Size(715, 661);
+            this.Controls.Add(this.BmrBox);
             this.Controls.Add(this.groupBoxBMI);
             this.Controls.Add(this.groupBoxFuel);
             this.Name = "Form1";
@@ -406,6 +497,8 @@
             this.groupBox2.PerformLayout();
             this.groupBoxBMI.ResumeLayout(false);
             this.groupBoxBMI.PerformLayout();
+            this.BmrBox.ResumeLayout(false);
+            this.BmrBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,7 +513,7 @@
         private System.Windows.Forms.TextBox currFuelBux;
         private System.Windows.Forms.TextBox prevOdoBox;
         private System.Windows.Forms.TextBox currOdoBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button calcFuelButton;
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Label currFuelLabel;
         private System.Windows.Forms.Label prevLabel;
@@ -430,20 +523,28 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton metricRadio;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox weightBox;
+        private System.Windows.Forms.TextBox heightBox;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.RadioButton UsRadio;
+        private System.Windows.Forms.Label fuelCostPerDist;
+        private System.Windows.Forms.Label fuelConsLitSwMil;
+        private System.Windows.Forms.Label fuelConsLitMile;
+        private System.Windows.Forms.Label fuelConsLitKm;
+        private System.Windows.Forms.Label fuelConsKmLit;
+        private System.Windows.Forms.Button calcBmiButton;
+        private System.Windows.Forms.GroupBox BmrBox;
+        private System.Windows.Forms.Label BmrResultLabel;
+        private System.Windows.Forms.GroupBox activityLevelBox;
+        private System.Windows.Forms.TextBox ageBox;
+        private System.Windows.Forms.Label ageLabel;
+        private System.Windows.Forms.RadioButton maleButton;
+        private System.Windows.Forms.RadioButton femaleButton;
+        private System.Windows.Forms.Button CalcBmrButton;
     }
 }
 
