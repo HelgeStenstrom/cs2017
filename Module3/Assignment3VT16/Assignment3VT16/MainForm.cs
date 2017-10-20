@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Assignment3VT16
@@ -22,11 +22,14 @@ namespace Assignment3VT16
         public MainForm()
         {
             InitializeComponent();
+            // My code from here
             InitializeGui();
         }
 
         private void InitializeGui()
         {
+            this.Text = "Universal Calculator";
+
             // Fuel
             fuelConsKmLit.Text = String.Empty;
             fuelConsLitKm.Text = String.Empty;

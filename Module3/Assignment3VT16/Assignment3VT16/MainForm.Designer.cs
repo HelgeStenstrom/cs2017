@@ -56,8 +56,8 @@
             this.nameBox = new System.Windows.Forms.TextBox();
             this.UsRadio = new System.Windows.Forms.RadioButton();
             this.metricRadio = new System.Windows.Forms.RadioButton();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblWeight = new System.Windows.Forms.Label();
+            this.lblHeight = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBoxBmiResults = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -308,8 +308,8 @@
             this.groupBoxBMI.Controls.Add(this.nameBox);
             this.groupBoxBMI.Controls.Add(this.UsRadio);
             this.groupBoxBMI.Controls.Add(this.metricRadio);
-            this.groupBoxBMI.Controls.Add(this.label12);
-            this.groupBoxBMI.Controls.Add(this.label11);
+            this.groupBoxBMI.Controls.Add(this.lblWeight);
+            this.groupBoxBMI.Controls.Add(this.lblHeight);
             this.groupBoxBMI.Controls.Add(this.label10);
             this.groupBoxBMI.Controls.Add(this.groupBoxBmiResults);
             this.groupBoxBMI.Location = new System.Drawing.Point(347, 12);
@@ -372,23 +372,23 @@
             this.metricRadio.Text = "Metric Unit (kg, cm)";
             this.metricRadio.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // lblWeight
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 75);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Weight (kg)";
+            this.lblWeight.AutoSize = true;
+            this.lblWeight.Location = new System.Drawing.Point(13, 75);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(62, 13);
+            this.lblWeight.TabIndex = 3;
+            this.lblWeight.Text = "Weight (kg)";
             // 
-            // label11
+            // lblHeight
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 48);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Height (cm)";
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Location = new System.Drawing.Point(13, 48);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(61, 13);
+            this.lblHeight.TabIndex = 2;
+            this.lblHeight.Text = "Height (cm)";
             // 
             // label10
             // 
@@ -632,6 +632,7 @@
             this.Controls.Add(this.BmrBox);
             this.Controls.Add(this.groupBoxBMI);
             this.Controls.Add(this.groupBoxFuel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainForm";
             this.Text = "Universal Calculator";
             this.groupBoxFuel.ResumeLayout(false);
@@ -671,8 +672,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton metricRadio;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblWeight;
+        private System.Windows.Forms.Label lblHeight;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox weightBox;
         private System.Windows.Forms.TextBox heightBox;
