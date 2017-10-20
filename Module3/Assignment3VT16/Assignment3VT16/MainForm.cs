@@ -13,19 +13,19 @@ namespace Assignment3VT16
     public partial class MainForm : Form
     {
         // Create the calculators, with names suggested by VisualStudio
-        CalorieCalculator CalorieCalcuator = new CalorieCalculator();
-        BodyMassIndex BmiCalculator = new BodyMassIndex();
-        FuelCalculator FuelCalculator = new FuelCalculator();
+        CalorieCalculator _calorieCalcuator = new CalorieCalculator();
+        BodyMassIndex _bmiCalculator = new BodyMassIndex();
+        FuelCalculator _fuelCalculator = new FuelCalculator();
 
-        private string name = String.Empty;
+        private string _name = String.Empty;
 
         public MainForm()
         {
             InitializeComponent();
-            InitializeGUI();
+            InitializeGui();
         }
 
-        private void InitializeGUI()
+        private void InitializeGui()
         {
             // Fuel
             fuelConsKmLit.Text = String.Empty;
@@ -48,22 +48,22 @@ namespace Assignment3VT16
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void calcFuelButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void calcBmiButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void CalcBmrButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        private void unselectButton_Click(object sender, EventArgs e)
         {
 
         }

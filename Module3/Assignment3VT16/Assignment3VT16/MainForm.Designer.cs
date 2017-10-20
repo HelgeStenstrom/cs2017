@@ -143,6 +143,7 @@
             this.calcFuelButton.TabIndex = 5;
             this.calcFuelButton.Text = "Calculate";
             this.calcFuelButton.UseVisualStyleBackColor = true;
+            this.calcFuelButton.Click += new System.EventHandler(this.calcFuelButton_Click);
             // 
             // priceLabel
             // 
@@ -161,7 +162,6 @@
             this.currFuelLabel.Size = new System.Drawing.Size(177, 13);
             this.currFuelLabel.TabIndex = 3;
             this.currFuelLabel.Text = "Current amount of fuel tanked (liters)";
-            this.currFuelLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // prevLabel
             // 
@@ -279,7 +279,6 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Fuel consumption (lit/US mile)";
             this.label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -328,6 +327,7 @@
             this.calcBmiButton.TabIndex = 9;
             this.calcBmiButton.Text = "Calculate";
             this.calcBmiButton.UseVisualStyleBackColor = true;
+            this.calcBmiButton.Click += new System.EventHandler(this.calcBmiButton_Click);
             // 
             // weightBox
             // 
@@ -422,7 +422,6 @@
             this.label13.TabIndex = 4;
             this.label13.Text = "Normal BMI is between 18.5 and 24.9.";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // categoryResultLabel
             // 
@@ -488,6 +487,7 @@
             this.unselectButton.TabIndex = 8;
             this.unselectButton.Text = "Unselect";
             this.unselectButton.UseVisualStyleBackColor = true;
+            this.unselectButton.Click += new System.EventHandler(this.unselectButton_Click);
             // 
             // label14
             // 
@@ -506,6 +506,7 @@
             this.CalcBmrButton.TabIndex = 6;
             this.CalcBmrButton.Text = "Calculate";
             this.CalcBmrButton.UseVisualStyleBackColor = true;
+            this.CalcBmrButton.Click += new System.EventHandler(this.CalcBmrButton_Click);
             // 
             // BmrResultLabel
             // 
