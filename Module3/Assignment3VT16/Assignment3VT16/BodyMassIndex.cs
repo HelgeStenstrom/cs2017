@@ -8,5 +8,13 @@ namespace Assignment3VT16
 {
     class BodyMassIndex
     {
+        // for name, use value in MainForm.cs
+        float height;
+        float weight;
+
+        void Calculate()
+        {
+
+        }
     }
 }

@@ -8,6 +8,13 @@ namespace Assignment3VT16
 {
     class FuelCalculator
     {
+        double currOdoReading;
+        double prevOdoReading;
+        double currentFuel;
+        double unitPrice;
 
+        public void Calculate()
+        {
+        }
     }
 }

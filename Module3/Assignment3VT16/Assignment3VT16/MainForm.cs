@@ -50,7 +50,7 @@ namespace Assignment3VT16
 
         private void calcFuelButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void calcBmiButton_Click(object sender, EventArgs e)
