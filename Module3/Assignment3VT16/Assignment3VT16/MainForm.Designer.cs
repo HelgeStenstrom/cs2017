@@ -428,15 +428,15 @@
             this.categoryResultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.categoryResultLabel.Location = new System.Drawing.Point(180, 48);
             this.categoryResultLabel.Name = "categoryResultLabel";
-            this.categoryResultLabel.Size = new System.Drawing.Size(100, 15);
+            this.categoryResultLabel.Size = new System.Drawing.Size(100, 23);
             this.categoryResultLabel.TabIndex = 3;
             this.categoryResultLabel.Text = "label4";
-            this.categoryResultLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.categoryResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 48);
+            this.label3.Location = new System.Drawing.Point(10, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 2;
@@ -450,12 +450,12 @@
             this.BmiResultLabel.Size = new System.Drawing.Size(100, 23);
             this.BmiResultLabel.TabIndex = 1;
             this.BmiResultLabel.Text = "label2";
-            this.BmiResultLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.BmiResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 20);
+            this.label1.Location = new System.Drawing.Point(10, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
