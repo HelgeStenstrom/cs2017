@@ -68,16 +68,11 @@ namespace Assignment3VT16
 
         private void UpdateGuiFuel()
         {
-            fuelConsKmLit.Text = string.Format("{0:f2}",
-                _fuelCalculator.CalcConsumptionKilometerPerLiter());
-            fuelConsLitKm.Text = string.Format("{0:f2}",
-                _fuelCalculator.CalcFuelConsumptionPerKm());
-            fuelConsLitMile.Text = string.Format("{0:f2}",
-                _fuelCalculator.CalcConsumptionPerUsMile());
-            fuelConsLitSwMil.Text = string.Format("{0:f2}",
-                _fuelCalculator.CalcFuelConsumptionPerSweMil());
-            fuelCostPerDist.Text = string.Format("{0:f2}",
-                _fuelCalculator.CalcCostPerKm());
+            fuelConsKmLit.Text = $"{_fuelCalculator.CalcConsumptionKilometerPerLiter():f2}";
+            fuelConsLitKm.Text = $"{_fuelCalculator.CalcFuelConsumptionPerKm():f2}";
+            fuelConsLitMile.Text = $"{_fuelCalculator.CalcConsumptionPerUsMile():f2}";
+            fuelConsLitSwMil.Text = $"{_fuelCalculator.CalcFuelConsumptionPerSweMil():f2}";
+            fuelCostPerDist.Text = $"{_fuelCalculator.CalcCostPerKm():f2}";
         }
 
         bool ReadInputFuel()
@@ -123,7 +118,7 @@ namespace Assignment3VT16
         void valueWarningBox(string thing)
             // Pop up a warning that the input isn't a valid value
         {
-            string formatted = String.Format("{0} is not a valid numerical value.", thing);
+            string formatted = $"{thing} is not a valid numerical value.";
             MessageBox.Show(formatted, "Error!");
         }
 

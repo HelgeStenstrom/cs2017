@@ -1,29 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assignment3VT16
+﻿namespace Assignment3VT16
 {
     class FuelCalculator
     {
-        double currentOdoReading;
-        double previousOdoReading;
-        double fuelAmount;
-        double unitPrice;
+        double _currentOdoReading;
+        double _previousOdoReading;
+        double _fuelAmount;
+        double _unitPrice;
 
-        public FuelCalculator()
+        double Distance()
         {
-
-        }
-        public void Calculate()
-        {
-        }
-
-        double distance()
-        {
-            return currentOdoReading - previousOdoReading;
+            return _currentOdoReading - _previousOdoReading;
         }
 
         public double CalcConsumptionKilometerPerLiter()
@@ -31,7 +17,7 @@ namespace Assignment3VT16
         // How many kilometers the car be driven for a liter? 
 
         {
-            return distance() / fuelAmount;
+            return Distance() / _fuelAmount;
         }
 
         public double CalcConsumptionPerUsMile()
@@ -48,13 +34,13 @@ namespace Assignment3VT16
         public double CalcCostPerKm()
         // Cost per km: Cost per km = litPerKm * unit price (price can be in any currency)
         {
-            return CalcFuelConsumptionPerKm() * unitPrice;
+            return CalcFuelConsumptionPerKm() * _unitPrice;
         }
 
         public double CalcFuelConsumptionPerKm()
         // Consumption liter per km: litPerKm: How many liters the car burns for each km?
         {
-            return fuelAmount / distance();
+            return _fuelAmount / Distance();
         }
 
         public double CalcFuelConsumptionPerSweMil()
@@ -67,38 +53,38 @@ namespace Assignment3VT16
         // These methods have names from the assignment, and use variables that sometimes have my own names.
         public double GetCurrentReading()
         {
-            return currentOdoReading;
+            return _currentOdoReading;
         }
 
         public double GetFuelAmount()
         {
-            return fuelAmount;
+            return _fuelAmount;
         }
 
         public double GetPreviousReading()
         {
-            return previousOdoReading;
+            return _previousOdoReading;
         }
 
 
         public void SetCurrentReading(double val)
         {
-            currentOdoReading = val;
+            _currentOdoReading = val;
         }
 
         public void SetFuelAmount(double val)
         {
-            fuelAmount = val;
+            _fuelAmount = val;
         }
 
         public void SetPreviousReading(double val)
         {
-            previousOdoReading = val;
+            _previousOdoReading = val;
         }
 
         public void SetUnitPrice(double val)
         {
-            unitPrice = val;
+            _unitPrice = val;
         }
 
         #endregion
@@ -106,8 +92,8 @@ namespace Assignment3VT16
         public bool ValidateOdometerValues()
             // Check that instance variables for the odomenter have valid values
         {
-            return (previousOdoReading >= 0) && (currentOdoReading >= previousOdoReading)
-                && (fuelAmount > 0) && (unitPrice >= 0);
+            return (_previousOdoReading >= 0) && (_currentOdoReading >= _previousOdoReading)
+                && (_fuelAmount > 0) && (_unitPrice >= 0);
         }
     }
 }
