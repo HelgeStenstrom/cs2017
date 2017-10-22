@@ -40,8 +40,8 @@ namespace Assignment3VT16
             // BMI
             metricRadio.Checked = true;
             // BMI results
-            BmiResultLabel.Text = String.Empty;
-            categoryResultLabel.Text = String.Empty;
+            lblBmiResult.Text = String.Empty;
+            lblCategoryResult.Text = String.Empty;
 
             // BMR
             femaleButton.Checked = true;
@@ -114,7 +114,8 @@ namespace Assignment3VT16
             }
             return _fuelCalculator.ValidateOdometerValues();
         }
-
+        
+        #endregion
         void valueWarningBox(string thing)
             // Pop up a warning that the input isn't a valid value
         {
@@ -122,20 +123,93 @@ namespace Assignment3VT16
             MessageBox.Show(formatted, "Error!");
         }
 
-        #endregion
+
 
         #region BMI
+        private void nameBox_TextChanged(object sender, EventArgs e)
+        {
+            string name = nameBox.Text.Trim();
+            if (!(name == ""))
+            {
+                this._name = name;
+            }
+            else
+            {
+                this._name = "No Name";
+            }
+            groupBoxBmiResults.Text = $"Results for {this._name}";
+        }
+
+        private void metricRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            _bmiCalculator.SetUseMetric(true);
+            _bmiCalculator.UseMetric = true;
+            lblHeight.Text = "Height (cm)";
+            lblWeight.Text = "Weight (kg)";
+        }
+
+        private void UsRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            _bmiCalculator.SetUseMetric(false);
+            _bmiCalculator.UseMetric = false;
+            lblHeight.Text = "Height (inch)";
+            lblWeight.Text = "Weight (lb)";
+        }
 
         private void calcBmiButton_Click(object sender, EventArgs e)
         {
-
+            if (ReadInputBmi())
+            {
+                UpdateGuiBmi();
+            }
         }
+        
+        bool ReadInputBmi () 
+        {
+            bool ok = true;
+            if (double.TryParse(heightBox.Text, out double hval))
+            {
+                _bmiCalculator.Height = hval;
+            }
+            else
+            {
+                valueWarningBox("Height");
+                ok = false;
+            }
+
+            if (double.TryParse(weightBox.Text, out double wval))
+            {
+                _bmiCalculator.Weight = wval;
+            }
+            else
+            {
+                valueWarningBox("Weight");
+                ok = false;
+            }
+
+            return ok;
+        }
+        
+        private void UpdateGuiBmi()
+        {
+            double bmi = _bmiCalculator.calcBmi();
+            lblBmiResult.Text = $"{bmi:f2}";
+            string cat = _bmiCalculator.category();
+            lblCategoryResult.Text = $"{cat}";
+        }
+
         #endregion
 
         #region BMR
         private void CalcBmrButton_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        bool ReadInputBmr()
+        {
+
+            return true;
         }
 
         #endregion

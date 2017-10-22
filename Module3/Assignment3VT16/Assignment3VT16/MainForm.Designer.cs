@@ -61,9 +61,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBoxBmiResults = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.categoryResultLabel = new System.Windows.Forms.Label();
+            this.lblCategoryResult = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.BmiResultLabel = new System.Windows.Forms.Label();
+            this.lblBmiResult = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BmrBox = new System.Windows.Forms.GroupBox();
             this.unselectButton = new System.Windows.Forms.Button();
@@ -107,31 +107,31 @@
             this.groupBoxFuel.TabStop = false;
             this.groupBoxFuel.Text = "Fuel";
             // 
-            // priceBox
+            // boxPrice
             // 
             this.boxPrice.Location = new System.Drawing.Point(207, 100);
-            this.boxPrice.Name = "priceBox";
+            this.boxPrice.Name = "boxPrice";
             this.boxPrice.Size = new System.Drawing.Size(100, 20);
             this.boxPrice.TabIndex = 9;
             // 
-            // currFuelBux
+            // boxFuelAmount
             // 
             this.boxFuelAmount.Location = new System.Drawing.Point(207, 73);
-            this.boxFuelAmount.Name = "currFuelBux";
+            this.boxFuelAmount.Name = "boxFuelAmount";
             this.boxFuelAmount.Size = new System.Drawing.Size(100, 20);
             this.boxFuelAmount.TabIndex = 8;
             // 
-            // prevOdoBox
+            // boxPrevOdo
             // 
             this.boxPrevOdo.Location = new System.Drawing.Point(207, 46);
-            this.boxPrevOdo.Name = "prevOdoBox";
+            this.boxPrevOdo.Name = "boxPrevOdo";
             this.boxPrevOdo.Size = new System.Drawing.Size(100, 20);
             this.boxPrevOdo.TabIndex = 7;
             // 
-            // currOdoBox
+            // boxCurrOdo
             // 
             this.boxCurrOdo.Location = new System.Drawing.Point(207, 20);
-            this.boxCurrOdo.Name = "currOdoBox";
+            this.boxCurrOdo.Name = "boxCurrOdo";
             this.boxCurrOdo.Size = new System.Drawing.Size(100, 20);
             this.boxCurrOdo.TabIndex = 6;
             // 
@@ -349,6 +349,7 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(230, 20);
             this.nameBox.TabIndex = 6;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // UsRadio
             // 
@@ -360,6 +361,7 @@
             this.UsRadio.TabStop = true;
             this.UsRadio.Text = "US Unit (lb, inch)";
             this.UsRadio.UseVisualStyleBackColor = true;
+            this.UsRadio.CheckedChanged += new System.EventHandler(this.UsRadio_CheckedChanged);
             // 
             // metricRadio
             // 
@@ -371,6 +373,7 @@
             this.metricRadio.TabStop = true;
             this.metricRadio.Text = "Metric Unit (kg, cm)";
             this.metricRadio.UseVisualStyleBackColor = true;
+            this.metricRadio.CheckedChanged += new System.EventHandler(this.metricRadio_CheckedChanged);
             // 
             // lblWeight
             // 
@@ -402,9 +405,9 @@
             // groupBoxBmiResults
             // 
             this.groupBoxBmiResults.Controls.Add(this.label13);
-            this.groupBoxBmiResults.Controls.Add(this.categoryResultLabel);
+            this.groupBoxBmiResults.Controls.Add(this.lblCategoryResult);
             this.groupBoxBmiResults.Controls.Add(this.label3);
-            this.groupBoxBmiResults.Controls.Add(this.BmiResultLabel);
+            this.groupBoxBmiResults.Controls.Add(this.lblBmiResult);
             this.groupBoxBmiResults.Controls.Add(this.label1);
             this.groupBoxBmiResults.Location = new System.Drawing.Point(6, 155);
             this.groupBoxBmiResults.Name = "groupBoxBmiResults";
@@ -423,15 +426,15 @@
             this.label13.Text = "Normal BMI is between 18.5 and 24.9.";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // categoryResultLabel
+            // lblCategoryResult
             // 
-            this.categoryResultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.categoryResultLabel.Location = new System.Drawing.Point(180, 48);
-            this.categoryResultLabel.Name = "categoryResultLabel";
-            this.categoryResultLabel.Size = new System.Drawing.Size(100, 23);
-            this.categoryResultLabel.TabIndex = 3;
-            this.categoryResultLabel.Text = "label4";
-            this.categoryResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCategoryResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCategoryResult.Location = new System.Drawing.Point(180, 48);
+            this.lblCategoryResult.Name = "lblCategoryResult";
+            this.lblCategoryResult.Size = new System.Drawing.Size(100, 23);
+            this.lblCategoryResult.TabIndex = 3;
+            this.lblCategoryResult.Text = "label4";
+            this.lblCategoryResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
@@ -442,15 +445,15 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Weight Category";
             // 
-            // BmiResultLabel
+            // lblBmiResult
             // 
-            this.BmiResultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.BmiResultLabel.Location = new System.Drawing.Point(180, 20);
-            this.BmiResultLabel.Name = "BmiResultLabel";
-            this.BmiResultLabel.Size = new System.Drawing.Size(100, 23);
-            this.BmiResultLabel.TabIndex = 1;
-            this.BmiResultLabel.Text = "label2";
-            this.BmiResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblBmiResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBmiResult.Location = new System.Drawing.Point(180, 20);
+            this.lblBmiResult.Name = "lblBmiResult";
+            this.lblBmiResult.Size = new System.Drawing.Size(100, 23);
+            this.lblBmiResult.TabIndex = 1;
+            this.lblBmiResult.Text = "label2";
+            this.lblBmiResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -547,10 +550,10 @@
             this.radioActivity4.AutoSize = true;
             this.radioActivity4.Location = new System.Drawing.Point(7, 91);
             this.radioActivity4.Name = "radioActivity4";
-            this.radioActivity4.Size = new System.Drawing.Size(136, 17);
+            this.radioActivity4.Size = new System.Drawing.Size(141, 17);
             this.radioActivity4.TabIndex = 3;
             this.radioActivity4.TabStop = true;
-            this.radioActivity4.Text = "Very active (6 to 7 time)";
+            this.radioActivity4.Text = "Very active (6 to 7 times)";
             this.radioActivity4.UseVisualStyleBackColor = true;
             // 
             // radioActivity3
@@ -558,10 +561,10 @@
             this.radioActivity3.AutoSize = true;
             this.radioActivity3.Location = new System.Drawing.Point(7, 67);
             this.radioActivity3.Name = "radioActivity3";
-            this.radioActivity3.Size = new System.Drawing.Size(167, 17);
+            this.radioActivity3.Size = new System.Drawing.Size(172, 17);
             this.radioActivity3.TabIndex = 2;
             this.radioActivity3.TabStop = true;
-            this.radioActivity3.Text = "Moderately active (3 to 5 time)";
+            this.radioActivity3.Text = "Moderately active (4 to 5 times)";
             this.radioActivity3.UseVisualStyleBackColor = true;
             // 
             // radioActivity2
@@ -694,9 +697,9 @@
         private System.Windows.Forms.RadioButton femaleButton;
         private System.Windows.Forms.Button CalcBmrButton;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label categoryResultLabel;
+        private System.Windows.Forms.Label lblCategoryResult;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label BmiResultLabel;
+        private System.Windows.Forms.Label lblBmiResult;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioActivity5;
         private System.Windows.Forms.RadioButton radioActivity4;
