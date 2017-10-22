@@ -54,18 +54,35 @@ namespace Assignment3VT16
 
         #region Fuel
         private void calcFuelButton_Click(object sender, EventArgs e)
+        {            
+            if (ReadInputFuel())
+            {
+                UpdateGuiFuel();
+            }
+            else
+            {
+                MessageBox.Show("Values given are unreasonable. Check that they are non-negative,"
+                    + " and that current odo is greater than previous odo.", "Error!");
+            }
+        }
+
+        private void UpdateGuiFuel()
         {
-            String tCurrOdo = boxCurrOdo.Text;
-            String tPrevOdo = boxPrevOdo.Text;
-            String tFuelAmount = boxFuelAmount.Text;
-            String tPrice = boxPrice.Text;
+            fuelConsKmLit.Text = string.Format("{0:f2}",
+                _fuelCalculator.CalcConsumptionKilometerPerLiter());
+            fuelConsLitKm.Text = string.Format("{0:f2}",
+                _fuelCalculator.CalcFuelConsumptionPerKm());
+            fuelConsLitMile.Text = string.Format("{0:f2}",
+                _fuelCalculator.CalcConsumptionPerUsMile());
+            fuelConsLitSwMil.Text = string.Format("{0:f2}",
+                _fuelCalculator.CalcFuelConsumptionPerSweMil());
+            fuelCostPerDist.Text = string.Format("{0:f2}",
+                _fuelCalculator.CalcCostPerKm());
+        }
 
-            double currentOdo;
-            double previousOdo;
-            double fuelAmount;
-            double unitPrice;
-
-            if (double.TryParse(tCurrOdo, out currentOdo))
+        bool ReadInputFuel()
+        {
+            if (double.TryParse(boxCurrOdo.Text, out double currentOdo))
             {
                 _fuelCalculator.SetCurrentReading(currentOdo);
             }
@@ -74,7 +91,7 @@ namespace Assignment3VT16
                 valueWarningBox("Current odometer reading");
             }
 
-            if (double.TryParse(tPrevOdo, out previousOdo))
+            if (double.TryParse(boxPrevOdo.Text, out double previousOdo))
             {
                 _fuelCalculator.SetPreviousReading(previousOdo);
             }
@@ -83,7 +100,7 @@ namespace Assignment3VT16
                 valueWarningBox("Previous odometer reading");
             }
 
-            if (double.TryParse(tFuelAmount, out fuelAmount))
+            if (double.TryParse(boxFuelAmount.Text, out double fuelAmount))
             {
                 _fuelCalculator.SetFuelAmount(fuelAmount);
             }
@@ -92,7 +109,7 @@ namespace Assignment3VT16
                 valueWarningBox("Current amount of fuel");
             }
 
-            if (double.TryParse(tPrice, out unitPrice))
+            if (double.TryParse(boxPrice.Text, out double unitPrice))
             {
                 _fuelCalculator.SetUnitPrice(unitPrice);
             }
@@ -100,14 +117,7 @@ namespace Assignment3VT16
             {
                 valueWarningBox("Price per liter");
             }
-
-            if (! _fuelCalculator.ValidateOdometerValues())
-            {
-                MessageBox.Show("Values given are unreasonable. Check that they are non-negative,"
-                    + " and that current odo is greater than previous odo.", "Error!");
-            }
-
-
+            return _fuelCalculator.ValidateOdometerValues();
         }
 
         void valueWarningBox(string thing)
@@ -117,10 +127,6 @@ namespace Assignment3VT16
             MessageBox.Show(formatted, "Error!");
         }
 
-        double validDouble ()
-        {
-            return 3.14;
-        }
         #endregion
 
         #region BMI

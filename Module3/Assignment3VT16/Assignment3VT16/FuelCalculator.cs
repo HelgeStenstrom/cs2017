@@ -80,15 +80,6 @@ namespace Assignment3VT16
             return previousOdoReading;
         }
 
-        public double GetUnitPrice()
-        {
-            return unitPrice;
-        }
-
-        public void SetCurrOdoReading(double val)
-        {
-            currentOdoReading = val;
-        }
 
         public void SetCurrentReading(double val)
         {
