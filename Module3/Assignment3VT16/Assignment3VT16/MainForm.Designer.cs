@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBoxFuel = new System.Windows.Forms.GroupBox();
-            this.priceBox = new System.Windows.Forms.TextBox();
-            this.currFuelBux = new System.Windows.Forms.TextBox();
-            this.prevOdoBox = new System.Windows.Forms.TextBox();
-            this.currOdoBox = new System.Windows.Forms.TextBox();
+            this.boxPrice = new System.Windows.Forms.TextBox();
+            this.boxFuelAmount = new System.Windows.Forms.TextBox();
+            this.boxPrevOdo = new System.Windows.Forms.TextBox();
+            this.boxCurrOdo = new System.Windows.Forms.TextBox();
             this.calcFuelButton = new System.Windows.Forms.Button();
             this.priceLabel = new System.Windows.Forms.Label();
             this.currFuelLabel = new System.Windows.Forms.Label();
@@ -90,10 +90,10 @@
             // 
             // groupBoxFuel
             // 
-            this.groupBoxFuel.Controls.Add(this.priceBox);
-            this.groupBoxFuel.Controls.Add(this.currFuelBux);
-            this.groupBoxFuel.Controls.Add(this.prevOdoBox);
-            this.groupBoxFuel.Controls.Add(this.currOdoBox);
+            this.groupBoxFuel.Controls.Add(this.boxPrice);
+            this.groupBoxFuel.Controls.Add(this.boxFuelAmount);
+            this.groupBoxFuel.Controls.Add(this.boxPrevOdo);
+            this.groupBoxFuel.Controls.Add(this.boxCurrOdo);
             this.groupBoxFuel.Controls.Add(this.calcFuelButton);
             this.groupBoxFuel.Controls.Add(this.priceLabel);
             this.groupBoxFuel.Controls.Add(this.currFuelLabel);
@@ -109,31 +109,31 @@
             // 
             // priceBox
             // 
-            this.priceBox.Location = new System.Drawing.Point(207, 100);
-            this.priceBox.Name = "priceBox";
-            this.priceBox.Size = new System.Drawing.Size(100, 20);
-            this.priceBox.TabIndex = 9;
+            this.boxPrice.Location = new System.Drawing.Point(207, 100);
+            this.boxPrice.Name = "priceBox";
+            this.boxPrice.Size = new System.Drawing.Size(100, 20);
+            this.boxPrice.TabIndex = 9;
             // 
             // currFuelBux
             // 
-            this.currFuelBux.Location = new System.Drawing.Point(207, 73);
-            this.currFuelBux.Name = "currFuelBux";
-            this.currFuelBux.Size = new System.Drawing.Size(100, 20);
-            this.currFuelBux.TabIndex = 8;
+            this.boxFuelAmount.Location = new System.Drawing.Point(207, 73);
+            this.boxFuelAmount.Name = "currFuelBux";
+            this.boxFuelAmount.Size = new System.Drawing.Size(100, 20);
+            this.boxFuelAmount.TabIndex = 8;
             // 
             // prevOdoBox
             // 
-            this.prevOdoBox.Location = new System.Drawing.Point(207, 46);
-            this.prevOdoBox.Name = "prevOdoBox";
-            this.prevOdoBox.Size = new System.Drawing.Size(100, 20);
-            this.prevOdoBox.TabIndex = 7;
+            this.boxPrevOdo.Location = new System.Drawing.Point(207, 46);
+            this.boxPrevOdo.Name = "prevOdoBox";
+            this.boxPrevOdo.Size = new System.Drawing.Size(100, 20);
+            this.boxPrevOdo.TabIndex = 7;
             // 
             // currOdoBox
             // 
-            this.currOdoBox.Location = new System.Drawing.Point(207, 20);
-            this.currOdoBox.Name = "currOdoBox";
-            this.currOdoBox.Size = new System.Drawing.Size(100, 20);
-            this.currOdoBox.TabIndex = 6;
+            this.boxCurrOdo.Location = new System.Drawing.Point(207, 20);
+            this.boxCurrOdo.Name = "currOdoBox";
+            this.boxCurrOdo.Size = new System.Drawing.Size(100, 20);
+            this.boxCurrOdo.TabIndex = 6;
             // 
             // calcFuelButton
             // 
@@ -657,10 +657,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBoxBMI;
         private System.Windows.Forms.GroupBox groupBoxBmiResults;
-        private System.Windows.Forms.TextBox priceBox;
-        private System.Windows.Forms.TextBox currFuelBux;
-        private System.Windows.Forms.TextBox prevOdoBox;
-        private System.Windows.Forms.TextBox currOdoBox;
+        private System.Windows.Forms.TextBox boxPrice;
+        private System.Windows.Forms.TextBox boxFuelAmount;
+        private System.Windows.Forms.TextBox boxPrevOdo;
+        private System.Windows.Forms.TextBox boxCurrOdo;
         private System.Windows.Forms.Button calcFuelButton;
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Label currFuelLabel;
