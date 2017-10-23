@@ -3,7 +3,7 @@
 
 namespace Assignment3VT16
 {
-    class FuelCalculator
+    public class FuelCalculator
     {
         // The member variables / object attributes/whatever correspond 
         // to the relevant input fields in the GUI.

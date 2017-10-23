@@ -4,7 +4,7 @@
 namespace Assignment3VT16
 {
     // Class for the BMR part of the MainForm
-    class CalorieCalculator
+    public class CalorieCalculator
     {
         // The member variables / object attributes/whatever correspond 
         // to the relevant input fields in the GUI.
