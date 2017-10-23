@@ -2,12 +2,16 @@
 {
     class FuelCalculator
     {
-        double _currentOdoReading;
-        double _previousOdoReading;
-        double _fuelAmount;
-        double _unitPrice;
+        // The member variables / object attributes/whatever correspond 
+        // to the relevant input fields in the GUI.
+        private double _currentOdoReading;
+        private double _previousOdoReading;
+        private double _fuelAmount;
+        private double _unitPrice;
 
+        
         double Distance()
+        // Convenience function to calculate distance driven.
         {
             return _currentOdoReading - _previousOdoReading;
         }
@@ -21,6 +25,7 @@
         }
 
         public double CalcConsumptionPerUsMile()
+        // Consumption per mile, calculated from consumption per km.
         {
             // There is no such thing as a metric mile. 
             // A mile is 1760 yards.
@@ -44,6 +49,7 @@
         }
 
         public double CalcFuelConsumptionPerSweMil()
+        // A Swedish "mil" is 10 km, exactly.
         {
             return 10.0 * CalcFuelConsumptionPerKm();
         }

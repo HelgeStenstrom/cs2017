@@ -1,49 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assignment3VT16
+﻿namespace Assignment3VT16
 {
     class BodyMassIndex
+    // Calculations for body mass index.
     {
-        // for name, use value in MainForm.cs
-        double height;
-        double weight;
-        bool useMetric = true;
+        // fields corresponding to the GUI fields in the BMI area.
+        private double _height;
+        private double _weight;
+        private  bool _useMetric = true;
 
+        // Property used to set the field
         public bool UseMetric
         {
-            get => useMetric;
-            set => useMetric = value;
+            set => _useMetric = value;
+        }
+        public void SetUseMetric(bool usemetric)
+        // The traditional setter method for _useMetric.
+        {
+            _useMetric = usemetric;
         }
 
+        // Property used to set the field
         public double Height
         {
-            get => height;
-            set => height = value; 
+            set => _height = value; 
         }
 
+        // Property used to set the field
         public double Weight
         {
-            get => weight;
-            set => weight = value;
+            set => _weight = value;
         }
 
-        public double calcBmi()
+        public double CalcBmi()
+        // Calculate the BMI, diffferent formulas for different unit systems.
+        // It would be better to only do metric calculations, and to metric <--> US conversion 
+        // at input and output.
         {
-            if (useMetric)
+            if (_useMetric)
             {
-                return weight / ((height / 100.0) * (height / 100.0));
+                return _weight / ((_height / 100.0) * (_height / 100.0));
             }
             else
-                return 703.0 * weight / (height * height);
+                return 703.0 * _weight / (_height * _height);
         }
 
-        public string category ()
+        public string Category ()
+        // Assess the body fat category.
         {
-            double bmi = calcBmi();
+            double bmi = CalcBmi();
             if (bmi < 18.5)
                 return "Underweight";
             else if (bmi < 25)
@@ -57,12 +61,5 @@ namespace Assignment3VT16
             else 
                 return "Obesity class III";
         }
-
-        public void SetUseMetric(bool useMetric)
-        {
-            this.useMetric = useMetric;
-        }
-
-
     }
 }

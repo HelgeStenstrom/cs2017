@@ -13,13 +13,14 @@ namespace Assignment3VT16
     public partial class MainForm : Form
     {
         // Create the calculators, with names suggested by VisualStudio
-        FuelCalculator _fuelCalculator = new FuelCalculator();
-        BodyMassIndex _bmiCalculator = new BodyMassIndex();
-        CalorieCalculator _calorieCalcuator = new CalorieCalculator();
+        private FuelCalculator _fuelCalculator = new FuelCalculator();
+        private BodyMassIndex _bmiCalculator = new BodyMassIndex();
+        private CalorieCalculator _calorieCalcuator = new CalorieCalculator();
 
         private string _name = String.Empty;
 
         public MainForm()
+        // This is the standard way to start a windows form application.
         {
             InitializeComponent();
             // My code from here
@@ -27,8 +28,9 @@ namespace Assignment3VT16
         }
 
         private void InitializeGui()
+        // Set up reasonable, mainly empty, values for labels and text boxes.
         {
-            this.Text = "Universal Calculator";
+            Text = "Universal Calculator";
 
             // Fuel
             lblFuelConsKmLit.Text = String.Empty;
@@ -47,16 +49,18 @@ namespace Assignment3VT16
             btnFemale.Checked = true;
             radioActivity2.Checked = true;
             lblBmrResult.Text = String.Empty;
-
-
         }
 
 
         #region Fuel
+        // Methods having to do with fuel consumption.
+        
         private void calcFuelButton_Click(object sender, EventArgs e)
+        // This method is called when the Calculate button in the fuel section is clicked.
         {            
             if (ReadInputFuel())
             {
+                // Happy path
                 UpdateGuiFuel();
             }
             else
@@ -67,6 +71,8 @@ namespace Assignment3VT16
         }
 
         private void UpdateGuiFuel()
+        // Call calculation functions in the calculator. It has already got the imput data.
+        // Set the return values to the appropriate labels.
         {
             lblFuelConsKmLit.Text = $"{_fuelCalculator.CalcConsumptionKilometerPerLiter():f2}";
             lblFuelConsLitKm.Text = $"{_fuelCalculator.CalcFuelConsumptionPerKm():f2}";
@@ -76,6 +82,9 @@ namespace Assignment3VT16
         }
 
         bool ReadInputFuel()
+        // Convert text strings in the fuel input fiels into numbers, and do validation.
+        // We check that strings can be parsed as numbers in this function,
+        // and leave validation of the numbers to the calculator (called).
         {
             if (double.TryParse(boxCurrOdo.Text, out double currentOdo))
             {               
@@ -112,12 +121,14 @@ namespace Assignment3VT16
             {
                 valueWarningBox("Price per liter");
             }
+            // Return validated numbers.
             return _fuelCalculator.ValidateOdometerValues();
-        }
-        
+        }       
         #endregion
+        
+        
         void valueWarningBox(string thing)
-            // Pop up a warning that the input isn't a valid value
+        // Pop up a warning that the input isn't a valid value
         {
             string formatted = $"{thing} is not a valid numerical value.";
             MessageBox.Show(formatted, "Error!");
@@ -127,29 +138,37 @@ namespace Assignment3VT16
 
         #region BMI
         private void nameBox_TextChanged(object sender, EventArgs e)
+        // Called when the value in the name box is changed,
+        // in other words, each time a character is typed 
+        // into the box. The GroupBox label which contains the name will be updated simulatneously.
         {
             string name = nameBox.Text.Trim();
             if (!(name == ""))
             {
-                this._name = name;
+                _name = name;
             }
             else
             {
-                this._name = "No Name";
+                _name = "No Name";
             }
-            groupBoxBmiResults.Text = $"Results for {this._name}";
+            groupBoxBmiResults.Text = $"Results for {_name}";
         }
 
         private void metricRadio_CheckedChanged(object sender, EventArgs e)
+        // take care of the unit setting (metric case)
         {
-            _bmiCalculator.SetUseMetric(true);
-            _bmiCalculator.UseMetric = true;
+            // The following two calls contains are redundant. 
+            // But I'm trying out different ways to do it.
+            _bmiCalculator.SetUseMetric(true);  // Setter method
+            _bmiCalculator.UseMetric = true;    // attribute
             lblHeight.Text = "Height (cm)";
             lblWeight.Text = "Weight (kg)";
         }
 
         private void UsRadio_CheckedChanged(object sender, EventArgs e)
+        // Like the above, but US case.
         {
+            // Same redundancy as commented above.
             _bmiCalculator.SetUseMetric(false);
             _bmiCalculator.UseMetric = false;
             lblHeight.Text = "Height (inch)";
@@ -157,14 +176,16 @@ namespace Assignment3VT16
         }
 
         private void calcBmiButton_Click(object sender, EventArgs e)
+        // Called when the Calculate button in the BMI area is clicked.
         {
-            if (ReadInputBmi())
+            if (ReadInputBmi())  // First read, validate and store input values
             {
-                UpdateGuiBmi();
+                UpdateGuiBmi();  // then use the values to do calculations and update the GUI
             }
         }
         
         bool ReadInputBmi () 
+        // Read, validate and store input values
         {
             bool ok = true;
             if (double.TryParse(boxHeight.Text, out double hval))
@@ -191,19 +212,21 @@ namespace Assignment3VT16
         }
         
         private void UpdateGuiBmi()
+        // Calculate and present BMI values
         {
-            double bmi = _bmiCalculator.calcBmi();
+            double bmi = _bmiCalculator.CalcBmi();
             lblBmiResult.Text = $"{bmi:f2}";
-            string cat = _bmiCalculator.category();
+            string cat = _bmiCalculator.Category();
             lblCategoryResult.Text = $"{cat}";
         }
-
         #endregion
 
         #region BMR
         private void CalcBmrButton_Click(object sender, EventArgs e)
-        {
-            
+        // Called when the Calculate button int BMR area is clicked.
+        // Note that it uses inputs from the BMI area as well. 
+        // Further depencencies between the two calculators have been avoided.
+        {            
             if (ReadInputBmr())
             {
                 // Happy path
@@ -212,11 +235,16 @@ namespace Assignment3VT16
         }
 
         private void UpdateGuiBmr()
+        // The output for the BMR calculation is in a large text box.
+        // "Label" is a bad design choice, since it's not possible to 
+        // copy text from this text box to the clipboard.
+        // But "Label" is requested in the assignment.
         {
-            lblBmrResult.Text = _calorieCalcuator.Report(this._name);
+            lblBmrResult.Text = _calorieCalcuator.Report(_name);
         }
 
         private void SetUnitSystem()
+        // Use the radio buttons to set the UseMetric property of the calorieCalculator 
         {
             if (rbtnMetric.Checked)
                 _calorieCalcuator.UseMetric = true;
@@ -225,6 +253,7 @@ namespace Assignment3VT16
         }
 
         bool ReadInputBmr()
+        // Read, validate and store the input values for BMR.
         {
             SetUnitSystem();
             bool ok = true;
@@ -265,12 +294,12 @@ namespace Assignment3VT16
             else
             {
                 valueWarningBox("Age");
-                ok = false;
             }
             return false;
         }
 
         private void SetActivityLevel()
+        // Activity level radio buttons converted to a number 0-4.
         {
             if (radioActivity1.Checked)
                 _calorieCalcuator.ActivityLevel = 0;
@@ -287,8 +316,9 @@ namespace Assignment3VT16
         #endregion
 
         private void unselectButton_Click(object sender, EventArgs e)
+        // Unused method for an unused button, that happened to be in the assignment screenshot.
         {
-
+            // Do nothing.
         }
     }
 }
