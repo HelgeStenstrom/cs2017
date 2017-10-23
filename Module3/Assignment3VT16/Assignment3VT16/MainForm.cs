@@ -44,7 +44,7 @@ namespace Assignment3VT16
             lblCategoryResult.Text = String.Empty;
 
             // BMR
-            femaleButton.Checked = true;
+            btnFemale.Checked = true;
             radioActivity2.Checked = true;
             BmrResultLabel.Text = String.Empty;
 
@@ -203,13 +203,37 @@ namespace Assignment3VT16
         #region BMR
         private void CalcBmrButton_Click(object sender, EventArgs e)
         {
-            
+            if (ReadInputBmr())
+            {
+                // Happy path
+            }
+            else valueWarningBox("Age");
         }
 
         bool ReadInputBmr()
         {
+            if (btnFemale.Checked)
+                _calorieCalcuator.IsFemale = true;
+            else
+                _calorieCalcuator.IsFemale = false;
 
-            return true;
+            if (radioActivity1.Checked)
+                _calorieCalcuator.ActivityLevel = 0;
+            else if (radioActivity2.Checked)
+                _calorieCalcuator.ActivityLevel = 1;
+            else if (radioActivity3.Checked)
+                _calorieCalcuator.ActivityLevel = 2;
+            else if (radioActivity4.Checked)
+                _calorieCalcuator.ActivityLevel = 3;
+            else if (radioActivity5.Checked)
+                _calorieCalcuator.ActivityLevel = 4;
+
+            if (int.TryParse(ageBox.Text, out int age))
+            {
+                _calorieCalcuator.Age = age;
+                return true;
+            }
+            return false;
         }
 
         #endregion

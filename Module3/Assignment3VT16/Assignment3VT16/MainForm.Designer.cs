@@ -79,7 +79,7 @@
             this.ageBox = new System.Windows.Forms.TextBox();
             this.ageLabel = new System.Windows.Forms.Label();
             this.maleButton = new System.Windows.Forms.RadioButton();
-            this.femaleButton = new System.Windows.Forms.RadioButton();
+            this.btnFemale = new System.Windows.Forms.RadioButton();
             this.groupBoxFuel.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxBMI.SuspendLayout();
@@ -474,7 +474,7 @@
             this.BmrBox.Controls.Add(this.ageBox);
             this.BmrBox.Controls.Add(this.ageLabel);
             this.BmrBox.Controls.Add(this.maleButton);
-            this.BmrBox.Controls.Add(this.femaleButton);
+            this.BmrBox.Controls.Add(this.btnFemale);
             this.BmrBox.Location = new System.Drawing.Point(12, 367);
             this.BmrBox.Name = "BmrBox";
             this.BmrBox.Size = new System.Drawing.Size(677, 304);
@@ -618,14 +618,14 @@
             // 
             // femaleButton
             // 
-            this.femaleButton.AutoSize = true;
-            this.femaleButton.Location = new System.Drawing.Point(10, 20);
-            this.femaleButton.Name = "femaleButton";
-            this.femaleButton.Size = new System.Drawing.Size(59, 17);
-            this.femaleButton.TabIndex = 0;
-            this.femaleButton.TabStop = true;
-            this.femaleButton.Text = "Female";
-            this.femaleButton.UseVisualStyleBackColor = true;
+            this.btnFemale.AutoSize = true;
+            this.btnFemale.Location = new System.Drawing.Point(10, 20);
+            this.btnFemale.Name = "femaleButton";
+            this.btnFemale.Size = new System.Drawing.Size(59, 17);
+            this.btnFemale.TabIndex = 0;
+            this.btnFemale.TabStop = true;
+            this.btnFemale.Text = "Female";
+            this.btnFemale.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -694,7 +694,7 @@
         private System.Windows.Forms.TextBox ageBox;
         private System.Windows.Forms.Label ageLabel;
         private System.Windows.Forms.RadioButton maleButton;
-        private System.Windows.Forms.RadioButton femaleButton;
+        private System.Windows.Forms.RadioButton btnFemale;
         private System.Windows.Forms.Button CalcBmrButton;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblCategoryResult;
