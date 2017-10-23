@@ -13,9 +13,9 @@ namespace Assignment3VT16
     public partial class MainForm : Form
     {
         // Create the calculators, with names suggested by VisualStudio
-        CalorieCalculator _calorieCalcuator = new CalorieCalculator();
-        BodyMassIndex _bmiCalculator = new BodyMassIndex();
         FuelCalculator _fuelCalculator = new FuelCalculator();
+        BodyMassIndex _bmiCalculator = new BodyMassIndex();
+        CalorieCalculator _calorieCalcuator = new CalorieCalculator();
 
         private string _name = String.Empty;
 
@@ -31,14 +31,14 @@ namespace Assignment3VT16
             this.Text = "Universal Calculator";
 
             // Fuel
-            fuelConsKmLit.Text = String.Empty;
-            fuelConsLitKm.Text = String.Empty;
-            fuelConsLitMile.Text = String.Empty;
-            fuelConsLitSwMil.Text = String.Empty;
-            fuelCostPerDist.Text = String.Empty;
+            lblFuelConsKmLit.Text = String.Empty;
+            lblFuelConsLitKm.Text = String.Empty;
+            lblFuelConsLitMile.Text = String.Empty;
+            lblFuelConsLitSwMil.Text = String.Empty;
+            lblFuelCostPerDist.Text = String.Empty;
 
             // BMI
-            metricRadio.Checked = true;
+            rbtnMetric.Checked = true;
             // BMI results
             lblBmiResult.Text = String.Empty;
             lblCategoryResult.Text = String.Empty;
@@ -46,7 +46,7 @@ namespace Assignment3VT16
             // BMR
             btnFemale.Checked = true;
             radioActivity2.Checked = true;
-            BmrResultLabel.Text = String.Empty;
+            lblBmrResult.Text = String.Empty;
 
 
         }
@@ -68,18 +68,18 @@ namespace Assignment3VT16
 
         private void UpdateGuiFuel()
         {
-            fuelConsKmLit.Text = $"{_fuelCalculator.CalcConsumptionKilometerPerLiter():f2}";
-            fuelConsLitKm.Text = $"{_fuelCalculator.CalcFuelConsumptionPerKm():f2}";
-            fuelConsLitMile.Text = $"{_fuelCalculator.CalcConsumptionPerUsMile():f2}";
-            fuelConsLitSwMil.Text = $"{_fuelCalculator.CalcFuelConsumptionPerSweMil():f2}";
-            fuelCostPerDist.Text = $"{_fuelCalculator.CalcCostPerKm():f2}";
+            lblFuelConsKmLit.Text = $"{_fuelCalculator.CalcConsumptionKilometerPerLiter():f2}";
+            lblFuelConsLitKm.Text = $"{_fuelCalculator.CalcFuelConsumptionPerKm():f2}";
+            lblFuelConsLitMile.Text = $"{_fuelCalculator.CalcConsumptionPerUsMile():f2}";
+            lblFuelConsLitSwMil.Text = $"{_fuelCalculator.CalcFuelConsumptionPerSweMil():f2}";
+            lblFuelCostPerDist.Text = $"{_fuelCalculator.CalcCostPerKm():f2}";
         }
 
         bool ReadInputFuel()
         {
             if (double.TryParse(boxCurrOdo.Text, out double currentOdo))
-            {
-                _fuelCalculator.SetCurrentReading(currentOdo);
+            {               
+                _fuelCalculator.SetCurrentReading(currentOdo);             
             }
             else
             {
@@ -167,7 +167,7 @@ namespace Assignment3VT16
         bool ReadInputBmi () 
         {
             bool ok = true;
-            if (double.TryParse(heightBox.Text, out double hval))
+            if (double.TryParse(boxHeight.Text, out double hval))
             {
                 _bmiCalculator.Height = hval;
             }
@@ -177,7 +177,7 @@ namespace Assignment3VT16
                 ok = false;
             }
 
-            if (double.TryParse(weightBox.Text, out double wval))
+            if (double.TryParse(boxWeight.Text, out double wval))
             {
                 _bmiCalculator.Weight = wval;
             }
@@ -203,20 +203,75 @@ namespace Assignment3VT16
         #region BMR
         private void CalcBmrButton_Click(object sender, EventArgs e)
         {
+            
             if (ReadInputBmr())
             {
                 // Happy path
+                UpdateGuiBmr();
             }
-            else valueWarningBox("Age");
+        }
+
+        private void UpdateGuiBmr()
+        {
+            lblBmrResult.Text = _calorieCalcuator.Report(this._name);
+        }
+
+        private void SetUnitSystem()
+        {
+            if (rbtnMetric.Checked)
+                _calorieCalcuator.UseMetric = true;
+            else
+                _calorieCalcuator.UseMetric = false;
         }
 
         bool ReadInputBmr()
         {
+            SetUnitSystem();
+            bool ok = true;
+            if (double.TryParse(boxHeight.Text, out double hval))
+            {
+                _calorieCalcuator.Height = hval;
+            }
+            else
+            {
+                valueWarningBox("Height");
+                ok = false;
+            }
+
+            if (double.TryParse(boxWeight.Text, out double wval))
+            {
+                _calorieCalcuator.Weight = wval;
+            }
+            else
+            {
+                valueWarningBox("Weight");
+                ok = false;
+            }
+
+
             if (btnFemale.Checked)
                 _calorieCalcuator.IsFemale = true;
             else
                 _calorieCalcuator.IsFemale = false;
 
+            SetActivityLevel();
+
+            if (int.TryParse(ageBox.Text, out int age))
+            {
+                _calorieCalcuator.Age = age;
+                if (ok)
+                    return true;
+            }
+            else
+            {
+                valueWarningBox("Age");
+                ok = false;
+            }
+            return false;
+        }
+
+        private void SetActivityLevel()
+        {
             if (radioActivity1.Checked)
                 _calorieCalcuator.ActivityLevel = 0;
             else if (radioActivity2.Checked)
@@ -227,13 +282,6 @@ namespace Assignment3VT16
                 _calorieCalcuator.ActivityLevel = 3;
             else if (radioActivity5.Checked)
                 _calorieCalcuator.ActivityLevel = 4;
-
-            if (int.TryParse(ageBox.Text, out int age))
-            {
-                _calorieCalcuator.Age = age;
-                return true;
-            }
-            return false;
         }
 
         #endregion
