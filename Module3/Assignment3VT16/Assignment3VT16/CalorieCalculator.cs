@@ -1,4 +1,6 @@
-﻿
+﻿// Helge Stenström 2017-10-23
+
+
 namespace Assignment3VT16
 {
     // Class for the BMR part of the MainForm

@@ -1,4 +1,7 @@
-﻿namespace Assignment3VT16
+﻿// Helge Stenström 2017-10-23
+
+
+namespace Assignment3VT16
 {
     class FuelCalculator
     {

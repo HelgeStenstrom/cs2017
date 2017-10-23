@@ -1,11 +1,7 @@
-﻿using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿// Helge Stenström 2017-10-23
+
+
+using System;
 using System.Windows.Forms;
 
 namespace Assignment3VT16
