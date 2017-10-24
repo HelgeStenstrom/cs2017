@@ -11,7 +11,7 @@ namespace Assignment4Test
         public void Recipe_CanBeCreated()
         {
             // Setup
-            Recipe recipe = new Recipe();
+            Recipe recipe = new Recipe(17);
         }
     }
 
@@ -22,7 +22,7 @@ namespace Assignment4Test
         public void Manager_CanBeCreated()
         {
             // Setup
-            RecipeManager recipeManager = new RecipeManager();
+            RecipeManager recipeManager = new RecipeManager(17);
             // throw new NotImplementedException();
         }
     }
