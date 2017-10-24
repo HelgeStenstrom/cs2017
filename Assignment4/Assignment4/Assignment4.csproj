@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="FoodCategory.cs" />
     <Compile Include="FormIngredients.cs">
       <SubType>Form</SubType>
     </Compile>
