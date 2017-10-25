@@ -45,7 +45,13 @@ namespace Assignment4
             throw new NotImplementedException();
         }
 
-        public void DefaultValues() { }
+        public void DefaultValues()
+        {
+            for (int i= 0; i < ingredientArray.Length; i++)
+            {
+                ingredientArray[i] = string.Empty;
+            }
+        }
 
         public int FindVacantPost()
         {

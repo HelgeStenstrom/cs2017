@@ -12,6 +12,9 @@ namespace Assignment4
 {
     public partial class FormMain : Form
     {
+        const int numberOfIngredients = 50;
+        const int numberOfRecipes = 200;
+
         public FormMain()
         {
             InitializeComponent();

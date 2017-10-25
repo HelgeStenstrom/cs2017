@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.grpbAddNewRecipe = new System.Windows.Forms.GroupBox();
-            this.lblNameOfRecipe = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.btnAddIngredient = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblCategory = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnAddIngredient = new System.Windows.Forms.Button();
+            this.lblNameOfRecipe = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstbxRecipes = new System.Windows.Forms.ListBox();
+            this.lblRecipeListHeader = new System.Windows.Forms.Label();
             this.grpbAddNewRecipe.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,14 +56,30 @@
             this.grpbAddNewRecipe.TabStop = false;
             this.grpbAddNewRecipe.Text = "Add new recipe";
             // 
-            // lblNameOfRecipe
+            // txtDescription
             // 
-            this.lblNameOfRecipe.AutoSize = true;
-            this.lblNameOfRecipe.Location = new System.Drawing.Point(7, 31);
-            this.lblNameOfRecipe.Name = "lblNameOfRecipe";
-            this.lblNameOfRecipe.Size = new System.Drawing.Size(79, 13);
-            this.lblNameOfRecipe.TabIndex = 0;
-            this.lblNameOfRecipe.Text = "Name of recipe";
+            this.txtDescription.Location = new System.Drawing.Point(7, 115);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(386, 179);
+            this.txtDescription.TabIndex = 4;
+            // 
+            // btnAddIngredient
+            // 
+            this.btnAddIngredient.Location = new System.Drawing.Point(263, 60);
+            this.btnAddIngredient.Name = "btnAddIngredient";
+            this.btnAddIngredient.Size = new System.Drawing.Size(130, 23);
+            this.btnAddIngredient.TabIndex = 3;
+            this.btnAddIngredient.Text = "Add ingredients";
+            this.btnAddIngredient.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(108, 63);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 2;
             // 
             // textBox1
             // 
@@ -80,22 +97,14 @@
             this.lblCategory.TabIndex = 0;
             this.lblCategory.Text = "Category";
             // 
-            // comboBox1
+            // lblNameOfRecipe
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(108, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // btnAddIngredient
-            // 
-            this.btnAddIngredient.Location = new System.Drawing.Point(263, 60);
-            this.btnAddIngredient.Name = "btnAddIngredient";
-            this.btnAddIngredient.Size = new System.Drawing.Size(130, 23);
-            this.btnAddIngredient.TabIndex = 3;
-            this.btnAddIngredient.Text = "Add ingredients";
-            this.btnAddIngredient.UseVisualStyleBackColor = true;
+            this.lblNameOfRecipe.AutoSize = true;
+            this.lblNameOfRecipe.Location = new System.Drawing.Point(7, 31);
+            this.lblNameOfRecipe.Name = "lblNameOfRecipe";
+            this.lblNameOfRecipe.Size = new System.Drawing.Size(79, 13);
+            this.lblNameOfRecipe.TabIndex = 0;
+            this.lblNameOfRecipe.Text = "Name of recipe";
             // 
             // button1
             // 
@@ -106,35 +115,43 @@
             this.button1.Text = "Add Recipe";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // txtDescription
+            // lstbxRecipes
             // 
-            this.txtDescription.Location = new System.Drawing.Point(7, 115);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(386, 179);
-            this.txtDescription.TabIndex = 4;
+            this.lstbxRecipes.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstbxRecipes.FormattingEnabled = true;
+            this.lstbxRecipes.ItemHeight = 14;
+            this.lstbxRecipes.Location = new System.Drawing.Point(418, 73);
+            this.lstbxRecipes.MultiColumn = true;
+            this.lstbxRecipes.Name = "lstbxRecipes";
+            this.lstbxRecipes.Size = new System.Drawing.Size(371, 284);
+            this.lstbxRecipes.TabIndex = 2;
             // 
-            // listBox1
+            // lblRecipeListHeader
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(418, 44);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(371, 290);
-            this.listBox1.TabIndex = 2;
+            this.lblRecipeListHeader.AutoSize = true;
+            this.lblRecipeListHeader.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecipeListHeader.Location = new System.Drawing.Point(421, 44);
+            this.lblRecipeListHeader.Name = "lblRecipeListHeader";
+            this.lblRecipeListHeader.Size = new System.Drawing.Size(294, 14);
+            this.lblRecipeListHeader.TabIndex = 3;
+            this.lblRecipeListHeader.Text = "Recipe No of ingred. Cateogry Description";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 455);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lblRecipeListHeader);
+            this.Controls.Add(this.lstbxRecipes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.grpbAddNewRecipe);
+            this.Enabled = false;
             this.Name = "FormMain";
             this.Text = "Apu\'s Cook Book";
             this.grpbAddNewRecipe.ResumeLayout(false);
             this.grpbAddNewRecipe.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,7 +165,8 @@
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblNameOfRecipe;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstbxRecipes;
+        private System.Windows.Forms.Label lblRecipeListHeader;
     }
 }
 
