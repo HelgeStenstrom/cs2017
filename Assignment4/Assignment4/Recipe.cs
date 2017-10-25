@@ -32,17 +32,32 @@ namespace Assignment4
 
         // Methods
         public bool AddIngredient(string value)
-        {
-            throw new NotImplementedException();
+        {          
+            int firstSlot = FindVacantPosition();
+            if (firstSlot == -1)
+                return false;
+            else
+            {
+                ingredientArray[firstSlot] = value;
+                return true;
+            }
+                
+                // throw new NotImplementedException();
         }
         public bool ChangeIngredientAt(int index, string value)
         {
-            throw new NotImplementedException();
+            if (CheckIndex(index))
+            {
+                ingredientArray[index] = value;
+                return true;
+            }
+            else
+                return false;
         }
 
         public bool CheckIndex(int index)
         {
-            throw new NotImplementedException();
+            return (index >= 0) && (index < MaxNumOfIngredients);
         }
 
         public void DefaultValues()
@@ -51,21 +66,47 @@ namespace Assignment4
             {
                 ingredientArray[i] = string.Empty;
             }
+            name = string.Empty;
+            category = FoodCategory.Vegetarian;
+            description = string.Empty;
         }
 
-        public int FindVacantPost()
+        public int FindVacantPosition()
         {
-            throw new NotImplementedException();
+            int foundSlot = -1;
+            for (int i = 0; i < ingredientArray.Length; i++)
+            {
+                if (string.IsNullOrEmpty(ingredientArray[i]))
+                {
+                    return i;
+                }
+            }
+            return foundSlot;
+            // throw new NotImplementedException();
         }
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            int chars = Math.Min(description.Length, 15);
+            string descriptionText = description.Substring(0, chars);
+
+            if (string.IsNullOrEmpty(descriptionText))
+                descriptionText =  "No description";
+
+            string textOut = $"{name, -20} {CurrentNumOfIngredients(),4}      {category.ToString(), -12}   {descriptionText, -15}";
+
+            return textOut;
         }
 
         public int CurrentNumOfIngredients()
         {
-            throw new System.NotImplementedException();
+            int count = 0;
+            for (int i = 0; i < MaxNumOfIngredients; i++)
+            {
+                if (!string.IsNullOrEmpty(ingredientArray[i]))
+                    count += 1;
+            }
+            return count;
         }
 
         public bool DeleteIngredientAt(int index)

@@ -59,7 +59,7 @@ namespace Assignment3VT16
                 return "Overweight";
             else if (bmi < 35)
                 return "Obesity class I";
-            else if (bmi < 35)
+            else if (bmi < 40)
                 return "Obesity class II";
             else 
                 return "Obesity class III";
