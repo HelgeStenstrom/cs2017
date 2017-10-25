@@ -12,6 +12,7 @@ namespace Assignment4Test
         {
             // Setup
             Recipe recipe = new Recipe(17);
+            Assert.IsNotNull(recipe, "recipe should exist");
         }
     }
 
@@ -23,6 +24,7 @@ namespace Assignment4Test
         {
             // Setup
             RecipeManager recipeManager = new RecipeManager(17);
+            Assert.IsNotNull(recipeManager, "It should exist");
             // throw new NotImplementedException();
         }
     }
@@ -33,11 +35,12 @@ namespace Assignment4Test
         [TestMethod]
         public void create_some_values()
         {
-            FoodCategory c1 = FoodCategory.Fish;
-            FoodCategory c2 = FoodCategory.Meat;
-            FoodCategory c3 = FoodCategory.Vegetarian;
+            FoodCategory fish = FoodCategory.Fish;
+            FoodCategory meat = FoodCategory.Meat;
+            FoodCategory veg = FoodCategory.Vegetarian;
 
-            Assert.IsTrue(c3 > c2, "Meat comes before Vegetarian");
+            Assert.IsTrue(veg > meat, "Meat comes before Vegetarian");
+            Assert.IsTrue(veg < fish, "Fish comes after vegetarian");
         }
     }
 
