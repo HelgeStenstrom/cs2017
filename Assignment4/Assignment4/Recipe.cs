@@ -40,9 +40,7 @@ namespace Assignment4
             {
                 ingredientArray[firstSlot] = value;
                 return true;
-            }
-                
-                // throw new NotImplementedException();
+            }                
         }
         public bool ChangeIngredientAt(int index, string value)
         {

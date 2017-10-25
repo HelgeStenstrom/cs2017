@@ -274,7 +274,7 @@ namespace Assignment4Test
 
 
     [TestClass]
-    public class RecipeManagerTests
+    public class RecipeManagerTestsNoSetup
     {
         [TestMethod]
         public void Manager_CanBeCreated()
@@ -283,6 +283,83 @@ namespace Assignment4Test
             RecipeManager recipeManager = new RecipeManager(17);
             Assert.IsNotNull(recipeManager, "It should exist");
             // throw new NotImplementedException();
+        }
+    }
+
+    [TestClass]
+    public class RecipeManagerTests
+    {
+        RecipeManager rm;
+        const int numberOfSlots = 3;
+
+        [TestInitialize]
+        public void setup()
+        {
+            rm = new RecipeManager(numberOfSlots);
+        }
+
+        [TestMethod]
+        public void createARecipManager()
+        {
+            // Implicit setup
+            // Verify
+            Assert.IsNotNull(rm);
+        }
+
+        [TestMethod]
+        public void canAddItemsUpToFull()
+        {
+            // Three recipes will fitt, but not four.
+            Recipe r = new Recipe(0);
+            Assert.IsTrue(rm.Add(r));
+            Assert.IsTrue(rm.Add(r));
+            Assert.IsTrue(rm.Add(r));
+            Assert.IsFalse(rm.Add(r));
+        }
+
+        [TestMethod]
+        public void canAddWithAlternativeMethod()
+        {
+            rm.Add("name", FoodCategory.Fish, new string[] { "one", "two"});
+
+            // Verify that it used a slot
+            Assert.AreEqual(1, rm.GetCurrentNumOfItems());
+        }
+
+        [TestMethod]
+        public void tooManyRecipecAltMethod()
+        {
+            // There is room for 3 recipes
+            Assert.IsTrue( rm.Add("name", FoodCategory.Fish, new string[] {}));
+            Assert.IsTrue(rm.Add("name", FoodCategory.Fish, new string[] { }));
+            Assert.IsTrue(rm.Add("name", FoodCategory.Fish, new string[] { }));
+            Assert.IsFalse(rm.Add("name", FoodCategory.Fish, new string[] { }));
+
+        }
+
+        [TestMethod]
+        public void getTheLengt()
+        {
+            Assert.AreEqual(numberOfSlots, rm.NumOfItems);
+        }
+
+        [TestMethod]
+        public void canDeleteAnElement()
+        {
+            // Setup
+            Recipe r = new Recipe(1);
+            rm.Add(r);
+            rm.Add(r);
+            // Pre-validation
+            Assert.AreEqual(2, rm.GetCurrentNumOfItems());
+            rm.DeleteElement(0);
+            Assert.AreEqual(1, rm.GetCurrentNumOfItems());            
+        }    
+        
+        [TestMethod]
+        public void cantDeleteNegativeIndex()
+        {
+            Assert.IsFalse(rm.DeleteElement(-1));
         }
     }
 
