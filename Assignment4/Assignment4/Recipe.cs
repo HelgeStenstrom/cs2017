@@ -111,7 +111,10 @@ namespace Assignment4
 
         public bool DeleteIngredientAt(int index)
         {
-            throw new System.NotImplementedException();
+            bool result = CheckIndex(index);
+            if (result)
+                ingredientArray[index] = string.Empty;
+            return result;
         }
     }
 }

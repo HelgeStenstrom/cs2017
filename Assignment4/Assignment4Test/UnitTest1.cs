@@ -217,6 +217,59 @@ namespace Assignment4Test
                 Assert.AreEqual(expected[i], r.Ingredients[i]);
         }
 
+        [TestMethod]
+        public void failingIngredientSwap()
+        {
+            // Setup
+            r.AddIngredient("one");
+            Assert.IsFalse(r.ChangeIngredientAt(17, "x"), 
+                "index is outside the allocated index range");
+        }
+
+        [TestMethod]
+        public void getAndSetName()
+        {
+            r.Name = "Nisse";
+            Assert.AreEqual("Nisse", r.Name);
+        }
+
+        [TestMethod]
+        public void deleteAnIngredient()
+        {
+            // Setup
+            r.AddIngredient("1");
+            r.AddIngredient("2");
+            r.AddIngredient("3");
+            // pre-validation
+            Assert.AreEqual("2", r.Ingredients[1]);
+            // exercise
+            // delete the "2"
+            int idx = 1;
+            bool result = r.DeleteIngredientAt(idx);
+
+            // Verify
+            Assert.IsTrue(result);
+            Assert.AreEqual(string.Empty, r.Ingredients[idx]);
+        }
+
+        [TestMethod]
+        public void failingDeleteAnIngredient()
+        {
+            // Setup
+            r.AddIngredient("1");
+            r.AddIngredient("2");
+            r.AddIngredient("3");
+            // pre-validation
+            Assert.AreEqual("2", r.Ingredients[1]);
+            // exercise
+            // delete outside the range
+            bool result = r.DeleteIngredientAt(numberOfSlots);
+
+            // Verify
+            Assert.IsFalse(result);
+        }
+
+
     }
 
 
