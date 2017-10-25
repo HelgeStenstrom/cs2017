@@ -9,15 +9,16 @@ namespace Assignment4
     public class RecipeManager
     {
         // Instance variables
-        private int numberOfItems;
         private Recipe[] recipeList;
 
         public RecipeManager(int maxNumOfElements)
         {
+            recipeList = new Recipe[maxNumOfElements];
+            // throw new NotImplementedException();
         }
 
         // Properties
-        public int NumOfItems { get => numberOfItems;  }
+        public int NumOfItems { get => recipeList.Length;  }
 
         // Public methods
         public bool Add(Recipe newRecipe)

@@ -16,6 +16,8 @@ namespace Assignment4
 
         public Recipe(int maxNumOfIngredients)
         {
+            ingredientArray = new string[maxNumOfIngredients];
+            DefaultValues();
         }
 
         // Properties
@@ -23,6 +25,7 @@ namespace Assignment4
         public string Description { get => description; set => description = value; }
         public string[] Ingredients { get => ingredientArray; set => ingredientArray = value; }
         public string Name { get => name; set => name = value; }
+        public int MaxNumOfIngredients { get => ingredientArray.Length;  }
 
         // TODO: properties CurrentNumOfIngredients, MaxNumOfIngredients
 
@@ -54,5 +57,14 @@ namespace Assignment4
             throw new NotImplementedException();
         }
 
+        public int CurrentNumOfIngredients()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool DeleteIngredientAt(int index)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
