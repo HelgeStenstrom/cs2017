@@ -274,19 +274,6 @@ namespace Assignment4Test
 
 
     [TestClass]
-    public class RecipeManagerTestsNoSetup
-    {
-        [TestMethod]
-        public void Manager_CanBeCreated()
-        {
-            // Setup
-            RecipeManager recipeManager = new RecipeManager(17);
-            Assert.IsNotNull(recipeManager, "It should exist");
-            // throw new NotImplementedException();
-        }
-    }
-
-    [TestClass]
     public class RecipeManagerTests
     {
         RecipeManager rm;
@@ -296,6 +283,13 @@ namespace Assignment4Test
         public void setup()
         {
             rm = new RecipeManager(numberOfSlots);
+        }
+
+        [TestMethod]
+        public void Manager_CanBeCreated()
+        {
+            Assert.IsNotNull(rm, "It should exist");
+            // throw new NotImplementedException();
         }
 
         [TestMethod]
@@ -423,7 +417,24 @@ namespace Assignment4Test
 
         }
 
+        [TestMethod]
+        public void gettingRecipesAsText()
+        {
+            // Setup
+            // Create three recipes without descriptions
+            rm.Add("Name1", FoodCategory.Fish, new string[] { "x", "" });
+            rm.Add("Name2", FoodCategory.Meat, new string[] { "x", "" });
+            rm.Add("Name3", FoodCategory.Seafood, new string[] { "x", "" });
 
+            // Exercise
+            string[] actual = rm.RecipeListToString();
+
+            // Verify
+            Assert.AreEqual(3, actual.Length);
+            Assert.AreEqual("Name  0  Fish  No description", actual[0]);            
+
+            // TODO:  We must be able to call the function, even if there aren't recipies in all slots.
+        }
     }
 
     [TestClass]

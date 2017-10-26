@@ -110,7 +110,14 @@ namespace Assignment4
 
         public string[] RecipeListToString()
         {
-            throw new System.NotImplementedException();
+            string[] result = new string[recipeList.Length];
+            for (int i = 0; i < recipeList.Length; i++)
+            {
+                Recipe r = recipeList[i];
+                string s = r.ToString();
+                result[i] = s;
+            }
+            return result;
         }
 
         // Private methods
