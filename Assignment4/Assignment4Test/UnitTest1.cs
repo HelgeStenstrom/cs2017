@@ -452,11 +452,16 @@ namespace Assignment4Test
     }
 
     [TestClass]
-    public class UnitTest3
+    public class FormIngredientsTests
     {
+
         [TestMethod]
-        public void TestMethod1()
+        public void CreateAForm()
         {
+            Recipe r = new Recipe(0);
+            FormIngredients form = new FormIngredients(r);
+
+            Assert.AreEqual("No Recipe Name", form.Text);
         }
     }
 }

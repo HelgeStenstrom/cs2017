@@ -35,7 +35,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblNameOfRecipe = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddRecipe = new System.Windows.Forms.Button();
             this.lstbxRecipes = new System.Windows.Forms.ListBox();
             this.lblRecipeListHeader = new System.Windows.Forms.Label();
             this.grpbAddNewRecipe.SuspendLayout();
@@ -72,6 +72,7 @@
             this.btnAddIngredient.TabIndex = 3;
             this.btnAddIngredient.Text = "Add ingredients";
             this.btnAddIngredient.UseVisualStyleBackColor = true;
+            this.btnAddIngredient.Click += new System.EventHandler(this.btnAddIngredient_Click);
             // 
             // comboBox1
             // 
@@ -106,14 +107,14 @@
             this.lblNameOfRecipe.TabIndex = 0;
             this.lblNameOfRecipe.Text = "Name of recipe";
             // 
-            // button1
+            // btnAddRecipe
             // 
-            this.button1.Location = new System.Drawing.Point(121, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add Recipe";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddRecipe.Location = new System.Drawing.Point(121, 361);
+            this.btnAddRecipe.Name = "btnAddRecipe";
+            this.btnAddRecipe.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRecipe.TabIndex = 1;
+            this.btnAddRecipe.Text = "Add Recipe";
+            this.btnAddRecipe.UseVisualStyleBackColor = true;
             // 
             // lstbxRecipes
             // 
@@ -143,7 +144,7 @@
             this.ClientSize = new System.Drawing.Size(810, 455);
             this.Controls.Add(this.lblRecipeListHeader);
             this.Controls.Add(this.lstbxRecipes);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddRecipe);
             this.Controls.Add(this.grpbAddNewRecipe);
             this.Enabled = false;
             this.Name = "FormMain";
@@ -164,7 +165,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblNameOfRecipe;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddRecipe;
         private System.Windows.Forms.ListBox lstbxRecipes;
         private System.Windows.Forms.Label lblRecipeListHeader;
     }

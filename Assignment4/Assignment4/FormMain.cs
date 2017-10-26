@@ -12,12 +12,32 @@ namespace Assignment4
 {
     public partial class FormMain : Form
     {
-        const int numberOfIngredients = 50;
-        const int numberOfRecipes = 200;
+        // Allocation of space for ingredients and recipes
+        private const int maxNumberOfIngredients = 20;
+        private const int maxNumberOfRecipes = 50;
+
+        // A recipe object to work with
+        Recipe currentRecip = new Recipe(maxNumberOfIngredients);
+
+        // The recipe manager
+        RecipeManager recipeManager = new RecipeManager(maxNumberOfRecipes);
 
         public FormMain()
         {
             InitializeComponent();
+            InitializeGui();
         }
+
+        private void InitializeGui()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnAddIngredient_Click(object sender, EventArgs e)
+        {
+            FormIngredients dlg = new FormIngredients(currentRecip);
+            throw new NotImplementedException();
+        }
+
     }
 }
