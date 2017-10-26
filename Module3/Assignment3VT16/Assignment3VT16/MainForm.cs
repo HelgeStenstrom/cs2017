@@ -139,15 +139,16 @@ namespace Assignment3VT16
         // into the box. The GroupBox label which contains the name will be updated simulatneously.
         {
             string name = nameBox.Text.Trim();
-            if (!(name == ""))
-            {
-                _name = name;
-            }
-            else
-            {
-                _name = "No Name";
-            }
+            _name =  validatedName(name);
             groupBoxBmiResults.Text = $"Results for {_name}";
+        }
+
+        private string validatedName(string name)
+        {
+            if (!(name == ""))
+                return name;
+            else
+                return "No Name";
         }
 
         private void metricRadio_CheckedChanged(object sender, EventArgs e)
@@ -251,6 +252,7 @@ namespace Assignment3VT16
         bool ReadInputBmr()
         // Read, validate and store the input values for BMR.
         {
+            _name = validatedName(nameBox.Text);
             SetUnitSystem();
             bool ok = true;
             if (double.TryParse(boxHeight.Text, out double hval))
