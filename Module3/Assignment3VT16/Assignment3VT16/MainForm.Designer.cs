@@ -200,51 +200,51 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results";
             // 
-            // fuelCostPerDist
+            // lblFuelCostPerDist
             // 
             this.lblFuelCostPerDist.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelCostPerDist.Location = new System.Drawing.Point(203, 109);
-            this.lblFuelCostPerDist.Name = "fuelCostPerDist";
+            this.lblFuelCostPerDist.Name = "lblFuelCostPerDist";
             this.lblFuelCostPerDist.Size = new System.Drawing.Size(70, 15);
             this.lblFuelCostPerDist.TabIndex = 9;
             this.lblFuelCostPerDist.Text = "kr/km";
             this.lblFuelCostPerDist.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // fuelConsLitSwMil
+            // lblFuelConsLitSwMil
             // 
             this.lblFuelConsLitSwMil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelConsLitSwMil.Location = new System.Drawing.Point(203, 87);
-            this.lblFuelConsLitSwMil.Name = "fuelConsLitSwMil";
-            this.lblFuelConsLitSwMil.Size = new System.Drawing.Size(80, 15);
+            this.lblFuelConsLitSwMil.Name = "lblFuelConsLitSwMil";
+            this.lblFuelConsLitSwMil.Size = new System.Drawing.Size(73, 15);
             this.lblFuelConsLitSwMil.TabIndex = 8;
             this.lblFuelConsLitSwMil.Text = "Lit/\"mil\"";
             this.lblFuelConsLitSwMil.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // fuelConsLitMile
+            // lblFuelConsLitMile
             // 
             this.lblFuelConsLitMile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelConsLitMile.Location = new System.Drawing.Point(203, 66);
-            this.lblFuelConsLitMile.Name = "fuelConsLitMile";
+            this.lblFuelConsLitMile.Name = "lblFuelConsLitMile";
             this.lblFuelConsLitMile.Size = new System.Drawing.Size(72, 15);
             this.lblFuelConsLitMile.TabIndex = 7;
             this.lblFuelConsLitMile.Text = "lit/mile";
             this.lblFuelConsLitMile.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // fuelConsLitKm
+            // lblFuelConsLitKm
             // 
             this.lblFuelConsLitKm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelConsLitKm.Location = new System.Drawing.Point(203, 46);
-            this.lblFuelConsLitKm.Name = "fuelConsLitKm";
+            this.lblFuelConsLitKm.Name = "lblFuelConsLitKm";
             this.lblFuelConsLitKm.Size = new System.Drawing.Size(68, 15);
             this.lblFuelConsLitKm.TabIndex = 6;
             this.lblFuelConsLitKm.Text = "lit/km";
             this.lblFuelConsLitKm.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // fuelConsKmLit
+            // lblFuelConsKmLit
             // 
             this.lblFuelConsKmLit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblFuelConsKmLit.Location = new System.Drawing.Point(203, 24);
-            this.lblFuelConsKmLit.Name = "fuelConsKmLit";
+            this.lblFuelConsKmLit.Name = "lblFuelConsKmLit";
             this.lblFuelConsKmLit.Size = new System.Drawing.Size(68, 15);
             this.lblFuelConsKmLit.TabIndex = 5;
             this.lblFuelConsKmLit.Text = "km/lit";
@@ -329,17 +329,17 @@
             this.calcBmiButton.UseVisualStyleBackColor = true;
             this.calcBmiButton.Click += new System.EventHandler(this.calcBmiButton_Click);
             // 
-            // weightBox
+            // boxWeight
             // 
             this.boxWeight.Location = new System.Drawing.Point(76, 72);
-            this.boxWeight.Name = "weightBox";
+            this.boxWeight.Name = "boxWeight";
             this.boxWeight.Size = new System.Drawing.Size(100, 20);
             this.boxWeight.TabIndex = 8;
             // 
-            // heightBox
+            // boxHeight
             // 
             this.boxHeight.Location = new System.Drawing.Point(76, 45);
-            this.boxHeight.Name = "heightBox";
+            this.boxHeight.Name = "boxHeight";
             this.boxHeight.Size = new System.Drawing.Size(100, 20);
             this.boxHeight.TabIndex = 7;
             // 
@@ -363,11 +363,11 @@
             this.UsRadio.UseVisualStyleBackColor = true;
             this.UsRadio.CheckedChanged += new System.EventHandler(this.UsRadio_CheckedChanged);
             // 
-            // metricRadio
+            // rbtnMetric
             // 
             this.rbtnMetric.AutoSize = true;
             this.rbtnMetric.Location = new System.Drawing.Point(201, 46);
-            this.rbtnMetric.Name = "metricRadio";
+            this.rbtnMetric.Name = "rbtnMetric";
             this.rbtnMetric.Size = new System.Drawing.Size(117, 17);
             this.rbtnMetric.TabIndex = 4;
             this.rbtnMetric.TabStop = true;

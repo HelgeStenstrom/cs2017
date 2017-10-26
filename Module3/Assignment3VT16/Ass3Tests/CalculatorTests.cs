@@ -22,6 +22,26 @@ namespace Ass3Tests
             Assert.IsTrue(calorieCalculator.Report("Helge").StartsWith("BMR RESULTS FOR HELGE" ));
             Assert.IsTrue(calorieCalculator.Report("Nisse").Contains("NISSE"));
             Assert.IsTrue(calorieCalculator.Report("").Contains("1375.3"));
+            Assert.IsTrue(calorieCalculator.Report("").Contains("1891."));
+        }
+
+        [TestMethod]
+        public void reportContainsNameAndCalories_US()
+        {
+            CalorieCalculator calorieCalculator = new CalorieCalculator();
+            calorieCalculator.UseMetric = false;
+            calorieCalculator.Age = 37;
+            calorieCalculator.Height = 65; // approx 165 cm
+            calorieCalculator.Weight = 152; // APprox 69 kg
+            calorieCalculator.ActivityLevel = 1;
+            calorieCalculator.IsFemale = true;
+
+
+            // Assert.AreEqual("BMR RESULTS", calorieCalculator.Report("NONAME"));
+            Assert.IsTrue(calorieCalculator.Report("Helge").StartsWith("BMR RESULTS FOR HELGE"));
+            Assert.IsTrue(calorieCalculator.Report("Nisse").Contains("NISSE"));
+            Assert.IsTrue(calorieCalculator.Report("").Contains("137"));
+            Assert.IsTrue(calorieCalculator.Report("").Contains("189"));
         }
 
         [TestMethod]

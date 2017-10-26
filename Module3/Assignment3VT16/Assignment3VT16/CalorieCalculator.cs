@@ -40,7 +40,7 @@ namespace Assignment3VT16
                 if (UseMetric)
                     _weight = value;
                 else
-                    _weight = value * 0.454;
+                    _weight = value * 0.45359237;
             }
         }
 

@@ -39,10 +39,8 @@ namespace Assignment3VT16
         // It would be better to only do metric calculations, and to metric <--> US conversion 
         // at input and output.
         {
-            if (_useMetric)
-            {
-                return _weight / ((_height / 100.0) * (_height / 100.0));
-            }
+            if (_useMetric)         
+                return _weight / ((_height / 100.0) * (_height / 100.0));       
             else
                 return 703.0 * _weight / (_height * _height);
         }
