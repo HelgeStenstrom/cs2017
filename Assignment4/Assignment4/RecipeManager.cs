@@ -52,7 +52,9 @@ namespace Assignment4
 
         public string[] GetIngredients(int index)
         {
-            throw new NotImplementedException();
+            if (!CheckIndex(index))
+                return new string[] { };
+            return recipeList[index].Ingredients;
         }
         public Recipe GetRecipeAt(int index)
         {
@@ -81,7 +83,10 @@ namespace Assignment4
 
         public bool ChangeElement(int index, Recipe recipe)
         {
-            throw new System.NotImplementedException();
+            bool isValidIndex = CheckIndex(index);
+            if (isValidIndex)
+                recipeList[index] = recipe;
+            return isValidIndex;
         }
 
         public bool DeleteElement(int index)

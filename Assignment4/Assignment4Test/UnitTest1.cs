@@ -361,6 +361,69 @@ namespace Assignment4Test
         {
             Assert.IsFalse(rm.DeleteElement(-1));
         }
+
+        [TestMethod]
+        public void getIngredientsLucky()
+        {
+            // setup
+            rm.Add("A", FoodCategory.Fish, new string[] {"a" });
+            rm.Add("B", FoodCategory.Fish, new string[] { "Ba", "Bb" });
+
+            // exercise
+            string[] result = rm.GetIngredients(1);
+
+            // Verify
+            Assert.AreEqual("Ba", result[0]);
+            Assert.AreEqual("Bb", result[1]);
+        }
+
+        [TestMethod]
+        public void getIngredientsUnlucky()
+        {
+            Assert.AreEqual(0, rm.GetIngredients(-1).Length);
+        }
+
+        [TestMethod]
+        public void gettingARecipe()
+        {
+            // Setup
+            Recipe expected = new Recipe(0);
+            rm.Add(expected);
+
+            // Exercise
+            Recipe actual = rm.GetRecipeAt(0);
+
+            // Verify that we can get this particular recipe object
+            Assert.AreSame(expected, actual, "The same recipe object");
+        }
+
+        [TestMethod]
+        public void gettingRecipeUnlucky()
+        {
+            Assert.IsNull(rm.GetRecipeAt(-1));
+        }
+
+        [TestMethod]
+        public void swappingElements()
+        {
+            // Setup
+            Recipe r1 = new Recipe(0);
+            Recipe r2 = new Recipe(0);
+            rm.Add(r1);
+            // Pre-condition
+            Assert.AreNotSame(r1, r2);
+            Assert.AreSame(r1, rm.GetRecipeAt(0));
+
+            // Exercise
+            bool success = rm.ChangeElement(0, r2);
+
+            // Verify
+            Assert.AreSame(r2, rm.GetRecipeAt(0));
+            Assert.AreEqual(true, success);
+
+        }
+
+
     }
 
     [TestClass]
