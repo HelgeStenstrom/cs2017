@@ -115,12 +115,16 @@
             this.btnAddRecipe.TabIndex = 1;
             this.btnAddRecipe.Text = "Add Recipe";
             this.btnAddRecipe.UseVisualStyleBackColor = true;
+            this.btnAddRecipe.Click += new System.EventHandler(this.btnAddRecipe_Click);
             // 
             // lstbxRecipes
             // 
             this.lstbxRecipes.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstbxRecipes.FormattingEnabled = true;
             this.lstbxRecipes.ItemHeight = 14;
+            this.lstbxRecipes.Items.AddRange(new object[] {
+            "Första raden",
+            "Andra raden"});
             this.lstbxRecipes.Location = new System.Drawing.Point(418, 73);
             this.lstbxRecipes.MultiColumn = true;
             this.lstbxRecipes.Name = "lstbxRecipes";
@@ -146,7 +150,6 @@
             this.Controls.Add(this.lstbxRecipes);
             this.Controls.Add(this.btnAddRecipe);
             this.Controls.Add(this.grpbAddNewRecipe);
-            this.Enabled = false;
             this.Name = "FormMain";
             this.Text = "Apu\'s Cook Book";
             this.grpbAddNewRecipe.ResumeLayout(false);

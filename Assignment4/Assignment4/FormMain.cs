@@ -17,7 +17,7 @@ namespace Assignment4
         private const int maxNumberOfRecipes = 50;
 
         // A recipe object to work with
-        Recipe currentRecip = new Recipe(maxNumberOfIngredients);
+        Recipe currentRecipe = new Recipe(maxNumberOfIngredients);
 
         // The recipe manager
         RecipeManager recipeManager = new RecipeManager(maxNumberOfRecipes);
@@ -30,14 +30,41 @@ namespace Assignment4
 
         private void InitializeGui()
         {
-            throw new NotImplementedException();
+            lstbxRecipes.Items.Clear();
         }
 
         private void btnAddIngredient_Click(object sender, EventArgs e)
         {
-            FormIngredients dlg = new FormIngredients(currentRecip);
-            throw new NotImplementedException();
+            FormIngredients dlg = new FormIngredients(currentRecipe);
+            DialogResult dialogResult = dlg.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                if (currentRecipe.CurrentNumOfIngredients() <= 0)
+                {
+                    MessageBox.Show("No ingredients specified!");
+                    recipeManager.Add(currentRecipe);
+                    UpdateGui();
+                }
+            }            
         }
 
+        private void btnAddRecipe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateGui()
+        {
+            recipeManager.Add(currentRecipe);
+            //lstbxRecipes.Items.Add("First row");
+            //lstbxRecipes.Items.Add("Second row");
+            string[] ingreds = recipeManager.RecipeListToString();
+            for (int i = 0; i < recipeManager.GetCurrentNumOfItems(); i++)
+            {
+                lstbxRecipes.Items.Add(ingreds[i]);
+            }
+            //lstbxRecipes.Items = recipeManager.RecipeListToString();
+            throw new NotImplementedException();
+        }
     }
 }

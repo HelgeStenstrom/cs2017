@@ -454,14 +454,70 @@ namespace Assignment4Test
     [TestClass]
     public class FormIngredientsTests
     {
+        Recipe r0;
+        FormIngredients form;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            Recipe recipe = new Recipe(0);
+            form = new FormIngredients(recipe);
+        }
 
         [TestMethod]
-        public void CreateAForm()
+        public void CreateAForm_zeroIngredients()
         {
-            Recipe r = new Recipe(0);
-            FormIngredients form = new FormIngredients(r);
-
+            // Verify
             Assert.AreEqual("No Recipe Name", form.Text);
+        }
+
+        [TestMethod]
+        public void CreateAForm_twoIngredients()
+        {
+            Recipe r2 = new Recipe(2);
+            FormIngredients form = new FormIngredients(r2);
+            // Verify
+            Assert.AreEqual("No Recipe Name", form.Text);
+        }
+
+        [Ignore]
+        public void tooltip()
+        {
+            // The tooltip is not public. How can it be tested?
+            Assert.IsNotNull(form.Tt.ToString());
+            Assert.AreEqual("Example: 2 dl milk", form.Tt.ToolTipTitle);
+            //Assert.Fail();
+        }
+
+
+    }
+
+    [TestClass]
+    public class MainFormTests
+    {
+        [TestInitialize]
+        public void setup()
+        {
+            // nothing yet
+        }
+
+        [TestMethod]
+        public void createInstance()
+        {
+            // Exercise
+            FormMain mf = new FormMain();
+        }
+
+        [TestMethod]
+        public void updatingTheGui()
+        {
+            // Setup
+            FormMain mf = new FormMain();
+
+            // Exercise
+            // TODO: Hur kan jag testa UpdateGui?
+            // metoden är privat.
+            // Click-metoden som anropar den är också privat.
         }
     }
 }
