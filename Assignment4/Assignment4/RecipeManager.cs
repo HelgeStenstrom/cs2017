@@ -110,14 +110,22 @@ namespace Assignment4
 
         public string[] RecipeListToString()
         {
-            string[] result = new string[recipeList.Length];
+            string[] result = new string[GetCurrentNumOfItems()];
             for (int i = 0; i < recipeList.Length; i++)
             {
                 Recipe r = recipeList[i];
-                string s = r.ToString();
-                result[i] = s;
+                if (isValidRecipe(r))
+                {
+                    string s = r.ToString();
+                    result[i] = s;
+                }
             }
             return result;
+        }
+
+        private bool isValidRecipe(Recipe r)
+        {
+            return (!(r == null));
         }
 
         // Private methods

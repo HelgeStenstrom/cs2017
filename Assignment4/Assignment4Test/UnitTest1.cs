@@ -421,19 +421,18 @@ namespace Assignment4Test
         public void gettingRecipesAsText()
         {
             // Setup
-            // Create three recipes without descriptions
+            // Create two recipes without descriptions
             rm.Add("Name1", FoodCategory.Fish, new string[] { "x", "" });
             rm.Add("Name2", FoodCategory.Meat, new string[] { "x", "" });
-            rm.Add("Name3", FoodCategory.Seafood, new string[] { "x", "" });
 
             // Exercise
             string[] actual = rm.RecipeListToString();
 
             // Verify
-            Assert.AreEqual(3, actual.Length);
-            Assert.AreEqual("Name  0  Fish  No description", actual[0]);            
+            Assert.AreEqual(2, actual.Length);
+            Assert.AreEqual("Name1                   1      Fish           No description ", actual[0]);
+            Assert.AreEqual("Name2                   1      Meat           No description ", actual[1]);            
 
-            // TODO:  We must be able to call the function, even if there aren't recipies in all slots.
         }
     }
 
