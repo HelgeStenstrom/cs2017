@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
+// ReSharper disable LocalizableElement
 
 namespace Assignment4
 {
@@ -15,21 +16,17 @@ namespace Assignment4
         // This field is not private. Should it?
         // The general recommendation is to have all fields private.
         // The example in Assignment 4 Help, page 17 is non-private.
-        Recipe recipe;
+        readonly Recipe _recipe;
 
         // Properties
-        public ToolTip Tt { get => toolTipIngredients; }
+        public ToolTip Tt => toolTipIngredients;
 
         public FormIngredients(Recipe recipe)
         {
             InitializeComponent();
 
             // my initialization
-            this.recipe = recipe;
-            if (string.IsNullOrEmpty(recipe.Name))
-                this.Text = "No Recipe Name";
-            else
-                this.Text = recipe.Name + " Add ingredients";
+            _recipe = recipe;
             InitializeGui();
         }
 
@@ -43,6 +40,12 @@ namespace Assignment4
             // let an exception happen, and then fix the bug.
             // No need to test for null, therefore.
             
+            if (string.IsNullOrEmpty(_recipe.Name))
+                Text = "No Recipe Name";
+            else
+                Text = _recipe.Name + " Add ingredients";
+
+            
             toolTipIngredients.SetToolTip(txtIngredient, "Example: 2 dl milk");
             UpdateGui();
         }
@@ -51,11 +54,11 @@ namespace Assignment4
         {
             lstIngredients.Items.Clear();
             txtIngredient.Clear();
-            lblNumberIngred.Text = $"Number of ingredients: {recipe.CurrentNumOfIngredients()}";
-            for (int i = 0; i < recipe.CurrentNumOfIngredients(); i++)
+            lblNumberIngred.Text = $"Number of ingredients: {_recipe.CurrentNumOfIngredients()}";
+            for (int i = 0; i < _recipe.CurrentNumOfIngredients(); i++)
             {
-                if (recipe.CheckIndex(i))
-                    lstIngredients.Items.Add(recipe.Ingredients[i]);
+                if (_recipe.CheckIndex(i))
+                    lstIngredients.Items.Add(_recipe.Ingredients[i]);
             }
             txtIngredient.Focus();
         }
@@ -68,7 +71,7 @@ namespace Assignment4
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string ingredient = txtIngredient.Text;
-            recipe.AddIngredient(ingredient);
+            _recipe.AddIngredient(ingredient);
             UpdateGui();
         }
 
@@ -80,7 +83,7 @@ namespace Assignment4
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int selected = lstIngredients.SelectedIndex;
-            recipe.DeleteIngredientAt(selected);
+            _recipe.DeleteIngredientAt(selected);
             UpdateGui();
         }
 

@@ -278,7 +278,7 @@ namespace Assignment4Test
             Assert.AreEqual(string.Empty, "");
 
             // Exercise
-            r.repack();
+            r.Repack();
 
             // Verify
             string[] expected = new string[] {"b", "c", string.Empty };
