@@ -31,7 +31,7 @@ namespace Assignment4
         private void InitializeGui()
         {
             lstbxRecipes.Items.Clear();
-            // comboBox1.DataSource = Enum.GetValues(typeof(MyEnum));
+            lblRecipeListHeader.Text = "Name               # ingr.    Cat.           Description ";
             comboBoxCategory.DataSource = Enum.GetValues(typeof(FoodCategory));
         }
 

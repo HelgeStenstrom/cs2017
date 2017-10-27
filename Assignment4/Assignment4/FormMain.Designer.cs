@@ -77,12 +77,12 @@
             this.btnAddIngredient.UseVisualStyleBackColor = true;
             this.btnAddIngredient.Click += new System.EventHandler(this.btnAddIngredient_Click);
             // 
-            // comboBox1
+            // comboBoxCategory
             // 
             this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Location = new System.Drawing.Point(108, 63);
-            this.comboBoxCategory.Name = "comboBox1";
+            this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCategory.TabIndex = 2;
             // 
@@ -132,7 +132,7 @@
             this.lstbxRecipes.Location = new System.Drawing.Point(418, 73);
             this.lstbxRecipes.MultiColumn = true;
             this.lstbxRecipes.Name = "lstbxRecipes";
-            this.lstbxRecipes.Size = new System.Drawing.Size(371, 284);
+            this.lstbxRecipes.Size = new System.Drawing.Size(578, 284);
             this.lstbxRecipes.TabIndex = 2;
             // 
             // lblRecipeListHeader
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 455);
+            this.ClientSize = new System.Drawing.Size(1026, 455);
             this.Controls.Add(this.lblRecipeListHeader);
             this.Controls.Add(this.lstbxRecipes);
             this.Controls.Add(this.btnAddRecipe);

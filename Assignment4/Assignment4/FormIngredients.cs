@@ -83,5 +83,15 @@ namespace Assignment4
             recipe.DeleteIngredientAt(selected);
             UpdateGui();
         }
+
+        private void txtIngredient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r')
+            {
+                btnAdd_Click(sender, e);
+                // https://stackoverflow.com/questions/6290967/stop-the-ding-when-pressing-enter
+                e.Handled = true;
+            }
+        }
     }
 }

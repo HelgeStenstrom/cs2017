@@ -110,6 +110,7 @@
             this.txtIngredient.Name = "txtIngredient";
             this.txtIngredient.Size = new System.Drawing.Size(492, 20);
             this.txtIngredient.TabIndex = 0;
+            this.txtIngredient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIngredient_KeyPress);
             // 
             // btnOk
             // 
