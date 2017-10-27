@@ -32,7 +32,7 @@ namespace Assignment4
         {
             lstbxRecipes.Items.Clear();
             // comboBox1.DataSource = Enum.GetValues(typeof(MyEnum));
-            comboBox1.DataSource = Enum.GetValues(typeof(FoodCategory));
+            comboBoxCategory.DataSource = Enum.GetValues(typeof(FoodCategory));
         }
 
         private void btnAddIngredient_Click(object sender, EventArgs e)
@@ -60,8 +60,17 @@ namespace Assignment4
         private void ReadInputsForCurrentRecipe()
         {
             FoodCategory cat;
-            Enum.TryParse<FoodCategory>(comboBox1.SelectedValue.ToString(), out cat);
-            currentRecipe.Category = cat;
+            Enum.TryParse<FoodCategory>(comboBoxCategory.SelectedValue.ToString(), out cat);
+
+            string name = txtRecipeName.Text;
+            string desc = txtDescription.Text;
+
+            var r = new Recipe(maxNumberOfIngredients);
+            r.Category = cat;
+            r.Name = name;
+            r.Description = desc;
+
+            currentRecipe = r;
         }
 
         private void UpdateGui()

@@ -33,8 +33,8 @@
             System.Windows.Forms.Label lblNameOfRecipe;
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnAddIngredient = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
+            this.txtRecipeName = new System.Windows.Forms.TextBox();
             this.btnAddRecipe = new System.Windows.Forms.Button();
             this.lstbxRecipes = new System.Windows.Forms.ListBox();
             this.lblRecipeListHeader = new System.Windows.Forms.Label();
@@ -48,8 +48,8 @@
             // 
             grpbAddNewRecipe.Controls.Add(this.txtDescription);
             grpbAddNewRecipe.Controls.Add(this.btnAddIngredient);
-            grpbAddNewRecipe.Controls.Add(this.comboBox1);
-            grpbAddNewRecipe.Controls.Add(this.textBox1);
+            grpbAddNewRecipe.Controls.Add(this.comboBoxCategory);
+            grpbAddNewRecipe.Controls.Add(this.txtRecipeName);
             grpbAddNewRecipe.Controls.Add(lblCategory);
             grpbAddNewRecipe.Controls.Add(lblNameOfRecipe);
             grpbAddNewRecipe.Location = new System.Drawing.Point(13, 13);
@@ -79,18 +79,19 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(108, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(108, 63);
+            this.comboBoxCategory.Name = "comboBox1";
+            this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCategory.TabIndex = 2;
             // 
-            // textBox1
+            // txtRecipeName
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(285, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtRecipeName.Location = new System.Drawing.Point(108, 31);
+            this.txtRecipeName.Name = "txtRecipeName";
+            this.txtRecipeName.Size = new System.Drawing.Size(285, 20);
+            this.txtRecipeName.TabIndex = 1;
             // 
             // lblCategory
             // 
@@ -165,8 +166,8 @@
         #endregion
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnAddIngredient;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
+        private System.Windows.Forms.TextBox txtRecipeName;
         private System.Windows.Forms.Button btnAddRecipe;
         private System.Windows.Forms.ListBox lstbxRecipes;
         private System.Windows.Forms.Label lblRecipeListHeader;
