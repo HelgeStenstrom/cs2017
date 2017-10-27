@@ -248,8 +248,9 @@ namespace Assignment4Test
             bool result = r.DeleteIngredientAt(idx);
 
             // Verify
-            Assert.IsTrue(result);
-            Assert.AreEqual(string.Empty, r.Ingredients[idx]);
+            Assert.IsTrue(result, "The delete should succeed.");
+            Assert.AreEqual("3", r.Ingredients[1], "Position that follow the deleted one should be shifted.");
+            Assert.AreEqual(string.Empty, r.Ingredients[2], "There should be an empty position after the delete.");
         }
 
         [TestMethod]
@@ -269,6 +270,21 @@ namespace Assignment4Test
             Assert.IsFalse(result);
         }
 
+        [TestMethod]
+        public void repacking()
+        {
+            // Setup
+            r.Ingredients = new string[] { string.Empty, "b", "c" };
+            Assert.AreEqual(string.Empty, "");
+
+            // Exercise
+            r.repack();
+
+            // Verify
+            string[] expected = new string[] {"b", "c", string.Empty };
+            for (int i = 0; i < 3; i++)
+                Assert.AreEqual(expected[i], r.Ingredients[i], $" at position {i}.");
+        }
 
     }
 

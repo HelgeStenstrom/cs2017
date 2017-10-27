@@ -34,22 +34,54 @@ namespace Assignment4
         }
 
         private void InitializeGui()
-            // Basically copied from the Assignment 4 help document.
-            // It doesn't feel good to test for null, or 
-            // having a Recipe object that can have null properties.
+        // Basically copied from the Assignment 4 help document.
+        // It doesn't feel good to test for null, or 
+        // having a Recipe object that can have null properties.
         {
             // The Recipe class cannot have Ingredients == null, because of
             // how it is initialized. If that appears to be false, we will
             // let an exception happen, and then fix the bug.
             // No need to test for null, therefore.
-            lstIngredients.Items.Clear();
+            
             toolTipIngredients.SetToolTip(txtIngredient, "Example: 2 dl milk");
+            UpdateGui();
+        }
+
+        private void UpdateGui()
+        {
+            lstIngredients.Items.Clear();
+            txtIngredient.Clear();
             lblNumberIngred.Text = $"Number of ingredients: {recipe.CurrentNumOfIngredients()}";
+            for (int i = 0; i < recipe.CurrentNumOfIngredients(); i++)
+            {
+                if (recipe.CheckIndex(i))
+                    lstIngredients.Items.Add(recipe.Ingredients[i]);
+            }
+            txtIngredient.Focus();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string ingredient = txtIngredient.Text;
+            recipe.AddIngredient(ingredient);
+            UpdateGui();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int selected = lstIngredients.SelectedIndex;
+            recipe.DeleteIngredientAt(selected);
+            UpdateGui();
         }
     }
 }

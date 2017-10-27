@@ -112,7 +112,26 @@ namespace Assignment4
             bool result = CheckIndex(index);
             if (result)
                 ingredientArray[index] = string.Empty;
+            repack();
             return result;
+        }
+
+        public void repack()
+        {
+            string[] updatedList = new string[MaxNumOfIngredients];
+            for (int i = 0; i < MaxNumOfIngredients; i++)
+                updatedList[i] = string.Empty;
+
+            int pos = 0;
+            for (int i = 0; i < MaxNumOfIngredients; i++)
+            {
+                if (! string.IsNullOrEmpty(ingredientArray[i]))
+                {
+                    updatedList[pos] = ingredientArray[i];
+                    pos++;
+                }
+            }
+            ingredientArray = updatedList;
         }
     }
 }
