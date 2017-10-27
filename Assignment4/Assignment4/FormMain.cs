@@ -31,6 +31,8 @@ namespace Assignment4
         private void InitializeGui()
         {
             lstbxRecipes.Items.Clear();
+            // comboBox1.DataSource = Enum.GetValues(typeof(MyEnum));
+            comboBox1.DataSource = Enum.GetValues(typeof(FoodCategory));
         }
 
         private void btnAddIngredient_Click(object sender, EventArgs e)
@@ -50,21 +52,28 @@ namespace Assignment4
 
         private void btnAddRecipe_Click(object sender, EventArgs e)
         {
+            ReadInputsForCurrentRecipe();
+            recipeManager.Add(currentRecipe);
+            UpdateGui();
+        }
 
+        private void ReadInputsForCurrentRecipe()
+        {
+            FoodCategory cat;
+            Enum.TryParse<FoodCategory>(comboBox1.SelectedValue.ToString(), out cat);
+            currentRecipe.Category = cat;
         }
 
         private void UpdateGui()
         {
-            recipeManager.Add(currentRecipe);
-            //lstbxRecipes.Items.Add("First row");
-            //lstbxRecipes.Items.Add("Second row");
+            lstbxRecipes.Items.Clear();
             string[] ingreds = recipeManager.RecipeListToString();
             for (int i = 0; i < recipeManager.GetCurrentNumOfItems(); i++)
             {
                 lstbxRecipes.Items.Add(ingreds[i]);
             }
             //lstbxRecipes.Items = recipeManager.RecipeListToString();
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
     }
 }
