@@ -4,6 +4,7 @@
     {
         Fish,
         Meat,
-        Vegetarian
+        Vegetarian,
+        Seafood
     }
 }

@@ -12,6 +12,7 @@ namespace Assignment4Test
         {
             // Setup
             Recipe recipe = new Recipe(3);
+            recipe = null;
             Assert.IsNotNull(recipe, "recipe should exist");
         }
 
