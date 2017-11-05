@@ -114,7 +114,7 @@ namespace Assignment4
             for (int i = 0; i < recipeList.Length; i++)
             {
                 Recipe r = recipeList[i];
-                if (isValidRecipe(r))
+                if (IsValidRecipe(r))
                 {
                     string s = r.ToString();
                     result[i] = s;
@@ -123,7 +123,12 @@ namespace Assignment4
             return result;
         }
 
-        private bool isValidRecipe(Recipe r)
+        /// <summary>
+        /// Returnerar sant om receptet är "giltigt"
+        /// </summary>
+        /// <param name="r">En instans av klassen Recipe</param>
+        /// <returns></returns>
+        private bool IsValidRecipe(Recipe r)
         {
             return (!(r == null));
         }

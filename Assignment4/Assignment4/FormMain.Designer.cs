@@ -66,6 +66,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(386, 179);
             this.txtDescription.TabIndex = 4;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // btnAddIngredient
             // 
@@ -92,6 +93,7 @@
             this.txtRecipeName.Name = "txtRecipeName";
             this.txtRecipeName.Size = new System.Drawing.Size(285, 20);
             this.txtRecipeName.TabIndex = 1;
+            this.txtRecipeName.TextChanged += new System.EventHandler(this.txtRecipeName_TextChanged);
             // 
             // lblCategory
             // 

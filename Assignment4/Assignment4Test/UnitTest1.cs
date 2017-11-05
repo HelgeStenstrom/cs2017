@@ -4,59 +4,45 @@ using Assignment4;
 
 namespace Assignment4Test
 {
-    [TestClass]
-    public class RecipeTestsNoSetup
-    {
-        [TestMethod]
-        public void Recipe_CanBeCreated()
-        {
-            // Setup
-            Recipe recipe = new Recipe(3);
-            Assert.IsNotNull(recipe, "recipe should exist");
-        }
 
-        [TestMethod]
-        public void CanAddOneIngredient()
-        {
-           // Assert.Fail();
-        }
-    }
 
     [TestClass]
     public class RecipeTests
     {
-        Recipe r;
+        Recipe recipe;
         const int numberOfSlots = 3;
-        // [TestInitialize]
-        public RecipeTests()
+
+        [TestInitialize]
+        public void setUp()
         { 
-           r = new Recipe(numberOfSlots);
+           recipe = new Recipe(numberOfSlots);
         }
 
-        //[TestInitialize]
-        public void setUp()
+        [TestMethod]
+        public void Recipe_CanBeCreated()
         {
-            // Do nothing
+            // Verify
+            Assert.IsNotNull(recipe, "recipe should exist");
         }
 
         [TestMethod]
         public void sizeOfIngredList()
         {
-            Assert.AreEqual(numberOfSlots, r.Ingredients.Length);
+            Assert.AreEqual(numberOfSlots, recipe.Ingredients.Length);
         }
 
         [TestMethod]
         public void firstIngredientIsEmpty()
         {
-            Assert.AreEqual(string.Empty, r.Ingredients[0]);
+            Assert.AreEqual(string.Empty, recipe.Ingredients[0]);
         }
 
         [TestMethod]
         public void findTheFirstVacantSlot()
         {
-            r.Ingredients[0] = "nonempty";
-            r.Ingredients[1] = "nonempty";
-            int firstVacant = r.FindVacantPosition();
+            recipe.Ingredients[0] = "nonempty";
+            recipe.Ingredients[1] = "nonempty";
+            int firstVacant = recipe.FindVacantPosition();
             Assert.AreEqual(2, firstVacant, 
                 "Slots 0 and 1 are used, so 2 is vacant.");
         }
@@ -65,13 +51,13 @@ namespace Assignment4Test
         public void allSlotsAreOccupied()
         {
             // Setup
-            for (int i = 0; i < r.Ingredients.Length; i++)
+            for (int i = 0; i < recipe.Ingredients.Length; i++)
             {
-                r.Ingredients[i] = "nonempty";
+                recipe.Ingredients[i] = "nonempty";
             }
 
             // Exercise
-            int firstVacant = r.FindVacantPosition();
+            int firstVacant = recipe.FindVacantPosition();
             
             // Verify
             Assert.AreEqual(-1, firstVacant, "-1 means not found");
@@ -81,13 +67,13 @@ namespace Assignment4Test
         public void addAnIngredient()
         {
             // pre-condition
-            Assert.AreEqual(0, r.FindVacantPosition(), "Initially all slots are empty");
+            Assert.AreEqual(0, recipe.FindVacantPosition(), "Initially all slots are empty");
             
             // exercise
-            bool success = r.AddIngredient("milk");
+            bool success = recipe.AddIngredient("milk");
 
             // verify
-            Assert.AreEqual(1, r.FindVacantPosition(), "Now slot 0 is occupied");
+            Assert.AreEqual(1, recipe.FindVacantPosition(), "Now slot 0 is occupied");
             Assert.IsTrue(success);
         }
 
@@ -97,14 +83,14 @@ namespace Assignment4Test
             // Setup
             for (int i = 0; i < numberOfSlots; i++)
             {
-                bool cando = r.AddIngredient("nonempty");
+                bool cando = recipe.AddIngredient("nonempty");
                 // Precondition
                 Assert.IsTrue(cando);
             }
 
             // Exercise
             // Add one extra, that doesn't fit
-            bool success = r.AddIngredient("nonempty");
+            bool success = recipe.AddIngredient("nonempty");
 
             // Verify
             Assert.IsFalse(success);
@@ -114,16 +100,16 @@ namespace Assignment4Test
         [TestMethod]
         public void setAndGetCategory()
         {
-            r.Category = FoodCategory.Seafood;
-            Assert.AreEqual(FoodCategory.Seafood, r.Category);
+            recipe.Category = FoodCategory.Seafood;
+            Assert.AreEqual(FoodCategory.Seafood, recipe.Category);
         }
 
         [TestMethod]
         public void setAndGetDescription()
         {
             string desc = "This is a recipe\nWith two line in it";
-            r.Description = desc;
-            Assert.AreEqual(desc, r.Description);
+            recipe.Description = desc;
+            Assert.AreEqual(desc, recipe.Description);
         }
 
         [TestMethod]
@@ -132,24 +118,24 @@ namespace Assignment4Test
             string[] ingredList = { "apples", "bananas", "milk", "honey", "sugar" };
 
             // exercise setter
-            r.Ingredients = ingredList;
+            recipe.Ingredients = ingredList;
 
             // Verify that the max number of ingredients is now different
             // namely 5.
-            Assert.AreEqual(5, r.MaxNumOfIngredients);
+            Assert.AreEqual(5, recipe.MaxNumOfIngredients);
         }
 
         [TestMethod]
         public void checkAnIndex()
         {
             // Precondition
-            Assert.AreEqual(numberOfSlots, r.MaxNumOfIngredients);
+            Assert.AreEqual(numberOfSlots, recipe.MaxNumOfIngredients);
 
             // Verify
-            Assert.IsFalse(r.CheckIndex(-1), "negative index is not permitted");
-            Assert.IsTrue(r.CheckIndex(0), "first slot");
-            Assert.IsTrue(r.CheckIndex(numberOfSlots - 1), "last slot");
-            Assert.IsFalse(r.CheckIndex(numberOfSlots), "first index after last slot");
+            Assert.IsFalse(recipe.CheckIndex(-1), "negative index is not permitted");
+            Assert.IsTrue(recipe.CheckIndex(0), "first slot");
+            Assert.IsTrue(recipe.CheckIndex(numberOfSlots - 1), "last slot");
+            Assert.IsFalse(recipe.CheckIndex(numberOfSlots), "first index after last slot");
 
             // r.Ingredients = ["one", "", "three", "four", ""];
         }
@@ -159,112 +145,112 @@ namespace Assignment4Test
         {
             // setup
             string[] ingreds = { "one", "", "three", "four", "" };
-            r.Ingredients = ingreds;
+            recipe.Ingredients = ingreds;
 
             // verify
-            Assert.AreEqual(3, r.CurrentNumOfIngredients());
+            Assert.AreEqual(3, recipe.CurrentNumOfIngredients());
         }
 
         [TestMethod]
         public void toString()
         {
-            r.Name = "Bulle";
-            r.AddIngredient("Adam");
-            r.AddIngredient("Bertil");
-            r.AddIngredient("Caesar");
-            r.Description = "Ett gott bakverk som är vanligt i Sverige";
-            r.Category = FoodCategory.Vegetarian;
+            recipe.Name = "Bulle";
+            recipe.AddIngredient("Adam");
+            recipe.AddIngredient("Bertil");
+            recipe.AddIngredient("Caesar");
+            recipe.Description = "Ett gott bakverk som är vanligt i Sverige";
+            recipe.Category = FoodCategory.Vegetarian;
 
             string expected = "Bulle                   3      Vegetarian     Ett gott bakver";
             string exp2 = $"{"Bulle",-20} {"3",4}      {"Vegetarian",-12}   {"Ett gott bakver",-15}";
             //Pre-condition for test
             Assert.AreEqual(expected, exp2);
 
-            Assert.AreEqual(exp2, r.ToString());
+            Assert.AreEqual(exp2, recipe.ToString());
         }
 
         [TestMethod]
         public void toStringWithNoDesc()
         {
-            r.Name = "Bulle";
-            r.AddIngredient("Adam");
-            r.AddIngredient("Bertil");
-            r.AddIngredient("Caesar");
-            r.Description = "";
-            r.Category = FoodCategory.Vegetarian;
+            recipe.Name = "Bulle";
+            recipe.AddIngredient("Adam");
+            recipe.AddIngredient("Bertil");
+            recipe.AddIngredient("Caesar");
+            recipe.Description = "";
+            recipe.Category = FoodCategory.Vegetarian;
 
             string expected = "Bulle                   3      Vegetarian     No description ";
-            Assert.AreEqual(expected, r.ToString());
+            Assert.AreEqual(expected, recipe.ToString());
         }
 
         [TestMethod]
         public void swapIngredients()
         {
             // Setup
-            r.AddIngredient("one");
-            r.AddIngredient("two");
-            r.AddIngredient("three");
+            recipe.AddIngredient("one");
+            recipe.AddIngredient("two");
+            recipe.AddIngredient("three");
 
             // Exercise
             // swap the "two"
-            r.ChangeIngredientAt(1, "another");
+            recipe.ChangeIngredientAt(1, "another");
 
             // Verify
             string[] expected = { "one", "another", "three" };
             // I know no way of comparing the whole array in one go.
-            Assert.AreEqual(expected.Length, r.Ingredients.Length);
+            Assert.AreEqual(expected.Length, recipe.Ingredients.Length);
             for (int i = 0; i < expected.Length; i++)
-                Assert.AreEqual(expected[i], r.Ingredients[i]);
+                Assert.AreEqual(expected[i], recipe.Ingredients[i]);
         }
 
         [TestMethod]
         public void failingIngredientSwap()
         {
             // Setup
-            r.AddIngredient("one");
-            Assert.IsFalse(r.ChangeIngredientAt(17, "x"), 
+            recipe.AddIngredient("one");
+            Assert.IsFalse(recipe.ChangeIngredientAt(17, "x"), 
                 "index is outside the allocated index range");
         }
 
         [TestMethod]
         public void getAndSetName()
         {
-            r.Name = "Nisse";
-            Assert.AreEqual("Nisse", r.Name);
+            recipe.Name = "Nisse";
+            Assert.AreEqual("Nisse", recipe.Name);
         }
 
         [TestMethod]
         public void deleteAnIngredient()
         {
             // Setup
-            r.AddIngredient("1");
-            r.AddIngredient("2");
-            r.AddIngredient("3");
+            recipe.AddIngredient("1");
+            recipe.AddIngredient("2");
+            recipe.AddIngredient("3");
             // pre-validation
-            Assert.AreEqual("2", r.Ingredients[1]);
+            Assert.AreEqual("2", recipe.Ingredients[1]);
             // exercise
             // delete the "2"
             int idx = 1;
-            bool result = r.DeleteIngredientAt(idx);
+            bool result = recipe.DeleteIngredientAt(idx);
 
             // Verify
             Assert.IsTrue(result, "The delete should succeed.");
-            Assert.AreEqual("3", r.Ingredients[1], "Position that follow the deleted one should be shifted.");
-            Assert.AreEqual(string.Empty, r.Ingredients[2], "There should be an empty position after the delete.");
+            Assert.AreEqual("3", recipe.Ingredients[1], "Position that follow the deleted one should be shifted.");
+            Assert.AreEqual(string.Empty, recipe.Ingredients[2], "There should be an empty position after the delete.");
         }
 
         [TestMethod]
         public void failingDeleteAnIngredient()
         {
             // Setup
-            r.AddIngredient("1");
-            r.AddIngredient("2");
-            r.AddIngredient("3");
+            recipe.AddIngredient("1");
+            recipe.AddIngredient("2");
+            recipe.AddIngredient("3");
             // pre-validation
-            Assert.AreEqual("2", r.Ingredients[1]);
+            Assert.AreEqual("2", recipe.Ingredients[1]);
             // exercise
             // delete outside the range
-            bool result = r.DeleteIngredientAt(numberOfSlots);
+            bool result = recipe.DeleteIngredientAt(numberOfSlots);
 
             // Verify
             Assert.IsFalse(result);
@@ -274,16 +260,16 @@ namespace Assignment4Test
         public void repacking()
         {
             // Setup
-            r.Ingredients = new string[] { string.Empty, "b", "c" };
+            recipe.Ingredients = new string[] { string.Empty, "b", "c" };
             Assert.AreEqual(string.Empty, "");
 
             // Exercise
-            r.Repack();
+            recipe.Repack();
 
             // Verify
             string[] expected = new string[] {"b", "c", string.Empty };
             for (int i = 0; i < 3; i++)
-                Assert.AreEqual(expected[i], r.Ingredients[i], $" at position {i}.");
+                Assert.AreEqual(expected[i], recipe.Ingredients[i], $" at position {i}.");
         }
 
     }
@@ -470,21 +456,26 @@ namespace Assignment4Test
     [TestClass]
     public class FormIngredientsTests
     {
-        Recipe r0;
-        FormIngredients form;
 
-        [TestInitialize]
-        public void SetUp()
-        {
-            Recipe recipe = new Recipe(0);
-            form = new FormIngredients(recipe);
-        }
 
         [TestMethod]
         public void CreateAForm_zeroIngredients()
         {
+            Recipe r = new Recipe(0);
+            FormIngredients form = new FormIngredients(r);
             // Verify
             Assert.AreEqual("No Recipe Name", form.Text);
+        }
+
+        [TestMethod]
+        public void CreateAForm_namedRecipe()
+        {
+            // Setup
+            Recipe r = new Recipe(0);
+            r.Name = "aName";
+            FormIngredients form = new FormIngredients(r);
+            // Verify
+            Assert.AreEqual("aName Add ingredients", form.Text);
         }
 
         [TestMethod]
@@ -499,6 +490,9 @@ namespace Assignment4Test
         [Ignore]
         public void tooltip()
         {
+            // Setup
+            Recipe r = new Recipe(0);
+            FormIngredients form = new FormIngredients(r);
             // The tooltip is not public. How can it be tested?
             Assert.IsNotNull(form.Tt.ToString());
             Assert.AreEqual("Example: 2 dl milk", form.Tt.ToolTipTitle);

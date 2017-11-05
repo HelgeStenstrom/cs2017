@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 //using System.Collections.Generic;
 //using System.ComponentModel;
 //using System.Data;
@@ -82,8 +83,19 @@ namespace Assignment4
             {
                 lstbxRecipes.Items.Add(ingreds[i]);
             }
-            //lstbxRecipes.Items = recipeManager.RecipeListToString();
-            // throw new NotImplementedException();
+            //SystemSounds.Beep.Play();
+            Console.Beep();
+            // Console.Beep(200, 300);
+        }
+
+        private void txtRecipeName_TextChanged(object sender, EventArgs e)
+        {
+            _currentRecipe.Name = txtRecipeName.Text;
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            _currentRecipe.Description = txtDescription.Text;
         }
     }
 }
