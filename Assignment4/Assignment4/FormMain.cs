@@ -37,6 +37,7 @@ namespace Assignment4
         }
 
         private void btnAddIngredient_Click(object sender, EventArgs e)
+            // Code from assignment document
         {
             FormIngredients dlg = new FormIngredients(_currentRecipe);
             DialogResult dialogResult = dlg.ShowDialog();
@@ -45,7 +46,6 @@ namespace Assignment4
                 if (_currentRecipe.CurrentNumOfIngredients() <= 0)
                 {
                     MessageBox.Show("No ingredients specified!");
-                    _recipeManager.Add(_currentRecipe);
                     UpdateGui();
                 }
             }            
@@ -60,19 +60,11 @@ namespace Assignment4
 
         private void ReadInputsForCurrentRecipe()
         {
+            _currentRecipe.Name = txtRecipeName.Text;
+            _currentRecipe.Description = txtDescription.Text;
+
             Enum.TryParse<FoodCategory>(comboBoxCategory.SelectedValue.ToString(), out var cat);
-
-            string name = txtRecipeName.Text;
-            string desc = txtDescription.Text;
-
-            var r = new Recipe(MaxNumberOfIngredients)
-            {
-                Category = cat,
-                Name = name,
-                Description = desc
-            };
-
-            _currentRecipe = r;
+            _currentRecipe.Category = cat;
         }
 
         private void UpdateGui()
@@ -83,9 +75,14 @@ namespace Assignment4
             {
                 lstbxRecipes.Items.Add(ingreds[i]);
             }
+
+            txtRecipeName.Text = _currentRecipe.Name;
+            txtDescription.Text = _currentRecipe.Description;
+            comboBoxCategory.SelectedItem = _currentRecipe.Category;
+            //            comboBoxCategory.SelectedValue = _currentRecipe.Category;
             //SystemSounds.Beep.Play();
             Console.Beep();
-            // Console.Beep(200, 300);
+            Console.Beep(500, 1000);
         }
 
         private void txtRecipeName_TextChanged(object sender, EventArgs e)
@@ -96,6 +93,14 @@ namespace Assignment4
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             _currentRecipe.Description = txtDescription.Text;
+        }
+
+        private void lstbxRecipes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selected = lstbxRecipes.SelectedIndex;
+            Recipe rSel = _recipeManager.GetRecipeAt(selected);
+            _currentRecipe = rSel;
+            UpdateGui();
         }
     }
 }

@@ -136,6 +136,7 @@
             this.lstbxRecipes.Name = "lstbxRecipes";
             this.lstbxRecipes.Size = new System.Drawing.Size(578, 284);
             this.lstbxRecipes.TabIndex = 2;
+            this.lstbxRecipes.SelectedIndexChanged += new System.EventHandler(this.lstbxRecipes_SelectedIndexChanged);
             // 
             // lblRecipeListHeader
             // 
