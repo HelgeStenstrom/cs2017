@@ -3,3 +3,5 @@
 * Receptlistan ska innehålla unika recept, och inte samma recept
   upprepat flera gånger.
   
+* Edit-knappen och Delete-knappen i ingredienslistan ska fungera.
+

@@ -46,9 +46,12 @@ namespace Assignment4
                 if (_currentRecipe.CurrentNumOfIngredients() <= 0)
                 {
                     MessageBox.Show("No ingredients specified!");
-                    UpdateGui();
+                    // UpdateGui();  // Do this regardless of success or not.
                 }
-            }            
+            }
+
+            // This is not from the assignment, but it's reasonable:
+            UpdateGui();
         }
 
         private void btnAddRecipe_Click(object sender, EventArgs e)

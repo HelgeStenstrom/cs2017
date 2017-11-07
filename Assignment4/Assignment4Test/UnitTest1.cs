@@ -494,8 +494,8 @@ namespace Assignment4Test
             Recipe r = new Recipe(0);
             FormIngredients form = new FormIngredients(r);
             // The tooltip is not public. How can it be tested?
-            Assert.IsNotNull(form.Tt.ToString());
-            Assert.AreEqual("Example: 2 dl milk", form.Tt.ToolTipTitle);
+            Assert.IsNotNull(form.tooltip.ToString());
+            Assert.AreEqual("Example: 2 dl milk", form.tooltip.ToolTipTitle);
             //Assert.Fail();
         }
 
@@ -529,5 +529,6 @@ namespace Assignment4Test
             // metoden är privat.
             // Click-metoden som anropar den är också privat.
         }
+
     }
 }

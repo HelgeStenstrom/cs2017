@@ -14,21 +14,20 @@ namespace Assignment4
         public RecipeManager(int maxNumOfElements)
         {
             recipeList = new Recipe[maxNumOfElements];
-            // throw new NotImplementedException();
         }
 
         // Properties
         public int NumOfItems { get => recipeList.Length;  }
 
         // Public methods
-        public bool Add(Recipe newRecipe)
+        public bool Add(Recipe recipe)
         {
             int firstSlot = FindVacantPosition();
             if (firstSlot == -1)
                 return false;
             else
             {
-                recipeList[firstSlot] = newRecipe;
+                recipeList[firstSlot] = recipe;
                 return true;
             }
         }

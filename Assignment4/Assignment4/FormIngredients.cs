@@ -19,7 +19,7 @@ namespace Assignment4
         readonly Recipe _recipe;
 
         // Properties
-        public ToolTip Tt => toolTipIngredients;
+        public ToolTip tooltip => toolTipIngredients;
 
         public FormIngredients(Recipe recipe)
         {
@@ -77,7 +77,9 @@ namespace Assignment4
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            int selected = lstIngredients.SelectedIndex;
+            _recipe.Ingredients[selected] = txtIngredient.Text;
+            UpdateGui();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
