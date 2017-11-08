@@ -28,6 +28,7 @@ namespace Assignment4
             else
             {
                 recipeList[firstSlot] = recipe;
+
                 return true;
             }
         }
