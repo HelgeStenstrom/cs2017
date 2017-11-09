@@ -17,6 +17,7 @@ namespace Assignment4
         }
 
         // Properties
+        // TODO: stega igenom programmet och kolla att dessa fungerar.
         public FoodCategory Category { get; set; }
 
         public string Description { get; set; }
