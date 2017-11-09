@@ -20,7 +20,7 @@ namespace Assignment4
         public int NumOfItems { get => recipeList.Length;  }
 
         // Public methods
-        public bool Add(Recipe recipe)
+        public bool AddOld(Recipe recipe)
         {
             int firstSlot = FindVacantPosition();
             if (firstSlot == -1)
@@ -28,12 +28,31 @@ namespace Assignment4
             else
             {
                 recipeList[firstSlot] = recipe;
-
                 return true;
             }
         }
 
-        public bool Add(string name, FoodCategory category, string[] ingredients)
+        /// <summary>
+        /// Add a recipe to the recipe list. The recipe will be new; 
+        /// it's a copy of the recipe provided as argument to the method.
+        /// </summary>
+        /// <param name="recipe">Recipe to be copied into the recipe list.</param>
+        /// <returns>True when successful</returns>
+        public bool AddNew(Recipe recipe)
+        {
+            int firstSlot = FindVacantPosition();
+            if (firstSlot == -1)
+                return false;
+            else
+            {
+                //recipeList[firstSlot] = recipe;
+
+                return AddNew(recipe.Name, recipe.Category, recipe.Ingredients);
+                // return true;
+            }
+        }
+
+        public bool AddNew(string name, FoodCategory category, string[] ingredients)
         {
             int index = FindVacantPosition();
             if (index < 0)

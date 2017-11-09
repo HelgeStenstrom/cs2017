@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Media;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Assignment4
@@ -57,7 +49,7 @@ namespace Assignment4
         private void btnAddRecipe_Click(object sender, EventArgs e)
         {
             ReadInputsForCurrentRecipe();
-            _recipeManager.Add(_currentRecipe);
+            _recipeManager.AddNew(_currentRecipe);
             UpdateGui();
         }
 

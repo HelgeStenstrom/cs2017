@@ -307,16 +307,16 @@ namespace Assignment4Test
         {
             // Three recipes will fitt, but not four.
             Recipe r = new Recipe(0);
-            Assert.IsTrue(rm.Add(r));
-            Assert.IsTrue(rm.Add(r));
-            Assert.IsTrue(rm.Add(r));
-            Assert.IsFalse(rm.Add(r));
+            Assert.IsTrue(rm.AddNew(r));
+            Assert.IsTrue(rm.AddNew(r));
+            Assert.IsTrue(rm.AddNew(r));
+            Assert.IsFalse(rm.AddNew(r));
         }
 
         [TestMethod]
         public void canAddWithAlternativeMethod()
         {
-            rm.Add("name", FoodCategory.Fish, new string[] { "one", "two"});
+            rm.AddNew("name", FoodCategory.Fish, new string[] { "one", "two"});
 
             // Verify that it used a slot
             Assert.AreEqual(1, rm.GetCurrentNumOfItems());
@@ -326,10 +326,10 @@ namespace Assignment4Test
         public void tooManyRecipecAltMethod()
         {
             // There is room for 3 recipes
-            Assert.IsTrue( rm.Add("name", FoodCategory.Fish, new string[] {}));
-            Assert.IsTrue(rm.Add("name", FoodCategory.Fish, new string[] { }));
-            Assert.IsTrue(rm.Add("name", FoodCategory.Fish, new string[] { }));
-            Assert.IsFalse(rm.Add("name", FoodCategory.Fish, new string[] { }));
+            Assert.IsTrue( rm.AddNew("name", FoodCategory.Fish, new string[] {}));
+            Assert.IsTrue(rm.AddNew("name", FoodCategory.Fish, new string[] { }));
+            Assert.IsTrue(rm.AddNew("name", FoodCategory.Fish, new string[] { }));
+            Assert.IsFalse(rm.AddNew("name", FoodCategory.Fish, new string[] { }));
 
         }
 
@@ -344,8 +344,8 @@ namespace Assignment4Test
         {
             // Setup
             Recipe r = new Recipe(1);
-            rm.Add(r);
-            rm.Add(r);
+            rm.AddNew(r);
+            rm.AddNew(r);
             // Pre-validation
             Assert.AreEqual(2, rm.GetCurrentNumOfItems());
             rm.DeleteElement(0);
@@ -362,8 +362,8 @@ namespace Assignment4Test
         public void getIngredientsLucky()
         {
             // setup
-            rm.Add("A", FoodCategory.Fish, new string[] {"a" });
-            rm.Add("B", FoodCategory.Fish, new string[] { "Ba", "Bb" });
+            rm.AddNew("A", FoodCategory.Fish, new string[] {"a" });
+            rm.AddNew("B", FoodCategory.Fish, new string[] { "Ba", "Bb" });
 
             // exercise
             string[] result = rm.GetIngredients(1);
@@ -384,7 +384,7 @@ namespace Assignment4Test
         {
             // Setup
             Recipe expected = new Recipe(0);
-            rm.Add(expected);
+            rm.AddOld(expected);
 
             // Exercise
             Recipe actual = rm.GetRecipeAt(0);
@@ -405,17 +405,17 @@ namespace Assignment4Test
             // Setup
             Recipe r1 = new Recipe(0);
             Recipe r2 = new Recipe(0);
-            rm.Add(r1);
+            rm.AddNew(r1);
             // Pre-condition
             Assert.AreNotSame(r1, r2);
-            Assert.AreSame(r1, rm.GetRecipeAt(0));
+            // Assert.AreSame(r1, rm.GetRecipeAt(0));
 
             // Exercise
             bool success = rm.ChangeElement(0, r2);
 
             // Verify
             Assert.AreSame(r2, rm.GetRecipeAt(0));
-            Assert.AreEqual(true, success);
+            Assert.IsTrue(success);
 
         }
 
@@ -424,8 +424,8 @@ namespace Assignment4Test
         {
             // Setup
             // Create two recipes without descriptions
-            rm.Add("Name1", FoodCategory.Fish, new string[] { "x", "" });
-            rm.Add("Name2", FoodCategory.Meat, new string[] { "x", "" });
+            rm.AddNew("Name1", FoodCategory.Fish, new string[] { "x", "" });
+            rm.AddNew("Name2", FoodCategory.Meat, new string[] { "x", "" });
 
             // Exercise
             string[] actual = rm.RecipeListToString();
