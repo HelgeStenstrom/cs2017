@@ -61,7 +61,7 @@
             this.groupBox1.Controls.Add(this.txtIngredient);
             this.groupBox1.Location = new System.Drawing.Point(12, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(609, 381);
+            this.groupBox1.Size = new System.Drawing.Size(609, 323);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingredient";
@@ -71,7 +71,7 @@
             this.lstIngredients.FormattingEnabled = true;
             this.lstIngredients.Location = new System.Drawing.Point(7, 46);
             this.lstIngredients.Name = "lstIngredients";
-            this.lstIngredients.Size = new System.Drawing.Size(491, 316);
+            this.lstIngredients.Size = new System.Drawing.Size(491, 225);
             this.lstIngredients.TabIndex = 4;
             // 
             // btnDelete
@@ -115,7 +115,7 @@
             // btnOk
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(122, 465);
+            this.btnOk.Location = new System.Drawing.Point(117, 412);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 3;
@@ -126,18 +126,19 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(305, 464);
+            this.btnCancel.Location = new System.Drawing.Point(300, 411);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FormIngredients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 505);
+            this.ClientSize = new System.Drawing.Size(633, 448);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.groupBox1);

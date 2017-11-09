@@ -31,6 +31,7 @@ namespace Assignment4
         private void btnAddIngredient_Click(object sender, EventArgs e)
             // Code from assignment document
         {
+            ReadInputsForCurrentRecipe();
             FormIngredients dlg = new FormIngredients(_currentRecipe);
             DialogResult dialogResult = dlg.ShowDialog();
             if (dialogResult == DialogResult.OK)
@@ -43,14 +44,18 @@ namespace Assignment4
             }
 
             // This is not from the assignment, but it's reasonable:
-            UpdateGui();
+            UpdateGuiLeft();
         }
 
         private void btnAddRecipe_Click(object sender, EventArgs e)
         {
             ReadInputsForCurrentRecipe();
-            _recipeManager.AddNew(_currentRecipe);
-            UpdateGui();
+            Recipe toAdd = _currentRecipe.Clone();
+            _recipeManager.AddOld(toAdd);
+            
+            _currentRecipe = new Recipe(MaxNumberOfIngredients);
+            UpdateGuiLeft();
+            UpdateRecipeList();
         }
 
         private void ReadInputsForCurrentRecipe()
@@ -62,22 +67,23 @@ namespace Assignment4
             _currentRecipe.Category = cat;
         }
 
-        private void UpdateGui()
+        private void UpdateGuiLeft()
         {
-            lstbxRecipes.Items.Clear();
-            string[] ingreds = _recipeManager.RecipeListToString();
-            for (int i = 0; i < _recipeManager.GetCurrentNumOfItems(); i++)
-            {
-                lstbxRecipes.Items.Add(ingreds[i]);
-            }
 
             txtRecipeName.Text = _currentRecipe.Name;
             txtDescription.Text = _currentRecipe.Description;
             comboBoxCategory.SelectedItem = _currentRecipe.Category;
-            //            comboBoxCategory.SelectedValue = _currentRecipe.Category;
-            //SystemSounds.Beep.Play();
+
             Console.Beep();
-            Console.Beep(500, 1000);
+        }
+
+        private void UpdateRecipeList()
+        {
+            lstbxRecipes.Items.Clear();
+            string[] recipeTexts = _recipeManager.RecipeListToString();
+            lstbxRecipes.Items.AddRange(recipeTexts);
+
+            Console.Beep(500, 500);
         }
 
         private void txtRecipeName_TextChanged(object sender, EventArgs e)
@@ -94,8 +100,35 @@ namespace Assignment4
         {
             int selected = lstbxRecipes.SelectedIndex;
             Recipe rSel = _recipeManager.GetRecipeAt(selected);
-            _currentRecipe = rSel;
-            UpdateGui();
+            if (!(rSel == null))
+            {
+                _currentRecipe = rSel.Clone();
+                UpdateGuiLeft();
+            }                
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int selected = lstbxRecipes.SelectedIndex;
+            if (selected < 0)
+            {
+                Console.Beep(400, 600);
+            }
+            else
+            {
+                _recipeManager.DeleteRecipe(selected);
+                UpdateRecipeList();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

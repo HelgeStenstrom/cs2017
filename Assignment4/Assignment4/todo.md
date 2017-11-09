@@ -10,7 +10,7 @@
 ## En session
 1. Programmet startas.
 2. Användaren skriver ett receptnamn i rutan i FormMain
-3. Användaren väljer en kategor
+3. Användaren väljer en kategori
 4. Användaren klickar Add Ingredients
 5. Formuläret FormIngredient visas
 6. Skriv ni en ingredient i rutan

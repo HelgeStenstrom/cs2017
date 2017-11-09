@@ -38,8 +38,8 @@
             this.btnAddRecipe = new System.Windows.Forms.Button();
             this.lstbxRecipes = new System.Windows.Forms.ListBox();
             this.lblRecipeListHeader = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             grpbAddNewRecipe = new System.Windows.Forms.GroupBox();
             lblCategory = new System.Windows.Forms.Label();
             lblNameOfRecipe = new System.Windows.Forms.Label();
@@ -88,6 +88,7 @@
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCategory.TabIndex = 2;
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
             // txtRecipeName
             // 
@@ -117,9 +118,9 @@
             // 
             // btnAddRecipe
             // 
-            this.btnAddRecipe.Location = new System.Drawing.Point(121, 361);
+            this.btnAddRecipe.Location = new System.Drawing.Point(105, 361);
             this.btnAddRecipe.Name = "btnAddRecipe";
-            this.btnAddRecipe.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRecipe.Size = new System.Drawing.Size(91, 23);
             this.btnAddRecipe.TabIndex = 1;
             this.btnAddRecipe.Text = "Add Recipe";
             this.btnAddRecipe.UseVisualStyleBackColor = true;
@@ -150,31 +151,33 @@
             this.lblRecipeListHeader.TabIndex = 3;
             this.lblRecipeListHeader.Text = "Recipe No of ingred. Cateogry Description";
             // 
-            // button1
+            // btnDelete
             // 
-            this.button1.Location = new System.Drawing.Point(462, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Delete selected";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(462, 361);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(121, 23);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete selected";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // button2
+            // btnEdit
             // 
-            this.button2.Location = new System.Drawing.Point(625, 361);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(229, 361);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(137, 23);
+            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Text = "Edit (update marked)";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 455);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblRecipeListHeader);
             this.Controls.Add(this.lstbxRecipes);
             this.Controls.Add(this.btnAddRecipe);
@@ -196,8 +199,8 @@
         private System.Windows.Forms.Button btnAddRecipe;
         private System.Windows.Forms.ListBox lstbxRecipes;
         private System.Windows.Forms.Label lblRecipeListHeader;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
 

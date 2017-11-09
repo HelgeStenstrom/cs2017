@@ -16,7 +16,8 @@ namespace Assignment4
         // This field is not private. Should it?
         // The general recommendation is to have all fields private.
         // The example in Assignment 4 Help, page 17 is non-private.
-        readonly Recipe _recipe;
+        readonly Recipe _workRecipe;
+        private Recipe _originalRecipe;
 
         // Properties
         public ToolTip tooltip => toolTipIngredients;
@@ -26,7 +27,8 @@ namespace Assignment4
             InitializeComponent();
 
             // my initialization
-            _recipe = recipe;
+            _originalRecipe = recipe;
+            _workRecipe = recipe.Clone();  // A new name for the recipe, so that it can be used by the whole class.
             InitializeGui();
         }
 
@@ -40,10 +42,10 @@ namespace Assignment4
             // let an exception happen, and then fix the bug.
             // No need to test for null, therefore.
             
-            if (string.IsNullOrEmpty(_recipe.Name))
+            if (string.IsNullOrEmpty(_workRecipe.Name))
                 Text = "No Recipe Name";
             else
-                Text = _recipe.Name + " Add ingredients";
+                Text = _workRecipe.Name + " Add ingredients";
 
             
             toolTipIngredients.SetToolTip(txtIngredient, "Example: 2 dl milk");
@@ -52,40 +54,39 @@ namespace Assignment4
 
         private void UpdateGui()
         {
-            lstIngredients.Items.Clear();
+
             txtIngredient.Clear();
-            lblNumberIngred.Text = $"Number of ingredients: {_recipe.CurrentNumOfIngredients()}";
-            for (int i = 0; i < _recipe.CurrentNumOfIngredients(); i++)
-            {
-                if (_recipe.CheckIndex(i))
-                    lstIngredients.Items.Add(_recipe.Ingredients[i]);
-            }
+            lblNumberIngred.Text = $"Number of ingredients: {_workRecipe.CurrentNumOfIngredients()}";
+            lblNumberIngred.Text = $"Number of ingredients: {_workRecipe.CurrentNumOfIngredients()}";
+
+            lstIngredients.Items.Clear();
+            lstIngredients.Items.AddRange(_workRecipe.Ingredients);
             txtIngredient.Focus();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-
+            _originalRecipe.setCopyOf(_workRecipe);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string ingredient = txtIngredient.Text;
-            _recipe.AddIngredient(ingredient);
+            _workRecipe.AddIngredient(ingredient);
             UpdateGui();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             int selected = lstIngredients.SelectedIndex;
-            _recipe.Ingredients[selected] = txtIngredient.Text;
+            _workRecipe.Ingredients[selected] = txtIngredient.Text;
             UpdateGui();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int selected = lstIngredients.SelectedIndex;
-            _recipe.DeleteIngredientAt(selected);
+            _workRecipe.DeleteIngredientAt(selected);
             UpdateGui();
         }
 
@@ -97,6 +98,11 @@ namespace Assignment4
                 // https://stackoverflow.com/questions/6290967/stop-the-ding-when-pressing-enter
                 e.Handled = true;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // Noting to do.
         }
     }
 }

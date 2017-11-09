@@ -272,6 +272,58 @@ namespace Assignment4Test
                 Assert.AreEqual(expected[i], recipe.Ingredients[i], $" at position {i}.");
         }
 
+        [TestMethod]
+        public void clone()
+        {
+            // Setup
+            Recipe original = new Recipe(3);
+            original.Name = "name";
+            original.Category = FoodCategory.Seafood;
+            string[] s = { "a", "b", "c" };
+            original.Ingredients = s;
+
+            // Exercise
+            Recipe copy = original.Clone();
+
+            // Verify
+            Assert.AreNotSame(original, copy);
+            Assert.AreEqual(original.Name, copy.Name);
+            Assert.AreEqual(original.Description, copy.Description);
+            Assert.AreEqual(original.Category, copy.Category);
+            Assert.AreNotSame(original.Ingredients, copy.Ingredients);
+            for (int i = 0; i < original.Ingredients.Length; i++)
+            {
+                Assert.AreEqual(original.Ingredients[i], copy.Ingredients[i]);
+            }            
+        }
+
+        [TestMethod]
+        public void setToCopyOf()
+        {
+            // Setup
+            Recipe original = new Recipe(3);
+            original.Name = "name";
+            original.Category = FoodCategory.Seafood;
+            string[] s = { "a", "b", "c" };
+            original.Ingredients = s;
+
+            Recipe modified = new Recipe(3);
+
+            // Exercise
+            modified.setCopyOf(original);
+
+            // Verify
+            Assert.AreNotSame(original, modified);
+            Assert.AreEqual(original.Name, modified.Name);
+            Assert.AreEqual(original.Description, modified.Description);
+            Assert.AreEqual(original.Category, modified.Category);
+            Assert.AreNotSame(original.Ingredients, modified.Ingredients);
+            for (int i = 0; i < original.Ingredients.Length; i++)
+            {
+                Assert.AreEqual(original.Ingredients[i], modified.Ingredients[i]);
+            }
+        }
+
     }
 
 
@@ -319,7 +371,7 @@ namespace Assignment4Test
             rm.AddNew("name", FoodCategory.Fish, new string[] { "one", "two"});
 
             // Verify that it used a slot
-            Assert.AreEqual(1, rm.GetCurrentNumOfItems());
+            Assert.AreEqual(1, rm.GetCurrentNumOfRecipes());
         }
 
         [TestMethod]
@@ -340,22 +392,24 @@ namespace Assignment4Test
         }
 
         [TestMethod]
-        public void canDeleteAnElement()
+        public void canDeleteARecipe()
         {
             // Setup
             Recipe r = new Recipe(1);
             rm.AddNew(r);
             rm.AddNew(r);
             // Pre-validation
-            Assert.AreEqual(2, rm.GetCurrentNumOfItems());
-            rm.DeleteElement(0);
-            Assert.AreEqual(1, rm.GetCurrentNumOfItems());            
+            Assert.AreEqual(2, rm.GetCurrentNumOfRecipes());
+            // Exercise
+            rm.DeleteRecipe(0);
+            // Verify
+            Assert.AreEqual(1, rm.GetCurrentNumOfRecipes());            
         }    
         
         [TestMethod]
         public void cantDeleteNegativeIndex()
         {
-            Assert.IsFalse(rm.DeleteElement(-1));
+            Assert.IsFalse(rm.DeleteRecipe(-1));
         }
 
         [TestMethod]
@@ -433,9 +487,51 @@ namespace Assignment4Test
             // Verify
             Assert.AreEqual(2, actual.Length);
             Assert.AreEqual("Name1                   1      Fish           No description ", actual[0]);
-            Assert.AreEqual("Name2                   1      Meat           No description ", actual[1]);            
+            Assert.AreEqual("Name2                   1      Meat           No description ", actual[1]);                   
+        }
+
+        [TestMethod]
+        public void canDeleteARecipe_andGetThemAsText()
+        {
+
+            // Setup
+            // Create two recipes without descriptions
+            rm.AddNew("Name1", FoodCategory.Fish, new string[] { "x", "" });
+            rm.AddNew("Name2", FoodCategory.Meat, new string[] { "x", "" });
+
+            // Exercise
+
+
+            // Pre-validation
+            Assert.AreEqual(2, rm.GetCurrentNumOfRecipes());
+            // Exercise
+            rm.DeleteRecipe(0);
+            string[] actual = rm.RecipeListToString();
+            // Verify
+            Assert.AreEqual(1, rm.GetCurrentNumOfRecipes());
+            Assert.AreEqual("Name2                   1      Meat           No description ", actual[0]);
 
         }
+
+        [TestMethod]
+        public void repacking()
+        {
+            // Setup
+            rm.AddNew("Name1", FoodCategory.Fish, new string[] { "x", "" });
+            rm.AddNew("Name2", FoodCategory.Meat, new string[] { "x", "" });
+
+            // Exercise
+            rm.DeleteRecipe(0);
+            // halfway condition
+            Assert.AreEqual(1, rm.GetCurrentNumOfRecipes());
+            Assert.IsNotNull(rm.GetRecipeAt(1));
+            rm.Repack();
+
+            // Verify
+            Assert.IsNotNull(rm.GetRecipeAt(0));
+            Assert.IsNull(rm.GetRecipeAt(1));
+        }
+
     }
 
     [TestClass]

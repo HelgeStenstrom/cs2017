@@ -108,15 +108,18 @@ namespace Assignment4
             return isValidIndex;
         }
 
-        public bool DeleteElement(int index)
+        public bool DeleteRecipe(int index)
         {
             bool ok = CheckIndex(index);
             if (ok)
+            {
                 recipeList[index] = null;
+                // Repack();
+            }                
             return ok;
         }
 
-        public int GetCurrentNumOfItems()
+        public int GetCurrentNumOfRecipes()
         {
             int count = 0;
             for (int i=0; i < recipeList.Length; i++)
@@ -129,8 +132,8 @@ namespace Assignment4
 
         public string[] RecipeListToString()
         {
-            string[] result = new string[GetCurrentNumOfItems()];
-            for (int i = 0; i < recipeList.Length; i++)
+            string[] result = new string[GetCurrentNumOfRecipes()];
+            for (int i = 0; i < result.Length; i++)
             {
                 Recipe r = recipeList[i];
                 if (IsValidRecipe(r))
@@ -171,5 +174,23 @@ namespace Assignment4
             return (index >= 0 && index < recipeList.Length);
         }
 
+        public void Repack()
+        {
+
+            Recipe[] updatedList = new Recipe[recipeList.Length];
+            for (int i = 0; i < recipeList.Length; i++)
+                updatedList[i] = null;
+
+            int pos = 0;
+            for (int i = 0; i < recipeList.Length; i++)
+            {
+                if (!(recipeList[i] == null))
+                {
+                    updatedList[pos] = recipeList[i];
+                    pos++;
+                }
+            }
+            recipeList = updatedList;
+        }
     }
 }

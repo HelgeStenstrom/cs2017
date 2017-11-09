@@ -133,5 +133,30 @@ namespace Assignment4
             }
             Ingredients = updatedList;
         }
+
+        public Recipe Clone()
+        {
+
+            Recipe recipe = new Recipe(this.MaxNumOfIngredients);
+            recipe.Name = this.Name;
+            recipe.Description = this.Description;
+            recipe.Category = this.Category;
+            for (int i = 0; i < this.Ingredients.Length; i++)
+            {
+                recipe.Ingredients[i] = this.Ingredients[i];
+            }
+            return recipe;
+        }
+
+        public void setCopyOf(Recipe original)
+        {
+            this.Name = original.Name;
+            this.Description = original.Description;
+            this.Category = original.Category;
+            for (int i = 0; i < this.Ingredients.Length; i++)
+            {
+                this.Ingredients[i] = original.Ingredients[i];
+            }
+        }
     }
 }
