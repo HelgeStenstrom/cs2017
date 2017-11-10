@@ -20,6 +20,14 @@ namespace Assignment4
         public int NumOfItems { get => recipeList.Length;  }
 
         // Public methods
+        
+        /// <summary>
+        /// Add a recipe to the recipe list, whithout creating a new recipe. 
+        /// The instance that the caller provides will be added to the list. 
+        /// Use with caution.
+        /// </summary>
+        /// <param name="recipe">Recipe instance to be added</param>
+        /// <returns>True if successful.</returns>
         public bool AddOld(Recipe recipe)
         {
             int firstSlot = FindVacantPosition();
@@ -52,6 +60,14 @@ namespace Assignment4
             }
         }
 
+        /// <summary>
+        /// Add a recipe to the recipe list. The recipe will be new; 
+        /// created from the parameters given.
+        /// </summary>
+        /// <param name="name">The name of the recipe</param>
+        /// <param name="category">The category of the recipe.</param>
+        /// <param name="ingredients">A list of ingredients.</param>
+        /// <returns>True if successful.</returns>
         public bool AddNew(string name, FoodCategory category, string[] ingredients)
         {
             int index = FindVacantPosition();
@@ -69,12 +85,23 @@ namespace Assignment4
             }            
         }
 
+        /// <summary>
+        /// Return the ingredients of the recipe indexed.
+        /// </summary>
+        /// <param name="index">selects a recipe.</param>
+        /// <returns>An ingredient list</returns>
         public string[] GetIngredients(int index)
         {
             if (!CheckIndex(index))
                 return new string[] { };
             return recipeList[index].Ingredients;
         }
+        
+        /// <summary>
+        /// Return one recipe from the recipe list.
+        /// </summary>
+        /// <param name="index">Index of wanted recipe</param>
+        /// <returns>The wanted recipe</returns>
         public Recipe GetRecipeAt(int index)
         {
             if (CheckIndex(index))
@@ -100,6 +127,12 @@ namespace Assignment4
 
         }
 
+        /// <summary>
+        /// Replace a recipe in the recipe list, with the instance given by the caller.
+        /// </summary>
+        /// <param name="index">The (index of the) recipe to replace</param>
+        /// <param name="recipe">The recipe to put in the list</param>
+        /// <returns>True if the index is valid, which should be equivalent with a successful repleacement.</returns>
         public bool ChangeElement(int index, Recipe recipe)
         {
             bool isValidIndex = CheckIndex(index);
@@ -108,6 +141,11 @@ namespace Assignment4
             return isValidIndex;
         }
 
+        /// <summary>
+        /// Delete one recipe from the recipe list. Repack the list, so that there are no holes in it.
+        /// </summary>
+        /// <param name="index">Indes of the recipe to delete</param>
+        /// <returns>True if successful.</returns>
         public bool DeleteRecipe(int index)
         {
             bool ok = CheckIndex(index);
@@ -118,7 +156,11 @@ namespace Assignment4
             }                
             return ok;
         }
-
+        
+        /// <summary>
+        /// Return the current number of recipes (not the max number)
+        /// </summary>
+        /// <returns>The number of recipes.</returns>
         public int GetCurrentNumOfRecipes()
         {
             int count = 0;
@@ -130,6 +172,10 @@ namespace Assignment4
             return count;
         }
 
+        /// <summary>
+        /// Return a list of string representations of the recipe list. One string per recipe.
+        /// </summary>
+        /// <returns>The strings of the recipes.</returns>
         public string[] RecipeListToString()
         {
             string[] result = new string[GetCurrentNumOfRecipes()];
@@ -174,21 +220,21 @@ namespace Assignment4
             return (index >= 0 && index < recipeList.Length);
         }
 
-        public void Repack()
+        /// <summary>
+        /// Remove holes in the recipe list.
+        /// </summary>
+        private void Repack()
         {
-
             Recipe[] updatedList = new Recipe[recipeList.Length];
             for (int i = 0; i < recipeList.Length; i++)
                 updatedList[i] = null;
 
             int pos = 0;
-            for (int i = 0; i < recipeList.Length; i++)
+            foreach (Recipe recipe in recipeList)
             {
-                if (!(recipeList[i] == null))
-                {
-                    updatedList[pos] = recipeList[i];
-                    pos++;
-                }
+                if (recipe == null) continue;
+                updatedList[pos] = recipe;
+                pos++;
             }
             recipeList = updatedList;
         }
