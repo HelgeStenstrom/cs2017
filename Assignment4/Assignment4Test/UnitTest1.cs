@@ -506,9 +506,11 @@ namespace Assignment4Test
             Assert.AreEqual(2, rm.GetCurrentNumOfRecipes());
             // Exercise
             rm.DeleteRecipe(0);
+            // rm.Repack();
             string[] actual = rm.RecipeListToString();
             // Verify
             Assert.AreEqual(1, rm.GetCurrentNumOfRecipes());
+
             Assert.AreEqual("Name2                   1      Meat           No description ", actual[0]);
 
         }
@@ -524,12 +526,13 @@ namespace Assignment4Test
             rm.DeleteRecipe(0);
             // halfway condition
             Assert.AreEqual(1, rm.GetCurrentNumOfRecipes());
-            Assert.IsNotNull(rm.GetRecipeAt(1));
-            rm.Repack();
+            Assert.IsNotNull(rm.GetRecipeAt(0));
+            // rm.Repack();
 
             // Verify
             Assert.IsNotNull(rm.GetRecipeAt(0));
             Assert.IsNull(rm.GetRecipeAt(1));
+            Assert.AreEqual("Name2", rm.GetRecipeAt(0).Name);
         }
 
     }

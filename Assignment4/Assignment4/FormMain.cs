@@ -74,7 +74,10 @@ namespace Assignment4
             txtDescription.Text = _currentRecipe.Description;
             comboBoxCategory.SelectedItem = _currentRecipe.Category;
 
-            Console.Beep();
+            preview.Items.Clear();
+            preview.Items.AddRange(_currentRecipe.Ingredients);
+
+           //  Console.Beep();
         }
 
         private void UpdateRecipeList()
@@ -83,7 +86,7 @@ namespace Assignment4
             string[] recipeTexts = _recipeManager.RecipeListToString();
             lstbxRecipes.Items.AddRange(recipeTexts);
 
-            Console.Beep(500, 500);
+           // Console.Beep(500, 500);
         }
 
         private void txtRecipeName_TextChanged(object sender, EventArgs e)
@@ -112,7 +115,7 @@ namespace Assignment4
             int selected = lstbxRecipes.SelectedIndex;
             if (selected < 0)
             {
-                Console.Beep(400, 600);
+               //  Console.Beep(400, 600);
             }
             else
             {
@@ -123,8 +126,18 @@ namespace Assignment4
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
-        }
+            int selected = lstbxRecipes.SelectedIndex;
+            if (selected < 0)
+            {
+                // Console.Beep(400, 600);
+            }
+            else
+            {
+                ReadInputsForCurrentRecipe();
+                _recipeManager.GetRecipeAt(selected).setCopyOf(_currentRecipe);
+                UpdateRecipeList();
+            }
+        }    
 
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {

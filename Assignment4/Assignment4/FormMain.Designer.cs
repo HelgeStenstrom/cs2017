@@ -40,14 +40,18 @@
             this.lblRecipeListHeader = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.preview = new System.Windows.Forms.ListBox();
             grpbAddNewRecipe = new System.Windows.Forms.GroupBox();
             lblCategory = new System.Windows.Forms.Label();
             lblNameOfRecipe = new System.Windows.Forms.Label();
             grpbAddNewRecipe.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpbAddNewRecipe
             // 
+            grpbAddNewRecipe.Controls.Add(this.groupBox1);
             grpbAddNewRecipe.Controls.Add(this.txtDescription);
             grpbAddNewRecipe.Controls.Add(this.btnAddIngredient);
             grpbAddNewRecipe.Controls.Add(this.comboBoxCategory);
@@ -56,7 +60,7 @@
             grpbAddNewRecipe.Controls.Add(lblNameOfRecipe);
             grpbAddNewRecipe.Location = new System.Drawing.Point(13, 13);
             grpbAddNewRecipe.Name = "grpbAddNewRecipe";
-            grpbAddNewRecipe.Size = new System.Drawing.Size(399, 310);
+            grpbAddNewRecipe.Size = new System.Drawing.Size(399, 342);
             grpbAddNewRecipe.TabIndex = 0;
             grpbAddNewRecipe.TabStop = false;
             grpbAddNewRecipe.Text = "Add new recipe";
@@ -66,7 +70,7 @@
             this.txtDescription.Location = new System.Drawing.Point(7, 115);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(386, 179);
+            this.txtDescription.Size = new System.Drawing.Size(386, 103);
             this.txtDescription.TabIndex = 4;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
@@ -137,7 +141,7 @@
             this.lstbxRecipes.Location = new System.Drawing.Point(418, 73);
             this.lstbxRecipes.MultiColumn = true;
             this.lstbxRecipes.Name = "lstbxRecipes";
-            this.lstbxRecipes.Size = new System.Drawing.Size(578, 256);
+            this.lstbxRecipes.Size = new System.Drawing.Size(444, 256);
             this.lstbxRecipes.TabIndex = 2;
             this.lstbxRecipes.SelectedIndexChanged += new System.EventHandler(this.lstbxRecipes_SelectedIndexChanged);
             // 
@@ -171,11 +175,30 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.preview);
+            this.groupBox1.Location = new System.Drawing.Point(10, 225);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(383, 100);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Inredients preview";
+            // 
+            // preview
+            // 
+            this.preview.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.preview.FormattingEnabled = true;
+            this.preview.Location = new System.Drawing.Point(7, 20);
+            this.preview.Name = "preview";
+            this.preview.Size = new System.Drawing.Size(370, 69);
+            this.preview.TabIndex = 0;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 455);
+            this.ClientSize = new System.Drawing.Size(874, 455);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblRecipeListHeader);
@@ -186,6 +209,7 @@
             this.Text = "Apu\'s Cook Book";
             grpbAddNewRecipe.ResumeLayout(false);
             grpbAddNewRecipe.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,6 +225,8 @@
         private System.Windows.Forms.Label lblRecipeListHeader;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox preview;
     }
 }
 

@@ -114,7 +114,7 @@ namespace Assignment4
             if (ok)
             {
                 recipeList[index] = null;
-                // Repack();
+                Repack();
             }                
             return ok;
         }
