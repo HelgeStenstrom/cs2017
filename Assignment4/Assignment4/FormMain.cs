@@ -42,7 +42,7 @@ namespace Assignment4
             DialogResult dialogResult = dlg.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                if (_currentRecipe.CurrentNumOfIngredients() <= 0)
+                if (_currentRecipe.CurrentNumOfIngredients <= 0)
                 {
                     MessageBox.Show("No ingredients specified!");
                     // UpdateGui();  // Do this regardless of success or not.
@@ -155,7 +155,7 @@ namespace Assignment4
             else
             {
                 ReadInputsForCurrentRecipe();
-                _recipeManager.GetRecipeAt(selected).setCopyOf(_currentRecipe);
+                _recipeManager.GetRecipeAt(selected).SetCopyOf(_currentRecipe);
                 UpdateRecipeList();
             }
         }    

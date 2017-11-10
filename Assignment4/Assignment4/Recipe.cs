@@ -1,14 +1,12 @@
 ﻿using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+
 
 namespace Assignment4
 {
     public class Recipe
     {
         // Instance variables
+        // We don't have any normal instance variables, only properties. 
 
         public Recipe(int maxNumOfIngredients)
         {
@@ -17,22 +15,18 @@ namespace Assignment4
         }
 
         // Properties
-        // TODO: stega igenom programmet och kolla att dessa fungerar.
         public FoodCategory Category { get; set; }
-
         public string Description { get; set; }
-
         public string[] Ingredients { get; set; }
-
         public string Name { get; set; }
-
         public int MaxNumOfIngredients => Ingredients.Length;
 
-        // TODO: properties CurrentNumOfIngredients, MaxNumOfIngredients
-
+        // TODO: properties CurrentNumOfIngredients
 
         // Methods
+        
         public bool AddIngredient(string value)
+        // Add an ingredient to the ingredient list of the recipe
         {          
             int firstSlot = FindVacantPosition();
             if (firstSlot == -1)
@@ -44,10 +38,12 @@ namespace Assignment4
             }                
         }
         public bool ChangeIngredientAt(int index, string value)
+        // Change one position in the ingredient list.
         {
             if (CheckIndex(index))
             {
                 Ingredients[index] = value;
+                // TODO: consider repacking the list.
                 return true;
             }
             else
@@ -55,11 +51,14 @@ namespace Assignment4
         }
 
         public bool CheckIndex(int index)
+        // Check if the index is a valid index of the allocated array.
         {
-            return (index >= 0) && (index < MaxNumOfIngredients);
+            return (index >= 0) && (index < Ingredients.Length);
         }
 
         private void DefaultValues()
+        // Set reasonable start values for all parts of a recipe.
+        // We don't want null values floating around.
         {
             for (int i= 0; i < Ingredients.Length; i++)
             {
@@ -71,6 +70,7 @@ namespace Assignment4
         }
 
         public int FindVacantPosition()
+        // Find an unused slot in the indredient list.
         {
             int foundSlot = -1;
             for (int i = 0; i < Ingredients.Length; i++)
@@ -84,6 +84,7 @@ namespace Assignment4
         }
 
         public override string ToString()
+        // Return a string representation of the recipe. It will be used by the RecipeManager.
         {
             int chars = Math.Min(Description.Length, 15);
             string descriptionText = Description.Substring(0, chars);
@@ -91,23 +92,29 @@ namespace Assignment4
             if (string.IsNullOrEmpty(descriptionText))
                 descriptionText =  "No description";
 
-            string textOut = $"{Name, -20} {CurrentNumOfIngredients(),4}      {Category.ToString(), -12}   {descriptionText, -15}";
+            string textOut = $"{Name, -20} {CurrentNumOfIngredients,4}      {Category.ToString(), -12}   {descriptionText, -15}";
 
             return textOut;
         }
 
-        public int CurrentNumOfIngredients()
+        public int CurrentNumOfIngredients
+        // The number of the ingredients in the ingredients list, i.e., the number of used slots.
+        // Just for fun, implement this as a property.
         {
-            int count = 0;
-            for (int i = 0; i < MaxNumOfIngredients; i++)
+            get
             {
-                if (!string.IsNullOrEmpty(Ingredients[i]))
-                    count += 1;
+                int count = 0;
+                for (int i = 0; i < MaxNumOfIngredients; i++)
+                {
+                    if (!string.IsNullOrEmpty(Ingredients[i]))
+                        count += 1;
+                }
+                return count;
             }
-            return count;
         }
 
         public bool DeleteIngredientAt(int index)
+        // Remove an ingredient. Repack the list, so that there are no holes in it.
         {
             bool result = CheckIndex(index);
             if (result)
@@ -117,6 +124,7 @@ namespace Assignment4
         }
 
         public void Repack()
+        // Remove holes in the recipe list.
         {
             string[] updatedList = new string[MaxNumOfIngredients];
             for (int i = 0; i < MaxNumOfIngredients; i++)
@@ -135,27 +143,30 @@ namespace Assignment4
         }
 
         public Recipe Clone()
+        // Return a clone of this recipe.
         {
-
-            Recipe recipe = new Recipe(this.MaxNumOfIngredients);
-            recipe.Name = this.Name;
-            recipe.Description = this.Description;
-            recipe.Category = this.Category;
-            for (int i = 0; i < this.Ingredients.Length; i++)
+            Recipe recipe = new Recipe(MaxNumOfIngredients)
             {
-                recipe.Ingredients[i] = this.Ingredients[i];
+                Name = Name,
+                Description = Description,
+                Category = Category
+            };
+            for (int i = 0; i < Ingredients.Length; i++)
+            {
+                recipe.Ingredients[i] = Ingredients[i];
             }
             return recipe;
         }
 
-        public void setCopyOf(Recipe original)
+        public void SetCopyOf(Recipe original)
+        // Set the contents of this recipe to be that of the parameter given.
         {
-            this.Name = original.Name;
-            this.Description = original.Description;
-            this.Category = original.Category;
-            for (int i = 0; i < this.Ingredients.Length; i++)
+            Name = original.Name;
+            Description = original.Description;
+            Category = original.Category;
+            for (int i = 0; i < Ingredients.Length; i++)
             {
-                this.Ingredients[i] = original.Ingredients[i];
+                Ingredients[i] = original.Ingredients[i];
             }
         }
     }

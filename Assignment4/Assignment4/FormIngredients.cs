@@ -56,7 +56,7 @@ namespace Assignment4
         // Updates all visible changeable parts of the GUI, with information from the working recipe.
         {
             txtIngredient.Clear(); // We don't want to fill this from the working recipe
-            lblNumberIngred.Text = $"Number of ingredients: {_workRecipe.CurrentNumOfIngredients()}";
+            lblNumberIngred.Text = $"Number of ingredients: {_workRecipe.CurrentNumOfIngredients}";
 
             // Clear the ingredients list and fill it from the recipe object.
             lstIngredients.Items.Clear();
@@ -68,7 +68,7 @@ namespace Assignment4
         // When we are done and OK, we update the recipe that the form was called with.
         // Compare this with Cancel
         {
-            _originalRecipe.setCopyOf(_workRecipe);
+            _originalRecipe.SetCopyOf(_workRecipe);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

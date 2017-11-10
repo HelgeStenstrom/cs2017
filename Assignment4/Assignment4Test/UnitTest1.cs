@@ -148,7 +148,7 @@ namespace Assignment4Test
             recipe.Ingredients = ingreds;
 
             // verify
-            Assert.AreEqual(3, recipe.CurrentNumOfIngredients());
+            Assert.AreEqual(3, recipe.CurrentNumOfIngredients);
         }
 
         [TestMethod]
@@ -310,7 +310,7 @@ namespace Assignment4Test
             Recipe modified = new Recipe(3);
 
             // Exercise
-            modified.setCopyOf(original);
+            modified.SetCopyOf(original);
 
             // Verify
             Assert.AreNotSame(original, modified);
