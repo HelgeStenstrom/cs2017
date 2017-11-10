@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assignment4
+﻿namespace Assignment4
 {
     public class RecipeManager
     {
         // Instance variables
-        private Recipe[] recipeList;
+        private Recipe[] _recipeList;
 
         public RecipeManager(int maxNumOfElements)
         {
-            recipeList = new Recipe[maxNumOfElements];
+            _recipeList = new Recipe[maxNumOfElements];
         }
 
         // Properties
-        public int NumOfItems { get => recipeList.Length;  }
+        public int NumOfItems { get => _recipeList.Length;  }
 
         // Public methods
         
@@ -35,7 +29,7 @@ namespace Assignment4
                 return false;
             else
             {
-                recipeList[firstSlot] = recipe;
+                _recipeList[firstSlot] = recipe;
                 return true;
             }
         }
@@ -73,16 +67,15 @@ namespace Assignment4
             int index = FindVacantPosition();
             if (index < 0)
                 return false;
-            else
+            Recipe recipe = new Recipe(ingredients.Length)
             {
-                Recipe recipe = new Recipe(ingredients.Length);
-                recipe.Name = name;
-                recipe.Ingredients = ingredients;
-                recipe.Category = category;
+                Name = name,
+                Ingredients = ingredients,
+                Category = category
+            };
 
-                recipeList[index] = recipe;
-                return true;
-            }            
+            _recipeList[index] = recipe;
+            return true;
         }
 
         /// <summary>
@@ -94,7 +87,7 @@ namespace Assignment4
         {
             if (!CheckIndex(index))
                 return new string[] { };
-            return recipeList[index].Ingredients;
+            return _recipeList[index].Ingredients;
         }
         
         /// <summary>
@@ -105,7 +98,7 @@ namespace Assignment4
         public Recipe GetRecipeAt(int index)
         {
             if (CheckIndex(index))
-                return recipeList[index];
+                return _recipeList[index];
             else
                 return null;
             // From "Clean Code" by Robert C Martin, page 110 (Chapter 7, Error handling)
@@ -137,7 +130,7 @@ namespace Assignment4
         {
             bool isValidIndex = CheckIndex(index);
             if (isValidIndex)
-                recipeList[index] = recipe;
+                _recipeList[index] = recipe;
             return isValidIndex;
         }
 
@@ -151,7 +144,7 @@ namespace Assignment4
             bool ok = CheckIndex(index);
             if (ok)
             {
-                recipeList[index] = null;
+                _recipeList[index] = null;
                 Repack();
             }                
             return ok;
@@ -164,9 +157,9 @@ namespace Assignment4
         public int GetCurrentNumOfRecipes()
         {
             int count = 0;
-            for (int i=0; i < recipeList.Length; i++)
+            foreach (Recipe recipe in _recipeList)
             {
-                if (recipeList[i] != null)
+                if (recipe != null)
                     count += 1;
             }
             return count;
@@ -181,7 +174,7 @@ namespace Assignment4
             string[] result = new string[GetCurrentNumOfRecipes()];
             for (int i = 0; i < result.Length; i++)
             {
-                Recipe r = recipeList[i];
+                Recipe r = _recipeList[i];
                 if (IsValidRecipe(r))
                 {
                     string s = r.ToString();
@@ -198,7 +191,7 @@ namespace Assignment4
         /// <returns></returns>
         private bool IsValidRecipe(Recipe r)
         {
-            return (!(r == null));
+            return (r != null);
         }
 
         // Private methods
@@ -206,9 +199,9 @@ namespace Assignment4
         private int FindVacantPosition()
         // Return the position of the first found vacant slot, or -1 if none found.
         {
-            for (int i = 0; i < recipeList.Length; i++)
+            for (int i = 0; i < _recipeList.Length; i++)
             {
-                if (recipeList[i] == null)
+                if (_recipeList[i] == null)
                     return i;
             }
             return -1;
@@ -217,7 +210,7 @@ namespace Assignment4
         private bool CheckIndex(int index)
             // Return True if the index is within the allocated range, False otherwise.
         {
-            return (index >= 0 && index < recipeList.Length);
+            return (index >= 0 && index < _recipeList.Length);
         }
 
         /// <summary>
@@ -225,18 +218,18 @@ namespace Assignment4
         /// </summary>
         private void Repack()
         {
-            Recipe[] updatedList = new Recipe[recipeList.Length];
-            for (int i = 0; i < recipeList.Length; i++)
+            Recipe[] updatedList = new Recipe[_recipeList.Length];
+            for (int i = 0; i < _recipeList.Length; i++)
                 updatedList[i] = null;
 
             int pos = 0;
-            foreach (Recipe recipe in recipeList)
+            foreach (Recipe recipe in _recipeList)
             {
                 if (recipe == null) continue;
                 updatedList[pos] = recipe;
                 pos++;
             }
-            recipeList = updatedList;
+            _recipeList = updatedList;
         }
     }
 }
