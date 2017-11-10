@@ -13,16 +13,17 @@ namespace Assignment4
 {
     public partial class FormIngredients : Form
     {
-        // This field is not private. Should it?
-        // The general recommendation is to have all fields private.
-        // The example in Assignment 4 Help, page 17 is non-private.
-        readonly Recipe _workRecipe;
-        private Recipe _originalRecipe;
+        // We have two recipes in this class. This is to enable canceling the edit. 
+        private readonly Recipe _workRecipe;
+        private readonly Recipe _originalRecipe;
 
-        // Properties
-        public ToolTip tooltip => toolTipIngredients;
 
+        /// <summary>
+        /// Form/window used to edit the list of ingredients in a recipe.
+        /// </summary>
+        /// <param name="recipe">The recipe that the form works on.</param>
         public FormIngredients(Recipe recipe)
+        // The constructor takes a recipe to work with as an argument.
         {
             InitializeComponent();
 
@@ -46,30 +47,40 @@ namespace Assignment4
                 Text = "No Recipe Name";
             else
                 Text = _workRecipe.Name + " Add ingredients";
-
             
             toolTipIngredients.SetToolTip(txtIngredient, "Example: 2 dl milk");
             UpdateGui();
         }
 
         private void UpdateGui()
+        // Updates all visible changeable parts of the GUI, with information from the working recipe.
         {
-
-            txtIngredient.Clear();
-            lblNumberIngred.Text = $"Number of ingredients: {_workRecipe.CurrentNumOfIngredients()}";
+            txtIngredient.Clear(); // We don't want to fill this from the working recipe
             lblNumberIngred.Text = $"Number of ingredients: {_workRecipe.CurrentNumOfIngredients()}";
 
+            // Clear the ingredients list and fill it from the recipe object.
             lstIngredients.Items.Clear();
-            lstIngredients.Items.AddRange(_workRecipe.Ingredients);
+            lstIngredients.Items.AddRange(_workRecipe.Ingredients); // This is risky. 
             txtIngredient.Focus();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
+        // When we are done and OK, we update the recipe that the form was called with.
+        // Compare this with Cancel
         {
             _originalRecipe.setCopyOf(_workRecipe);
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        // When we click Cancel, we will exit the form, but we don't want to  update the recipe that the 
+        // form was called with.
+        // Compare this with OK.
+        {
+            // Noting to do.
+        }
+        
         private void btnAdd_Click(object sender, EventArgs e)
+        // The ingredient that is in the entry text box is copied into the recipe.
         {
             string ingredient = txtIngredient.Text;
             _workRecipe.AddIngredient(ingredient);
@@ -77,6 +88,7 @@ namespace Assignment4
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
+        // The ingredient that is selected replaced with what is in the ingredient text box
         {
             int selected = lstIngredients.SelectedIndex;
             _workRecipe.Ingredients[selected] = txtIngredient.Text;
@@ -84,6 +96,7 @@ namespace Assignment4
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
+        // The ingredient that is selected is deleted from the recipe.
         {
             int selected = lstIngredients.SelectedIndex;
             _workRecipe.DeleteIngredientAt(selected);
@@ -91,6 +104,7 @@ namespace Assignment4
         }
 
         private void txtIngredient_KeyPress(object sender, KeyPressEventArgs e)
+        // When the Enter key is pressed, do the same thing as when the Add button is clicked.
         {
             if (e.KeyChar == '\r')
             {
@@ -100,9 +114,5 @@ namespace Assignment4
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            // Noting to do.
-        }
     }
 }

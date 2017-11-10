@@ -586,19 +586,6 @@ namespace Assignment4Test
             Assert.AreEqual("No Recipe Name", form.Text);
         }
 
-        [Ignore]
-        public void tooltip()
-        {
-            // Setup
-            Recipe r = new Recipe(0);
-            FormIngredients form = new FormIngredients(r);
-            // The tooltip is not public. How can it be tested?
-            Assert.IsNotNull(form.tooltip.ToString());
-            Assert.AreEqual("Example: 2 dl milk", form.tooltip.ToolTipTitle);
-            //Assert.Fail();
-        }
-
-
     }
 
     [TestClass]
