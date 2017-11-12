@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Assignment5
 {
@@ -58,9 +59,19 @@ namespace Assignment5
             _country = Countries.Sverige;
         }
 
+        public Address(Address theOther)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetCountryString()
+        {
+            return _country.ToString().Replace("_", " ");
+        }
+
         public override string ToString()
         {
-            throw new System.NotImplementedException();
+            return $"{GetCountryString()}";
         }
     }
 }

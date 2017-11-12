@@ -25,7 +25,7 @@ namespace Assignment5
 
         public override string ToString()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
