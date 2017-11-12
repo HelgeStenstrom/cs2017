@@ -1,12 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Windows.Forms;
 
 namespace Assignment5
 {
     public class Address
     {
+        private string _street;
+
+        public string Street
+        {
+            get => _street;
+            set => _street = value;
+        }
+
+        public string Zip
+        {
+            get => _zip;
+            set => _zip = value;
+        }
+
+        public string City
+        {
+            get => _city;
+            set => _city = value;
+        }
+
+        public Countries Country
+        {
+            get => _country;
+            set => _country = value;
+        }
+
+        private string _zip;
+        private string _city;
+        private Countries _country;
+        
+        public Address(string street, string zip, string city, Countries country)
+        {
+            _street = street;
+            _zip = zip;
+            _city = city;
+            _country = country;
+        }
+        
+        public Address(string street, string zip, string city):
+            this(street, zip, city, Countries.Sverige)
+        {
+        }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Address()
+        {
+            _street = string.Empty;
+            _zip = string.Empty;
+            _city = string.Empty;
+            _country = Countries.Sverige;
+        }
+
         public override string ToString()
         {
             throw new System.NotImplementedException();
