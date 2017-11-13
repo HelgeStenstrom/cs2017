@@ -81,7 +81,7 @@ namespace Assignment5
 
         public override string ToString()
         {
-            return $" {_street, -25} {_zip, -8} {_city, -10} {GetCountryString()}";
+            return $"{_street, -25} {_zip, -8} {_city, -10} {GetCountryString()}";
         }
     }
 }

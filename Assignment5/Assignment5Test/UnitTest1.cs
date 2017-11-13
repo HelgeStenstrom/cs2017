@@ -11,7 +11,15 @@ namespace Assignment5Test
         public void ToString_forDefaultConstructor()
         {
             Address address = new Address();
-            Assert.AreEqual("Sverige", address.ToString());
+            StringAssert.Contains(address.ToString(), "Sverige");
+            Assert.AreEqual($"{"Sverige", 53}", address.ToString());
+        }
+
+        [TestMethod]
+        public void ToString_allFields()
+        {
+            Address address = new Address("street", "zip", "city", Countries.Sverige);
+            Assert.AreEqual($"{"street", -25} {"zip", -8} {"city", -10} {"Sverige"}", address.ToString());
         }
 
         [TestMethod]
