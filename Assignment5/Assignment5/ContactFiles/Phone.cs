@@ -2,10 +2,6 @@
 {
     public class Phone
     {
-        private string _home;
-        private string _other;
-        private string _work;
-
         public Phone()
         {
             throw new System.NotImplementedException();
@@ -16,29 +12,11 @@
             throw new System.NotImplementedException();
         }
 
-        public string Home
-        {
-            get => _home;
-            set
-            {
-            }
-        }
+        public string Home { get; set; }
 
-        public string Other
-        {
-            get => _other;
-            set
-            {
-            }
-        }
+        public string Other { get; set; }
 
-        public string Work
-        {
-            get => _work;
-            set
-            {
-            }
-        }
+        public string Work { get; set; }
 
         public override string ToString()
         {

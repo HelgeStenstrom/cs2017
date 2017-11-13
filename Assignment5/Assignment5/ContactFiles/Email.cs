@@ -3,9 +3,7 @@ namespace Assignment5.ContactFiles
 	public class Email
 	{
 		//private email
-		private string _personal;
 		//work mail
-		private string _work;
 
 		/// <summary>
 		/// Default constructor - calls another constructor in this class
@@ -35,8 +33,8 @@ namespace Assignment5.ContactFiles
 		/// <remarks></remarks>
 		public Email(string workMail, string personalMail)
 		{
-			_work = workMail;
-			_personal = personalMail;
+			Work = workMail;
+			Personal = personalMail;
 		}
 
 		/// <summary>
@@ -49,8 +47,8 @@ namespace Assignment5.ContactFiles
 		public string Personal
 		{
 			//private mail
-			get { return _personal; }
-			set { _personal = value; }
+			get;
+			set;
 		}
 
 		/// <summary>
@@ -60,11 +58,7 @@ namespace Assignment5.ContactFiles
 		/// <value></value>
 		/// <returns></returns>
 		/// <remarks></remarks>
-		public string Work
-		{
-			get { return _work; }
-			set { _work = value; }
-		}
+		public string Work { get; set; }
 
 		/// <summary>
 		/// This method prepares a format string that is in sync with the ToString
@@ -77,7 +71,7 @@ namespace Assignment5.ContactFiles
 		/// <remarks></remarks>
 		public string GetToStringItemsHeadings
 		{
-			get { return string.Format("{0,-20} {1, -20}", "Office Email", "Private Email"); }
+			get { return $"{"Office Email",-20} {"Private Email",-20}"; }
 		}
 
 		/// <summary>
@@ -89,7 +83,7 @@ namespace Assignment5.ContactFiles
 		/// <remarks></remarks> 1
 		public override string ToString()
 		{
-			string strOut = string.Format("{0,-20} {1, -20}", _work, _personal);
+			var strOut = $"{Work,-20} {Personal,-20}";
 			return strOut;
 		}
 	}

@@ -4,42 +4,20 @@ namespace Assignment5.ContactFiles
 {
     public class Address
     {
-        private string _street;
+        public string Street { get; set; }
 
-        public string Street
-        {
-            get => _street;
-            set => _street = value;
-        }
+        public string Zip { get; set; }
 
-        public string Zip
-        {
-            get => _zip;
-            set => _zip = value;
-        }
+        public string City { get; set; }
 
-        public string City
-        {
-            get => _city;
-            set => _city = value;
-        }
+        public Countries Country { get; set; }
 
-        public Countries Country
-        {
-            get => _country;
-            set => _country = value;
-        }
-
-        private string _zip;
-        private string _city;
-        private Countries _country;
-        
         public Address(string street, string zip, string city, Countries country)
         {
-            _street = street;
-            _zip = zip;
-            _city = city;
-            _country = country;
+            Street = street;
+            Zip = zip;
+            City = city;
+            Country = country;
         }
         
         public Address(string street, string zip, string city):
@@ -52,10 +30,10 @@ namespace Assignment5.ContactFiles
         /// </summary>
         public Address()
         {
-            _street = string.Empty;
-            _zip = string.Empty;
-            _city = string.Empty;
-            _country = Countries.Sverige;
+            Street = string.Empty;
+            Zip = string.Empty;
+            City = string.Empty;
+            Country = Countries.Sverige;
         }
 
         public Address(Address theOther)
@@ -65,7 +43,7 @@ namespace Assignment5.ContactFiles
 
         public string GetCountryString()
         {
-            return _country.ToString().Replace("_", " ");
+            return Country.ToString().Replace("_", " ");
         }
 
         public string GetAddressLabel()
@@ -80,7 +58,7 @@ namespace Assignment5.ContactFiles
 
         public override string ToString()
         {
-            return $"{_street, -25} {_zip, -8} {_city, -10} {GetCountryString()}";
+            return $"{Street, -25} {Zip, -8} {City, -10} {GetCountryString()}";
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CustomerRegistry
+﻿namespace Assignment5
 {
     partial class ContactForm
     {
