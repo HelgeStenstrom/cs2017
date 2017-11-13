@@ -2,30 +2,36 @@
 {
     public class Phone
     {
+        #region Properties
+        public string Home { get; set; }
+        public string Other { get; set; }
+        public string Work { get; set; }
+        #endregion
+
+        #region Constructors
         public Phone()
         {
-            throw new System.NotImplementedException();
+            DefaultValues();
         }
 
         public Phone(string homePhone, string workPhone)
         {
-            throw new System.NotImplementedException();
+            Home = homePhone;
+            Work = workPhone;
+            Other = string.Empty;
         }
-
-        public string Home { get; set; }
-
-        public string Other { get; set; }
-
-        public string Work { get; set; }
+        #endregion
 
         public override string ToString()
         {
-            throw new System.NotImplementedException();
+            return $"Phones: Home: {Home}, Work: {Work}, Other: {Other}";
         }
 
         public void DefaultValues()
         {
-            throw new System.NotImplementedException();
+            Home = string.Empty;
+            Other = string.Empty;
+            Work = string.Empty;
         }
     }
 }

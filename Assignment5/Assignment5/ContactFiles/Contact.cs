@@ -4,21 +4,15 @@ namespace Assignment5.ContactFiles
 {
     public class Contact
     {
-        public int FullName
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
+        #region Properties
+        public Address Address { get; set; }
+        public Email Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Phone Phone { get; set; }
+        public string FullName => $"put full name here";
+        #endregion
 
-        public int FullMailAddress
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
 
         public override string ToString()
         {
