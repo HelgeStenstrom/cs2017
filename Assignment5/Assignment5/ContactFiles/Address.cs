@@ -69,9 +69,19 @@ namespace Assignment5
             return _country.ToString().Replace("_", " ");
         }
 
+        public string GetAddressLabel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Validate()
+        {
+            throw new NotImplementedException();
+        }
+
         public override string ToString()
         {
-            return $"{GetCountryString()}";
+            return $" {_street, -25} {_zip, -8} {_city, -10} {GetCountryString()}";
         }
     }
 }
