@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assignment5.Properties
+namespace CustomerRegistry.Properties
 {
 
 

@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="Assignment5.Contact" Collapsed="true">
+  <Class Name="CustomerRegistry.ContactFiles.Contact" Collapsed="true">
     <Position X="2.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>ContactFiles\Contact.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Assignment5.Address">
+  <Class Name="CustomerRegistry.ContactFiles.Address">
     <Position X="0.5" Y="2" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAMAEAACAAAAAIAAAAAAAIAACACAAA=</HashCode>
+      <HashCode>AAAAAAAAAACgAAAMAEAACAAAAAIAAAAAAAMAASACAAA=</HashCode>
       <FileName>ContactFiles\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CustomerRegistry.ContactFiles.Email" Collapsed="true">
-    <Position X="5.25" Y="2.5" Width="1.5" />
+  <Class Name="CustomerRegistry.ContactFiles.Email">
+    <Position X="5.25" Y="2.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AJgAAAAAAAEAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
       <FileName>ContactFiles\Email.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Assignment5.Phone" Collapsed="true">
+  <Class Name="CustomerRegistry.ContactFiles.Phone" Collapsed="true">
     <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ContactFiles\Phone.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Assignment5.ContactForm" Collapsed="true">
+  <Class Name="CustomerRegistry.ContactForm" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAACAAAAAQAACAAAACAAAIAAAAEAAAAAAAAAA=</HashCode>
       <FileName>ContactForm.cs</FileName>
     </TypeIdentifier>
   </Class>

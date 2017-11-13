@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Assignment5
+namespace CustomerRegistry.ContactFiles
 {
     public class Address
     {

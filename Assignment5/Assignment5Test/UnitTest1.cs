@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Assignment5;
+using CustomerRegistry.ContactFiles;
 
 namespace Assignment5Test
 {
@@ -28,7 +28,15 @@ namespace Assignment5Test
             Address address = new Address("", "", "", Countries.United_States_of_America);
             StringAssert.Contains(address.ToString(), "United States of America");
         }
+    }
 
-
+    [TestClass]
+    public class EmailTests
+    {
+        [TestMethod]
+        public void createEmail()
+        {
+            Email email = new Email();
+        }
     }
 }

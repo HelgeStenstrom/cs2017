@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment5", "Assignment5\Assignment5.csproj", "{1921A407-E4E4-45ED-AB74-A9ED077DA26C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerRegistry", "Assignment5\CustomerRegistry.csproj", "{1921A407-E4E4-45ED-AB74-A9ED077DA26C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment5Test", "Assignment5Test\Assignment5Test.csproj", "{C7E92EC8-D13F-40BD-82F1-0F2D671C7D1A}"
 EndProject

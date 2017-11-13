@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Assignment5
+namespace CustomerRegistry
 {
     public partial class ContactForm : Form
     {
