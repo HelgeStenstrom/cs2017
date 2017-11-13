@@ -36,7 +36,22 @@ namespace Assignment5Test
         [TestMethod]
         public void createEmail()
         {
-            Email email = new Email();
+            Email email = new Email();            
         }
+
+        [TestMethod]
+        public void createEmail_workMail()
+        {
+            Email email = new Email("me@work.se");
+        }
+
+        [TestMethod]
+        public void createEmail_work_homeMail()
+        {
+            Email email = new Email("me@work.se", "me@home.se");
+            Assert.AreEqual("me@work.se           me@home.se          ", email.ToString());
+        }
+
+
     }
 }
