@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Assignment5.ContactFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CustomerRegistry.ContactFiles;
 
 namespace Assignment5Test
 {
