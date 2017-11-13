@@ -17,21 +17,21 @@
   <Class Name="CustomerRegistry.ContactFiles.Email">
     <Position X="5.25" Y="2.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AJgAAAAAAAEAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAgAAAAAAAEAAAAEAAAAAAAAAAAABAAAAAAAAAAAgAA=</HashCode>
       <FileName>ContactFiles\Email.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CustomerRegistry.ContactFiles.Phone" Collapsed="true">
-    <Position X="5.25" Y="1.5" Width="1.5" />
+  <Class Name="CustomerRegistry.ContactFiles.Phone">
+    <Position X="5.5" Y="0.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>JAgAIAAAAAAAAAAEAAAAAAIAAAQAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>ContactFiles\Phone.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CustomerRegistry.ContactForm" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAACAAAAAQAACAAAACAAAIAAAAEAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAACAAAAAaAACAAAACAAAIAAAAEAAAAAAAAAA=</HashCode>
       <FileName>ContactForm.cs</FileName>
     </TypeIdentifier>
   </Class>

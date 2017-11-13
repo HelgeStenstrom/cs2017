@@ -8,9 +8,9 @@ namespace CustomerRegistry.ContactFiles
 	public class Email
 	{
 		//private email
-		private string m_personal;
+		private string _personal;
 		//work mail
-		private string m_work;
+		private string _work;
 
 		/// <summary>
 		/// Default constructor - calls another constructor in this class
@@ -40,8 +40,8 @@ namespace CustomerRegistry.ContactFiles
 		/// <remarks></remarks>
 		public Email(string workMail, string personalMail)
 		{
-			m_work = workMail;
-			m_personal = personalMail;
+			_work = workMail;
+			_personal = personalMail;
 		}
 
 		/// <summary>
@@ -54,8 +54,8 @@ namespace CustomerRegistry.ContactFiles
 		public string Personal
 		{
 			//private mail
-			get { return m_personal; }
-			set { m_personal = value; }
+			get { return _personal; }
+			set { _personal = value; }
 		}
 
 		/// <summary>
@@ -67,8 +67,8 @@ namespace CustomerRegistry.ContactFiles
 		/// <remarks></remarks>
 		public string Work
 		{
-			get { return m_work; }
-			set { m_work = value; }
+			get { return _work; }
+			set { _work = value; }
 		}
 
 		/// <summary>
@@ -94,7 +94,7 @@ namespace CustomerRegistry.ContactFiles
 		/// <remarks></remarks> 1
 		public override string ToString()
 		{
-			string strOut = string.Format("{0,-20} {1, -20}", m_work, m_personal);
+			string strOut = string.Format("{0,-20} {1, -20}", _work, _personal);
 			return strOut;
 		}
 	}
