@@ -11,6 +11,7 @@ namespace Assignment5.ContactFiles
 		/// <remarks></remarks>
 		public Email()
 		{
+			// TODO: make call to other constructor
 		}
 
 		/// <summary>
@@ -21,11 +22,12 @@ namespace Assignment5.ContactFiles
 		/// <remarks></remarks>
 		public Email(string workMail) : this(workMail, string.Empty)
 		{
+			// TODO: call constructor
 		}
 
 		/// <summary>
 		/// Constructor with two parameters. This is  constructor that has most
-		/// number of parameters. It is in tis constructor that all coding
+		/// number of parameters. It is in this constructor that all coding
 		/// should be done.
 		/// </summary>
 		/// <param name="workMail">Input - office mail</param>
