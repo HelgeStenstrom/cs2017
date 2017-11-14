@@ -1,28 +1,4 @@
-<<<<<<< HEAD
-﻿using System;
-
-namespace Assignment5.ContactFiles
-{
-    public class Contact
-    {
-        #region Properties
-        public Address Address { get; set; }
-        public Email Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Phone Phone { get; set; }
-        public string FullName => $"{FirstName} {LastName}";
-        public string RevFullName => $"{LastName}, {FirstName}";
-        #endregion
-
-
-        public override string ToString()
-        {
-            throw new NotImplementedException();
-        }
-    }
-=======
-﻿using System;
+using System;
 
 namespace Assignment5.ContactFiles
 {
@@ -51,15 +27,13 @@ namespace Assignment5.ContactFiles
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Phone Phone { get; set; }
-        public string FullName => $"put full name here";
+        public string FullName => $"{FirstName} {LastName}";
+        public string RevFullName => $"{LastName}, {FirstName}";
         #endregion
-
-
-        
+      
         public override string ToString()
         {
             throw new NotImplementedException();
         }
     }
->>>>>>> b890780644b94e77aff1c245edbb2c320b59c14c
 }
