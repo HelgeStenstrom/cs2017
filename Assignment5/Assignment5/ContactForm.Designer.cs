@@ -93,7 +93,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "ContactForm";
-            this.Text = "Form1";
+            this.Text = "Add New Customer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
