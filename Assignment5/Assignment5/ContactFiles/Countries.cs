@@ -1,4 +1,7 @@
-﻿namespace Assignment5.ContactFiles
+﻿// Helge Stenström
+// ah7875
+
+namespace Assignment5.ContactFiles
 {
 	/// <summary>
 	///The countries of the world.

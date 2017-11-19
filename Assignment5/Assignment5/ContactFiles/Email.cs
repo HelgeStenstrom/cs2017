@@ -1,3 +1,6 @@
+// Helge Stenström
+// ah7875
+
 namespace Assignment5.ContactFiles
 {
 	public class Email

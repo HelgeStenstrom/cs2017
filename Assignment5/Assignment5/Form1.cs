@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Helge Stenström
+// ah7875
+
+using System;
 using System.Windows.Forms;
 
 namespace Assignment5
@@ -25,6 +21,9 @@ namespace Assignment5
 
         private void InitializeListView()
         {
+            // Läsvärt:
+            // http://www.c-sharpcorner.com/uploadfile/nipuntomar/sort-a-multicolumn-listview-in-c-sharp/
+
             listView1.Items.Clear();
 
             ListViewItem item1 = new ListViewItem(new string [] { "100", "Nisse", "gatan 2"});

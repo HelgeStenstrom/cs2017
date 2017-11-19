@@ -1,3 +1,6 @@
+// Helge Stenström
+// ah7875
+
 using System;
 
 namespace Assignment5.ContactFiles
@@ -37,15 +40,18 @@ namespace Assignment5.ContactFiles
 
         public bool CheckData()
         {
-            return IsValid();
+            return IsValid;
         }
 
-        public bool IsValid()
+        public bool IsValid
         {
-            bool hasName = !(string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName));
-            bool hasCity = !(string.IsNullOrWhiteSpace(Address.City));
-            bool hasCountry = Address.Country != Countries.Invalid_Country;
-            return (hasName && hasCity && hasCountry);
+            get
+            {
+                bool hasName = !(string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName));
+                bool hasCity = !(string.IsNullOrWhiteSpace(Address.City));
+                bool hasCountry = Address.Country != Countries.Invalid_Country;
+                return (hasName && hasCity && hasCountry);
+            }
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using Assignment5.ContactFiles;
+﻿// Helge Stenström
+// ah7875
+
+using Assignment5.ContactFiles;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -104,7 +107,7 @@ namespace Assignment5Test
         public void TestValidContact()
         {
             var c = ValidContact();
-            Assert.IsTrue(c.IsValid());
+            Assert.IsTrue(c.IsValid);
         }
 
         [TestMethod]
@@ -113,7 +116,7 @@ namespace Assignment5Test
             var c = ValidContact();
             c.FirstName = "";
             c.LastName = "";
-            Assert.IsFalse(c.IsValid());
+            Assert.IsFalse(c.IsValid);
         }
 
         [TestMethod]
@@ -121,7 +124,7 @@ namespace Assignment5Test
         {
             var c = ValidContact();
             c.Address.City = "";
-            Assert.IsFalse(c.IsValid());
+            Assert.IsFalse(c.IsValid);
         }
 
         [TestMethod]
@@ -129,7 +132,7 @@ namespace Assignment5Test
         {
             var c = ValidContact();
             c.Address.Country = Countries.Invalid_Country;
-            Assert.IsFalse(c.IsValid());
+            Assert.IsFalse(c.IsValid);
         }
 
 
