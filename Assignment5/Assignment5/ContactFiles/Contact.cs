@@ -11,7 +11,7 @@ namespace Assignment5.ContactFiles
             Email = email ?? throw new ArgumentNullException(nameof(email));
             FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
-            Phone = phone ?? throw new ArgumentNullException(nameof(phone));
+            Phone = phone ?? throw new ArgumentNullException(nameof(phone));          
         }
 
         public Contact()

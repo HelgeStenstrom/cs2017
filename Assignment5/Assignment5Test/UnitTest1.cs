@@ -53,4 +53,20 @@ namespace Assignment5Test
 
 
     }
+
+
+    [TestClass]
+    public class IdFactoryTests
+    {
+        [TestMethod]
+        public void idsAreConsecutive()
+        {
+            IdFactory IdFactory = new IdFactory();
+            Assert.AreEqual(100, IdFactory.getNextID());
+            Assert.AreEqual(101, IdFactory.getNextID());
+            Assert.AreEqual(102, IdFactory.getNextID());
+        }
+
+        
+    }
 }
