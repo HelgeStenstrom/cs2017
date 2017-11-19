@@ -1,4 +1,5 @@
 ﻿using Assignment5.ContactFiles;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Assignment5Test
@@ -26,6 +27,16 @@ namespace Assignment5Test
         {
             var address = new Address("", "", "", Countries.United_States_of_America);
             StringAssert.Contains(address.ToString(), "United States of America");
+        }
+
+        [TestMethod]
+        public void constructWith3arguments()
+        {
+            var address = new Address("street", "zip", "city");
+            Assert.AreEqual("street", address.Street);
+            Assert.AreEqual("zip", address.Zip);
+            Assert.AreEqual("city", address.City);
+            Assert.AreEqual(Countries.Sverige, address.Country);
         }
     }
 
@@ -68,5 +79,61 @@ namespace Assignment5Test
         }
 
         
+    }
+
+    [TestClass]
+    public class ContactTests
+    {
+        Contact ValidContact()
+        {
+            Contact c = new Contact("first", "last", 
+                new Address("", "", "city", Countries.Andorra),
+                new Phone(),
+                new Email());
+            return c;
+        }
+
+        [TestMethod]
+        public void createAContact()
+        {
+            Contact c = new Contact();
+            Assert.AreEqual("", c.LastName);
+        }
+
+        [TestMethod]
+        public void TestValidContact()
+        {
+            var c = ValidContact();
+            Assert.IsTrue(c.IsValid());
+        }
+
+        [TestMethod]
+        public void NotValidWhen_NameMissing()
+        {
+            var c = ValidContact();
+            c.FirstName = "";
+            c.LastName = "";
+            Assert.IsFalse(c.IsValid());
+        }
+
+        [TestMethod]
+        public void NotValidWhen_CityMissing()
+        {
+            var c = ValidContact();
+            c.Address.City = "";
+            Assert.IsFalse(c.IsValid());
+        }
+
+        [TestMethod]
+        public void NotValidWhen_CountryMissing()
+        {
+            var c = ValidContact();
+            c.Address.Country = Countries.Invalid_Country;
+            Assert.IsFalse(c.IsValid());
+        }
+
+
+
+
     }
 }

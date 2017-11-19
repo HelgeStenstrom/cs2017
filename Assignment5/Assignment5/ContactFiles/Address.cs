@@ -5,11 +5,8 @@ namespace Assignment5.ContactFiles
     public class Address
     {
         public string Street { get; set; }
-
         public string Zip { get; set; }
-
         public string City { get; set; }
-
         public Countries Country { get; set; }
 
         public Address(string street, string zip, string city, Countries country)
@@ -28,12 +25,9 @@ namespace Assignment5.ContactFiles
         /// <summary>
         /// Default constructor
         /// </summary>
-        public Address()
+        public Address():
+            this(string.Empty, string.Empty, string.Empty, Countries.Sverige)
         {
-            Street = string.Empty;
-            Zip = string.Empty;
-            City = string.Empty;
-            Country = Countries.Sverige;
         }
 
         public Address(Address theOther)

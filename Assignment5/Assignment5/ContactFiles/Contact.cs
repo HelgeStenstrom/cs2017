@@ -14,10 +14,9 @@ namespace Assignment5.ContactFiles
             Phone = phone ?? throw new ArgumentNullException(nameof(phone));          
         }
 
-        public Contact()
+        public Contact() :
+            this(string.Empty, string.Empty, new Address(), new Phone(), new Email())
         {
-            // TODO: Testa att denna constructor ger en Contact med efternamnet "efternamn".
-            new Contact(string.Empty, "efternamn", new Address(), new Phone(), new Email());
         }
         #endregion
         
@@ -34,6 +33,19 @@ namespace Assignment5.ContactFiles
         public override string ToString()
         {
             throw new NotImplementedException();
+        }
+
+        public bool CheckData()
+        {
+            return IsValid();
+        }
+
+        public bool IsValid()
+        {
+            bool hasName = !(string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName));
+            bool hasCity = !(string.IsNullOrWhiteSpace(Address.City));
+            bool hasCountry = Address.Country != Countries.Invalid_Country;
+            return (hasName && hasCity && hasCountry);
         }
     }
 }

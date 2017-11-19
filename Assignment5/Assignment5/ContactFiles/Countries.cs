@@ -6,6 +6,7 @@
 
 	public enum Countries
 	{
+        Invalid_Country,
 		Afghanistan,
 		Algeria,
 		Andorra,
