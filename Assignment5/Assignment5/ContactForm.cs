@@ -11,12 +11,13 @@ namespace Assignment5
     public partial class ContactForm : Form
     {
         private readonly Contact _workContact;
-        private readonly Contact _originalContact;
+        private  Contact _originalContact;
 
         public ContactForm()
         {
             InitializeComponent();
             _workContact = new Contact();
+            _originalContact = _workContact;
             InitializeGui();
             UpdateGuiFromContact();
         }
@@ -47,6 +48,7 @@ namespace Assignment5
             txtEmailBusiness.Text = _workContact.Email.Work;
             txtEmailPrivate.Text = _workContact.Email.Personal;
             txtStreet.Text = _workContact.Address.Street;
+            txtCity.Text = _workContact.Address.City;
             txtZip.Text = _workContact.Address.Zip;
             cbxCountry.SelectedItem = _workContact.Address.Country;           
         }
@@ -60,7 +62,8 @@ namespace Assignment5
             _workContact.Email.Work = txtEmailBusiness.Text;
             _workContact.Email.Personal = txtEmailPrivate.Text;
             _workContact.Address.Street = txtStreet.Text;
-            _workContact.Address.Zip = txtStreet.Text;
+            _workContact.Address.City = txtCity.Text;
+            _workContact.Address.Zip = txtZip.Text;
             _workContact.Address.Country = (Countries) cbxCountry.SelectedIndex;
         }
 
@@ -71,6 +74,11 @@ namespace Assignment5
             DialogResult result = MessageBox.Show(_workContact.ToString(), 
                 "Check your contact",
                 buttons);
+
+            if (result == DialogResult.OK)
+            {
+                _originalContact = _workContact;
+            }
             throw new NotImplementedException();
         }
 

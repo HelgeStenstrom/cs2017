@@ -46,7 +46,6 @@ namespace Assignment5.ContactFiles
         public override string ToString()
         {
             return $"{FullName} {Address} {Phone} {Email}";
-            throw new NotImplementedException();
         }
 
         public bool CheckData()

@@ -10,7 +10,9 @@ namespace Assignment5.ContactFiles
     public class Address
     {
         public string Street { get; set; }
-        public string Zip { get; set; }
+        public string Zip {
+            get;
+            set; }
         public string City { get; set; }
         public Countries Country { get; set; }
 
@@ -23,7 +25,7 @@ namespace Assignment5.ContactFiles
         }
         
         public Address(string street, string zip, string city):
-            this(street, zip, city, Countries.Sverige)
+                         this(street,        zip,        city, Countries.Sverige)
         {
         }
 
@@ -72,7 +74,7 @@ namespace Assignment5.ContactFiles
 
         public override string ToString()
         {
-            return $"{Street, -25} {Zip, -8} {City, -10} {GetCountryString()}";
+            return $"{Street, -25} {Zip, -8} {City, -10} {GetCountryString(), -20}";
         }
     }
 }
