@@ -1,4 +1,4 @@
-// Helge Stenström
+// Helge Stenström 2017
 // ah7875
 
 using System;
@@ -15,6 +15,16 @@ namespace Assignment5.ContactFiles
             FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             Phone = phone ?? throw new ArgumentNullException(nameof(phone));          
+        }
+
+        internal Contact DeepClone()
+        {
+            Contact c = new Contact(this.FirstName,
+                this.LastName,
+                new Address(this.Address),
+                new Phone(this.Phone),
+                new Email(this.Email));
+            return c;
         }
 
         public Contact() :

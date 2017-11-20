@@ -1,4 +1,6 @@
-﻿namespace Assignment5
+﻿using System.Windows.Forms;
+
+namespace Assignment5
 {
     partial class ContactForm
     {
@@ -77,7 +79,6 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(280, 20);
             this.txtLastName.TabIndex = 3;
-            this.txtLastName.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtFirstName
             // 
@@ -339,6 +340,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+
+        public TextBox TxtLastName { get => txtLastName; set => txtLastName = value; }
     }
 }
 

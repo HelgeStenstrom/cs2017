@@ -7,7 +7,6 @@ namespace Assignment5.ContactFiles
     {
         #region Properties
         public string Home { get; set; }
-        public string Other { get; set; }
         public string Work { get; set; }
         #endregion
 
@@ -17,23 +16,27 @@ namespace Assignment5.ContactFiles
             DefaultValues();
         }
 
+        public Phone(Phone theOther)
+        {
+            Home = theOther.Home;
+            Work = theOther.Work;
+        }
+
         public Phone(string homePhone, string workPhone)
         {
             Home = homePhone;
             Work = workPhone;
-            Other = string.Empty;
         }
         #endregion
 
         public override string ToString()
         {
-            return $"Phones: Home: {Home}, Work: {Work}, Other: {Other}";
+            return $"Phones: Home: {Home}, Work: {Work}";
         }
 
         public void DefaultValues()
         {
             Home = string.Empty;
-            Other = string.Empty;
             Work = string.Empty;
         }
     }

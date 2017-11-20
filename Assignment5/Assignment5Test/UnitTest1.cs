@@ -2,7 +2,7 @@
 // ah7875
 
 using Assignment5.ContactFiles;
-
+using Assignment5;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Assignment5Test
@@ -138,5 +138,21 @@ namespace Assignment5Test
 
 
 
+    }
+
+    [TestClass]
+    public class ContactFormTests
+    {
+        [TestMethod]
+        public void CreateForm()
+        {
+            Contact c = new Contact("First", "Last", 
+                new Address("Gatan", "zip", "Staden", Countries.Andorra),
+                new Phone("home", "work"), 
+                new Email("e-work", "e-pers"));
+
+            ContactForm contactForm = new ContactForm(c);
+            Assert.AreEqual("Last", contactForm.TxtLastName.Text);
+        }
     }
 }

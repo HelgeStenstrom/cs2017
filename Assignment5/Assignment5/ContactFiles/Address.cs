@@ -1,4 +1,4 @@
-﻿// Helge Stenström
+﻿// Helge Stenström 2017
 // ah7875
 
 using System;
@@ -35,7 +35,10 @@ namespace Assignment5.ContactFiles
 
         public Address(Address theOther)
         {
-            throw new NotImplementedException();
+            Street = theOther.Street;
+            Zip = theOther.Zip;
+            City = theOther.City;
+            Country = theOther.Country;
         }
 
         public string GetCountryString()

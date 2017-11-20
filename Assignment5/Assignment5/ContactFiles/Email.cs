@@ -1,31 +1,36 @@
-// Helge Stenström
+// Helge Stenström 2017
 // ah7875
 
 namespace Assignment5.ContactFiles
 {
 	public class Email
 	{
-		//private email
-		//work mail
+        //private email
+        //work mail
 
-		/// <summary>
-		/// Default constructor - calls another constructor in this class
-		/// </summary>
-		/// <remarks></remarks>
-		public Email()
+        /// <summary>
+        /// Default constructor - calls another constructor in this class
+        /// </summary>
+        /// <remarks></remarks>
+        public Email() : this(string.Empty)
 		{
-			// TODO: make call to other constructor
 		}
 
-		/// <summary>
-		/// Constructor with one parameter - calls the constructor with
-		/// two parameters, using a default value as the second argument.
-		/// </summary>
-		/// <param name="workMail">input coming from the client object</param>
-		/// <remarks></remarks>
-		public Email(string workMail) : this(workMail, string.Empty)
+        public Email(Email theOther)
+        {
+            this.Personal = theOther.Personal;
+            this.Work = theOther.Work;
+        }
+
+
+    /// <summary>
+    /// Constructor with one parameter - calls the constructor with
+    /// two parameters, using a default value as the second argument.
+    /// </summary>
+    /// <param name="workMail">input coming from the client object</param>
+    /// <remarks></remarks>
+        public Email(string workMail) : this(workMail, string.Empty)
 		{
-			// TODO: call constructor
 		}
 
 		/// <summary>
