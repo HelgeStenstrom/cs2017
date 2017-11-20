@@ -20,5 +20,15 @@ namespace Assignment5
         {
 
         }
+
+        private void btnOK_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
