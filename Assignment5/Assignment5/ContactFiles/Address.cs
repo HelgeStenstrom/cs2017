@@ -2,6 +2,8 @@
 // ah7875
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Assignment5.ContactFiles
 {
@@ -45,6 +47,18 @@ namespace Assignment5.ContactFiles
         {
             return Country.ToString().Replace("_", " ");
         }
+
+
+        public static List<string> GetAllCountryStrings()
+        {
+            List<string> countries = new List<string>();
+            foreach (string country in Enum.GetNames(typeof(Countries)))
+            {
+                countries.Add(country.Replace("_", " "));
+            }
+            return countries;
+        }
+
 
         public string GetAddressLabel()
         {

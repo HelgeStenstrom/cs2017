@@ -1,4 +1,4 @@
-﻿// Helge Stenström
+﻿// Helge Stenström 2017
 // ah7875
 
 using System;

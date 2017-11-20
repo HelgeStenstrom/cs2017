@@ -78,14 +78,14 @@ namespace Assignment5
             this.txtLastName.Location = new System.Drawing.Point(92, 42);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(280, 20);
-            this.txtLastName.TabIndex = 3;
+            this.txtLastName.TabIndex = 1;
             // 
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(92, 17);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(280, 20);
-            this.txtFirstName.TabIndex = 2;
+            this.txtFirstName.TabIndex = 0;
             // 
             // label2
             // 
@@ -127,14 +127,14 @@ namespace Assignment5
             this.txtEmailPrivate.Location = new System.Drawing.Point(92, 112);
             this.txtEmailPrivate.Name = "txtEmailPrivate";
             this.txtEmailPrivate.Size = new System.Drawing.Size(280, 20);
-            this.txtEmailPrivate.TabIndex = 3;
+            this.txtEmailPrivate.TabIndex = 5;
             // 
             // txtEmailBusiness
             // 
             this.txtEmailBusiness.Location = new System.Drawing.Point(92, 78);
             this.txtEmailBusiness.Name = "txtEmailBusiness";
             this.txtEmailBusiness.Size = new System.Drawing.Size(280, 20);
-            this.txtEmailBusiness.TabIndex = 3;
+            this.txtEmailBusiness.TabIndex = 4;
             // 
             // txtPhoneCell
             // 
@@ -210,28 +210,28 @@ namespace Assignment5
             this.cbxCountry.Location = new System.Drawing.Point(92, 110);
             this.cbxCountry.Name = "cbxCountry";
             this.cbxCountry.Size = new System.Drawing.Size(280, 21);
-            this.cbxCountry.TabIndex = 4;
+            this.cbxCountry.TabIndex = 9;
             // 
             // txtZip
             // 
             this.txtZip.Location = new System.Drawing.Point(92, 78);
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(280, 20);
-            this.txtZip.TabIndex = 3;
+            this.txtZip.TabIndex = 8;
             // 
             // txtCity
             // 
             this.txtCity.Location = new System.Drawing.Point(92, 42);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(280, 20);
-            this.txtCity.TabIndex = 3;
+            this.txtCity.TabIndex = 7;
             // 
             // txtStreet
             // 
             this.txtStreet.Location = new System.Drawing.Point(92, 17);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(280, 20);
-            this.txtStreet.TabIndex = 2;
+            this.txtStreet.TabIndex = 6;
             // 
             // label7
             // 
@@ -275,7 +275,7 @@ namespace Assignment5
             this.btnOK.Location = new System.Drawing.Point(116, 418);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 3;
+            this.btnOK.TabIndex = 10;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);

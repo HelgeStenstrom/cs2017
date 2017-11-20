@@ -16,7 +16,9 @@ namespace Assignment5
         public ContactForm()
         {
             InitializeComponent();
+            _workContact = new Contact();
             InitializeGui();
+            UpdateGuiFromContact();
         }
 
         public ContactForm(Contact contact)
@@ -31,7 +33,9 @@ namespace Assignment5
 
         private void InitializeGui()
         {
-            cbxCountry.DataSource = Enum.GetValues(typeof(Countries));
+            //cbxCountry.DataSource = Enum.GetValues(typeof(Countries));
+            cbxCountry.DataSource = Address.GetAllCountryStrings();
+            
         }
 
         private void UpdateGuiFromContact()
@@ -44,13 +48,29 @@ namespace Assignment5
             txtEmailPrivate.Text = _workContact.Email.Personal;
             txtStreet.Text = _workContact.Address.Street;
             txtZip.Text = _workContact.Address.Zip;
-            cbxCountry.SelectedItem = _workContact.Address.Country;
-           
-            // throw new NotImplementedException();
+            cbxCountry.SelectedItem = _workContact.Address.Country;           
+        }
+
+        private void ReadContactFromGui()
+        {
+            _workContact.FirstName = txtFirstName.Text;
+            _workContact.LastName = txtLastName.Text;
+            _workContact.Phone.Home = txtPhoneHome.Text;
+            _workContact.Phone.Work = txtPhoneCell.Text;
+            _workContact.Email.Work = txtEmailBusiness.Text;
+            _workContact.Email.Personal = txtEmailPrivate.Text;
+            _workContact.Address.Street = txtStreet.Text;
+            _workContact.Address.Zip = txtStreet.Text;
+            _workContact.Address.Country = (Countries) cbxCountry.SelectedIndex;
         }
 
         private void btnOK_Click(object sender, System.EventArgs e)
         {
+            ReadContactFromGui();
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show(_workContact.ToString(), 
+                "Check your contact",
+                buttons);
             throw new NotImplementedException();
         }
 
