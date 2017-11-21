@@ -30,13 +30,25 @@ namespace Assignment5
             _originalContact = contact;
             InitializeGui();
             UpdateGuiFromContact();
+
         }
 
         private void InitializeGui()
         {
             //cbxCountry.DataSource = Enum.GetValues(typeof(Countries));
             cbxCountry.DataSource = Address.GetAllCountryStrings();
+
             
+        }
+
+        private void activateButtons()
+        {
+            if (_workContact.IsValid)
+            {
+                btnOK.Enabled = true;
+            }
+            else
+                btnOK.Enabled = false;
         }
 
         private void UpdateGuiFromContact()
@@ -50,7 +62,9 @@ namespace Assignment5
             txtStreet.Text = _workContact.Address.Street;
             txtCity.Text = _workContact.Address.City;
             txtZip.Text = _workContact.Address.Zip;
-            cbxCountry.SelectedItem = _workContact.Address.Country;           
+            cbxCountry.SelectedItem = _workContact.Address.Country;
+
+            activateButtons();
         }
 
         private void ReadContactFromGui()
@@ -85,6 +99,30 @@ namespace Assignment5
         private void btnCancel_Click(object sender, System.EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+            ReadContactFromGui();
+            UpdateGuiFromContact();
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            ReadContactFromGui();
+            UpdateGuiFromContact();
+        }
+
+        private void txtCity_TextChanged(object sender, EventArgs e)
+        {
+            ReadContactFromGui();
+            UpdateGuiFromContact();
+        }
+
+        private void cbxCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReadContactFromGui();
+            UpdateGuiFromContact();
         }
     }
 }
