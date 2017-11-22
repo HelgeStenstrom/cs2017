@@ -38,6 +38,7 @@
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnContactForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -109,17 +110,28 @@
             // 
             this.colAddress.Text = "Address";
             // 
-            // Form1
+            // btnContactForm
+            // 
+            this.btnContactForm.Location = new System.Drawing.Point(413, 268);
+            this.btnContactForm.Name = "btnContactForm";
+            this.btnContactForm.Size = new System.Drawing.Size(75, 23);
+            this.btnContactForm.TabIndex = 6;
+            this.btnContactForm.Text = "ContactForm";
+            this.btnContactForm.UseVisualStyleBackColor = true;
+            this.btnContactForm.Click += new System.EventHandler(this.btnContactForm_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 332);
+            this.Controls.Add(this.btnContactForm);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Customer registry";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colAddress;
+        private System.Windows.Forms.Button btnContactForm;
     }
 }

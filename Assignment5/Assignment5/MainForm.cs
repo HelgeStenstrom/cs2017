@@ -53,5 +53,11 @@ namespace Assignment5
         {
             InitializeGui();
         }
+
+        private void btnContactForm_Click(object sender, EventArgs e)
+        {
+            ContactForm dlg = new ContactForm();
+            DialogResult dialogResult = dlg.ShowDialog();
+        }
     }
 }

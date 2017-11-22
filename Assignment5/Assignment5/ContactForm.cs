@@ -93,12 +93,12 @@ namespace Assignment5
             {
                 _originalContact = _workContact;
             }
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         private void btnCancel_Click(object sender, System.EventArgs e)
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         private void txtFirstName_TextChanged(object sender, EventArgs e)
