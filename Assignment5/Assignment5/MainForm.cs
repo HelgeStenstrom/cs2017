@@ -3,6 +3,7 @@
 
 using System;
 using System.Windows.Forms;
+using Assignment5.ContactFiles;
 
 namespace Assignment5
 {
@@ -56,8 +57,18 @@ namespace Assignment5
 
         private void btnContactForm_Click(object sender, EventArgs e)
         {
-            ContactForm dlg = new ContactForm();
+            Contact aContact = new Contact();
+            ContactForm dlg = new ContactForm(aContact);
+            Contact b = dlg.WorkContact;
             DialogResult dialogResult = dlg.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                MessageBoxButtons okButton = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(dlg.WorkContact.ToString(),
+                    "Final result",
+                    okButton);
+            }
         }
     }
 }

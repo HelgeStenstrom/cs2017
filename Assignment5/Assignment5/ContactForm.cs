@@ -10,35 +10,63 @@ namespace Assignment5
 {
     public partial class ContactForm : Form
     {
-        private readonly Contact _workContact;
-        private  Contact _originalContact;
+        /// <summary>
+        /// The contact that the form methods work with.
+        /// </summary>
+        private Contact _workContact;
 
-        public ContactForm()
+        /// <summary>
+        /// The contact that the form class is created with, coming from the caller.
+        /// </summary>
+        private Contact _originalContact;
+
+        // Flag to handle the closing of the form
+        private bool _closeForm;
+
+        /// <summary>
+        /// The contact that the form methods work with. 
+        /// When the form exits with OK, it will contain data that is OK.
+        /// </summary>
+        public Contact WorkContact
         {
-            InitializeComponent();
-            _workContact = new Contact();
-            _originalContact = _workContact;
-            InitializeGui();
-            UpdateGuiFromContact();
+            get => _workContact;
+            set
+            {
+                if (value != null)
+                    _workContact = value;
+                else
+                    throw new Exception("You must not set contact as null!");
+                UpdateGuiFromContact();
+            }
         }
 
+        /// <summary>
+        /// Default constructor, will likely not be used.
+        /// </summary>
+        public ContactForm(): this(new Contact())
+        {
+        }
+
+        /// <summary>
+        /// Main constructor. to be called with an existing contact.
+        /// </summary>
+        /// <param name="contact"></param>
         public ContactForm(Contact contact)
         {
             InitializeComponent();
-
-            _workContact = contact.DeepClone();
+            
             _originalContact = contact;
-            InitializeGui();
-            UpdateGuiFromContact();
+            _workContact = new Contact();
 
+            InitializeGui();
+
+            UpdateGuiFromContact();
         }
 
         private void InitializeGui()
         {
-            //cbxCountry.DataSource = Enum.GetValues(typeof(Countries));
             cbxCountry.DataSource = Address.GetAllCountryStrings();
-
-            
+            _closeForm = true;
         }
 
         private void activateButtons()
@@ -92,13 +120,27 @@ namespace Assignment5
             if (result == DialogResult.OK)
             {
                 _originalContact = _workContact;
+                //_contact = new Contact();
+                _closeForm = true;
+                // throw new NotImplementedException();
             }
+            else
+                _closeForm = false;
             // throw new NotImplementedException();
         }
 
         private void btnCancel_Click(object sender, System.EventArgs e)
         {
-            // throw new NotImplementedException();
+            // Hjälpfilen, stycke 8.5
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Discard all data?",
+                "Think twice!", buttons);
+
+            if (result == DialogResult.Yes)
+                _closeForm = true;
+            else
+                _closeForm = false;
+//            throw new NotImplementedException();
         }
 
         private void txtFirstName_TextChanged(object sender, EventArgs e)
@@ -123,6 +165,14 @@ namespace Assignment5
         {
             ReadContactFromGui();
             UpdateGuiFromContact();
+        }
+
+        private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_closeForm)
+                e.Cancel = false; // Close this form
+            else
+                e.Cancel = true; // Do not close (user has chosen Cancel)
         }
     }
 }
