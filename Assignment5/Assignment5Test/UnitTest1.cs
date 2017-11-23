@@ -170,13 +170,142 @@ namespace Assignment5Test
     }
 
     [TestClass]
-    public class CustomManagerTests
+    public class CustomerManagerTests
     {
-        [TestMethod]
-        public void test1()
+        Contact contact;
+        Customer customer;
+        CustomerManager cm;
+
+        [TestInitialize]
+        public void setup()
         {
+            contact = new Contact("First", "Last",
+                new Address("Gatan", "123 45", "Sthlm"),
+                new Phone("08-10000", "010-10000"),
+                new Email("x@work.com","y@home.se"));
+
+            customer = new Customer(contact, 17);
+            cm = new CustomerManager();
+        }
+
+        [TestMethod]
+        public void Adding_a_customer_increases_length()
+        {
+            Assert.AreEqual(0, cm.Count);
+            cm.AddCustomer(customer);
+            Assert.AreEqual(1, cm.Count);
+        }
+
+        [TestMethod]
+        public void Add_contact()
+        {
+            cm.AddCustomer(contact);
+            Assert.AreEqual(100, cm.Customers[0].ID);
+            cm.AddCustomer(contact);
+            Assert.AreEqual(101, cm.Customers[1].ID);
+        }
+
+        [TestMethod]
+        public void get_a_customer()
+        {
+            // Setup
+            var cu1 = new Customer(new Contact(), 1);
+            var cu2 = new Customer(new Contact(), 2);
+            var cu3 = new Customer(new Contact(), 3);
+            cm.AddCustomer(cu1);
+            cm.AddCustomer(cu2);
+            cm.AddCustomer(cu3);
+
+            // Exercise and verify
+            Assert.AreSame(cu2, cm.GetCustomer(1));
+            Assert.AreSame(cu3, cm.GetCustomer(2));
+            Assert.AreSame(cu1, cm.GetCustomer(0));
+        }
+
+        [TestMethod]
+        public void delete_a_customer()
+        {
+            // Setup
+            var cu1 = new Customer(new Contact(), 1);
+            var cu2 = new Customer(new Contact(), 2);
+            var cu3 = new Customer(new Contact(), 3);
+            cm.AddCustomer(cu1);
+            cm.AddCustomer(cu2);
+            cm.AddCustomer(cu3);
+            // pre-check
+            Assert.AreEqual(3, cm.Count);
+
+            // Exercise
+            bool result = cm.DeleteCustomer(1);
+
+            // Verify
+            Assert.IsTrue(result);
+            Assert.AreEqual(2, cm.Count);
+            Assert.AreSame(cu1, cm.GetCustomer(0));
+            Assert.AreSame(cu3, cm.GetCustomer(1));
+        }
+
+        [TestMethod]
+        public void delete_fail_bad_index()
+        {
+            int numberOfCustomers = 5;
+            // Setup
+            for (int i = 0; i<numberOfCustomers; i++)
+               cm.AddCustomer(contact);
+            // pre-check
+            Assert.AreEqual(numberOfCustomers, cm.Count);
+            // Exercise
+            bool result = cm.DeleteCustomer(numberOfCustomers);
+
+            // Verify
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void replacing_a_customer()
+        {
+            // Setup
+            var cu1 = new Customer(new Contact(), 1);
+            var cu2 = new Customer(new Contact(), 2);
+            var cu3 = new Customer(new Contact(), 3);
+
+            cm.AddCustomer(cu1);
+            cm.AddCustomer(cu2);
+
+            // Exercise: replace the customer at pos 1 (0 is the first)
+            cm.ChangeCustomer(cu3, 1);
+
+            // Verify
+            Assert.AreSame(cu1, cm.GetCustomer(0));
+            Assert.AreSame(cu3, cm.GetCustomer(1));
+        }
+
+        [TestMethod]
+        public void replacing_a_contact()
+        {
+            // Setup
+            var cu1 = new Customer(new Contact(), 1);
+            var cu2 = new Customer(new Contact(), 2);
+            var cu3 = new Customer(new Contact(), 3);
+
+            cm.AddCustomer(cu1);
+            cm.AddCustomer(cu2);
+            cm.AddCustomer(cu3);
+
+            // Exercise: replace the customer at pos 1 (0 is the first)
+            cm.ChangeCustomer(contact, 1);
+
+            // Verify
+            Assert.AreSame(cu1, cm.GetCustomer(0));
+            Assert.AreSame(cu3, cm.GetCustomer(2));
+            // First generated customer ID is 100.
+            var cust = cm.GetCustomer(1);
+            Assert.AreEqual("Gatan", cust.Contact.Address.Street);
+            Assert.AreEqual(100, cust.ID);
+
+
+
 
         }
     }
-
 }

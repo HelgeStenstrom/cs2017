@@ -100,11 +100,12 @@
             // colID
             // 
             this.colID.Text = "ID";
-            this.colID.Width = 63;
+            this.colID.Width = 67;
             // 
             // colName
             // 
             this.colName.Text = "Name";
+            this.colName.Width = 66;
             // 
             // colAddress
             // 

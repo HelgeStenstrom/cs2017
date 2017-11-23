@@ -8,48 +8,60 @@ using Assignment5.ContactFiles;
 
 namespace Assignment5
 {
-    class CustomerManager
+    public class CustomerManager
     {
-        List<Customer> _customers;
+        private List<Customer> _customers;
+        private IdFactory idFactory = new IdFactory();
 
         public int Count => _customers.Count;
+        public List<Customer> Customers => _customers;
 
-        CustomerManager()
+        public CustomerManager()
         {
             _customers = new List<Customer>(); // Initially empty.
         }
 
-        int GetCount()
+        public void AddCustomer(Customer customer)
         {
-            return _customers.Count;
+            _customers.Add(customer);
         }
 
-        bool AddCustomer(Contact contact)
+        public void AddCustomer(Contact contact)
         {
-            throw new NotImplementedException();
-        }
-        
-        bool AddCustomer(Customer customer)
-        {
-            throw new NotImplementedException();
+            _customers.Add(new Customer(contact, idFactory.getNextID()));
         }
 
-        bool ChangeCustomer(Contact contact, int index)
+        public Customer GetCustomer(int index)
         {
-            throw new NotImplementedException();
+            return _customers[index];
         }
 
-        bool DeleteCustomer(int index)
+        public bool DeleteCustomer(int index)
         {
-            throw new NotImplementedException();
+            if (index >= Count)
+                return false;
+            _customers.RemoveAt(index);
+            return true;
         }
 
-        Customer GetCustomer(int index)
+        public bool ChangeCustomer(Contact contact, int index)
         {
-            throw new NotImplementedException();
+            if (index >= Count)
+                return false;
+            _customers[index] = new Customer(contact, idFactory.getNextID());
+            return true;
         }
 
-        string[] GetCustomerInfo()
+        public bool ChangeCustomer(Customer customer, int index)
+        {
+            if (index >= Count)
+                return false;
+            _customers[index] = customer;
+            return true;
+
+        }
+
+        public string[] GetCustomerInfo()
         {
             throw new NotImplementedException();
         }

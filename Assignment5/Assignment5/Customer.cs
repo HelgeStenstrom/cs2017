@@ -4,9 +4,9 @@ namespace Assignment5
 {
     public class Customer
     {
-        public Contact Contact { get; set; }
+        public Contact Contact { get;  }
 
-        public int ID { get; set; }
+        public int ID { get; }
 
         public Customer(Contact contact, int id)
         {
