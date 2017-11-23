@@ -12,6 +12,8 @@ namespace Assignment5
     {
         List<Customer> _customers;
 
+        public int Count => _customers.Count;
+
         CustomerManager()
         {
             _customers = new List<Customer>(); // Initially empty.
