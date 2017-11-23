@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assignment5.ContactFiles;
+﻿using Assignment5.ContactFiles;
 
 namespace Assignment5
 {
     public class Customer
     {
-        public Contact Contact { get => _contact; set => _contact = value; }
-        public int ID { get => _id; set => _id = value; }
+        public Contact Contact { get; set; }
 
-        Contact _contact;
-        int _id;
+        public int ID { get; set; }
 
         public Customer(Contact contact, int id)
         {
