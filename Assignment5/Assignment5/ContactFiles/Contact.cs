@@ -17,6 +17,23 @@ namespace Assignment5.ContactFiles
             Phone = phone ?? throw new ArgumentNullException(nameof(phone));          
         }
 
+        /// <summary>
+        /// Copy constructor.
+        /// </summary>
+        /// <param name="other"></param>
+        public Contact(Contact other)
+        {
+            this.FirstName = other.FirstName;
+            this.LastName = other.LastName;
+            this.Address = new Address(other.Address);
+            this.Email = new Email(other.Email);
+            this.Phone = new Phone(other.Phone);
+        }
+
+        /// <summary>
+        /// A deep clone can be seen as an alternative to the copy constructor.
+        /// </summary>
+        /// <returns></returns>
         internal Contact DeepClone()
         {
             Contact c = new Contact(this.FirstName,
