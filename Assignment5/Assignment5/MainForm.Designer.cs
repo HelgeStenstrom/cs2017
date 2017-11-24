@@ -38,11 +38,11 @@
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnContactForm = new System.Windows.Forms.Button();
             this.colPostadress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCountry = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnContactForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -64,6 +64,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnChange
             // 
@@ -74,6 +75,7 @@
             this.btnChange.TabIndex = 2;
             this.btnChange.Text = "Change selected";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // btnDelete
             // 
@@ -84,6 +86,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete selected";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // listView1
             // 
@@ -108,6 +111,7 @@
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // colID
             // 
@@ -123,19 +127,10 @@
             // 
             this.colAddress.Text = "Adress";
             // 
-            // btnContactForm
-            // 
-            this.btnContactForm.Location = new System.Drawing.Point(413, 268);
-            this.btnContactForm.Name = "btnContactForm";
-            this.btnContactForm.Size = new System.Drawing.Size(75, 23);
-            this.btnContactForm.TabIndex = 6;
-            this.btnContactForm.Text = "ContactForm";
-            this.btnContactForm.UseVisualStyleBackColor = true;
-            this.btnContactForm.Click += new System.EventHandler(this.btnContactForm_Click);
-            // 
             // colPostadress
             // 
             this.colPostadress.Text = "Postadress";
+            this.colPostadress.Width = 72;
             // 
             // colCountry
             // 
@@ -148,6 +143,16 @@
             // colEmail
             // 
             this.colEmail.Text = "E-post";
+            // 
+            // btnContactForm
+            // 
+            this.btnContactForm.Location = new System.Drawing.Point(413, 268);
+            this.btnContactForm.Name = "btnContactForm";
+            this.btnContactForm.Size = new System.Drawing.Size(75, 23);
+            this.btnContactForm.TabIndex = 6;
+            this.btnContactForm.Text = "ContactForm";
+            this.btnContactForm.UseVisualStyleBackColor = true;
+            this.btnContactForm.Click += new System.EventHandler(this.btnContactForm_Click);
             // 
             // MainForm
             // 

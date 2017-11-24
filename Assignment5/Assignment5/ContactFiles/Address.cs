@@ -47,10 +47,7 @@ namespace Assignment5.ContactFiles
             Country = theOther.Country;
         }
 
-        public string GetCountryString()
-        {
-            return Country.ToString().Replace("_", " ");
-        }
+        public string CountryString => Country.ToString().Replace("_", " ");
 
 
         public static List<string> GetAllCountryStrings()
@@ -76,7 +73,7 @@ namespace Assignment5.ContactFiles
 
         public override string ToString()
         {
-            return $"{StreetAddress, -25} {Zip, -8} {City, -10} {GetCountryString(), -20}";
+            return $"{StreetAddress, -25} {Zip, -8} {City, -10} {CountryString, -20}";
         }
     }
 }

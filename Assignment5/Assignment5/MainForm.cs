@@ -9,6 +9,7 @@ namespace Assignment5
 {
     public partial class MainForm : Form
     {
+        private CustomerManager customerManager = new CustomerManager();
         public MainForm()
         {
             InitializeComponent();
@@ -22,12 +23,29 @@ namespace Assignment5
 
         private void InitializeListView()
         {
+            listView1.Items.Clear();
+            //FillWithExampleData();
+        }
+
+        private string[] exampleRowStrings()
+        {
+            return new string[]
+                {
+                "IdString",
+                    "Name",
+                    "Street",
+                    "PostalAddres",
+                    "Country",
+                    "Phone",
+                    "Email"
+                };
+        }
+        private void FillWithExampleData()
+        {
             // Läsvärt:
             // http://www.c-sharpcorner.com/uploadfile/nipuntomar/sort-a-multicolumn-listview-in-c-sharp/
 
-            listView1.Items.Clear();
-
-            ListViewItem item1 = new ListViewItem(new string [] { "100", "Nisse", "gatan 2"});
+            ListViewItem item1 = new ListViewItem(new string[] { "100", "Nisse", "gatan 2" });
             ListViewItem item2 = new ListViewItem(new string[] { "101", "Anna", "Vägen 3" });
             ListViewItem item3 = new ListViewItem("103");
             item3.SubItems.Add("Oskar");
@@ -55,6 +73,26 @@ namespace Assignment5
             InitializeGui();
         }
 
+        private void UpdateTable()
+        {
+            listView1.Items.Clear();
+            foreach(Customer customer in customerManager.Customers)
+            {
+                string[] rowStrings = new string[]
+                {
+                    customer.IdString,
+                    customer.Name,
+                    customer.Street,
+                    customer.PostalAddres,
+                    customer.Country,
+                    customer.Phone,
+                    customer.Email
+                };
+                ListViewItem row = new ListViewItem(rowStrings);
+                listView1.Items.Add(row);
+            }
+        }
+
         private void btnContactForm_Click(object sender, EventArgs e)
         {
             Contact aContact = new Contact();
@@ -64,10 +102,54 @@ namespace Assignment5
 
             if (dialogResult == DialogResult.OK)
             {
-                MessageBoxButtons okButton = MessageBoxButtons.OK;
-                DialogResult result = MessageBox.Show(dlg.WorkContact.ToString(),
-                    "Final result",
-                    okButton);
+                showTheContact(dlg);
+            }
+        }
+
+        private static void showTheContact(ContactForm dlg)
+        {
+            MessageBoxButtons okButton = MessageBoxButtons.OK;
+            DialogResult result = MessageBox.Show(dlg.WorkContact.ToString(),
+                "Final result",
+                okButton);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Contact aContact = new Contact();
+            ContactForm dlg = new ContactForm(aContact);
+            Contact b = dlg.WorkContact;
+            DialogResult dialogResult = dlg.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                showTheContact(dlg);
+                customerManager.AddCustomer(dlg.WorkContact);
+                UpdateTable();
+            }
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedIndices.Count > 0)
+            {
+                btnDelete.Enabled = true;
+                btnChange.Enabled = true;
+            } 
+            else
+            {
+                btnDelete.Enabled = false;
+                btnChange.Enabled = false;
             }
         }
     }
