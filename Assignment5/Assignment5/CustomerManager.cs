@@ -1,9 +1,8 @@
-﻿using System;
+﻿// Helge Stenström 2017
+// ah7875
+
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assignment5.ContactFiles;
 
 namespace Assignment5

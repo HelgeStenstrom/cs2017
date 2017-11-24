@@ -87,7 +87,7 @@ namespace Assignment5
             txtPhoneCell.Text = _workContact.Phone.Work;
             txtEmailBusiness.Text = _workContact.Email.Work;
             txtEmailPrivate.Text = _workContact.Email.Personal;
-            txtStreet.Text = _workContact.Address.Street;
+            txtStreet.Text = _workContact.Address.StreetAddress;
             txtCity.Text = _workContact.Address.City;
             txtZip.Text = _workContact.Address.Zip;
             cbxCountry.SelectedItem = _workContact.Address.Country;
@@ -103,7 +103,7 @@ namespace Assignment5
             _workContact.Phone.Work = txtPhoneCell.Text;
             _workContact.Email.Work = txtEmailBusiness.Text;
             _workContact.Email.Personal = txtEmailPrivate.Text;
-            _workContact.Address.Street = txtStreet.Text;
+            _workContact.Address.StreetAddress = txtStreet.Text;
             _workContact.Address.City = txtCity.Text;
             _workContact.Address.Zip = txtZip.Text;
             _workContact.Address.Country = (Countries) cbxCountry.SelectedIndex;

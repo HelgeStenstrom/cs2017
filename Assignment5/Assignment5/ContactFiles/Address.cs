@@ -9,16 +9,18 @@ namespace Assignment5.ContactFiles
 {
     public class Address
     {
-        public string Street { get; set; }
+        public string StreetAddress { get; set; }
         public string Zip {
             get;
             set; }
         public string City { get; set; }
         public Countries Country { get; set; }
 
+        public string PostalAddres => $"{Zip} {City}";
+
         public Address(string street, string zip, string city, Countries country)
         {
-            Street = street;
+            StreetAddress = street;
             Zip = zip;
             City = city;
             Country = country;
@@ -39,7 +41,7 @@ namespace Assignment5.ContactFiles
 
         public Address(Address theOther)
         {
-            Street = theOther.Street;
+            StreetAddress = theOther.StreetAddress;
             Zip = theOther.Zip;
             City = theOther.City;
             Country = theOther.Country;
@@ -74,7 +76,7 @@ namespace Assignment5.ContactFiles
 
         public override string ToString()
         {
-            return $"{Street, -25} {Zip, -8} {City, -10} {GetCountryString(), -20}";
+            return $"{StreetAddress, -25} {Zip, -8} {City, -10} {GetCountryString(), -20}";
         }
     }
 }

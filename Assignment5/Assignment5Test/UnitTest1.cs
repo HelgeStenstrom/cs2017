@@ -1,4 +1,4 @@
-﻿// Helge Stenström
+﻿// Helge Stenström 2017
 // ah7875
 
 using Assignment5.ContactFiles;
@@ -36,7 +36,7 @@ namespace Assignment5Test
         public void constructWith3arguments()
         {
             var address = new Address("street", "zip", "city");
-            Assert.AreEqual("street", address.Street);
+            Assert.AreEqual("street", address.StreetAddress);
             Assert.AreEqual("zip", address.Zip);
             Assert.AreEqual("city", address.City);
             Assert.AreEqual(Countries.Sverige, address.Country);
@@ -300,7 +300,7 @@ namespace Assignment5Test
             Assert.AreSame(cu3, cm.GetCustomer(2));
             // First generated customer ID is 100.
             var cust = cm.GetCustomer(1);
-            Assert.AreEqual("Gatan", cust.Contact.Address.Street);
+            Assert.AreEqual("Gatan", cust.Contact.Address.StreetAddress);
             Assert.AreEqual(100, cust.ID);
 
 

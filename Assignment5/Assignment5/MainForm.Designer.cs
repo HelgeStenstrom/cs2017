@@ -31,14 +31,18 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Item A");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Item B");
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnChange = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnContactForm = new System.Windows.Forms.Button();
+            this.colPostadress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCountry = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listBox1
@@ -52,39 +56,47 @@
             this.listBox1.Size = new System.Drawing.Size(501, 69);
             this.listBox1.TabIndex = 0;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(93, 287);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(93, 274);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnChange
             // 
-            this.button2.Location = new System.Drawing.Point(185, 287);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Change";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnChange.Enabled = false;
+            this.btnChange.Location = new System.Drawing.Point(185, 274);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(75, 45);
+            this.btnChange.TabIndex = 2;
+            this.btnChange.Text = "Change selected";
+            this.btnChange.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Location = new System.Drawing.Point(289, 287);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(289, 274);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(76, 45);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Delete selected";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colID,
             this.colName,
-            this.colAddress});
+            this.colAddress,
+            this.colPostadress,
+            this.colCountry,
+            this.colPhone,
+            this.colEmail});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
@@ -104,12 +116,12 @@
             // 
             // colName
             // 
-            this.colName.Text = "Name";
+            this.colName.Text = "Namn";
             this.colName.Width = 66;
             // 
             // colAddress
             // 
-            this.colAddress.Text = "Address";
+            this.colAddress.Text = "Adress";
             // 
             // btnContactForm
             // 
@@ -121,6 +133,22 @@
             this.btnContactForm.UseVisualStyleBackColor = true;
             this.btnContactForm.Click += new System.EventHandler(this.btnContactForm_Click);
             // 
+            // colPostadress
+            // 
+            this.colPostadress.Text = "Postadress";
+            // 
+            // colCountry
+            // 
+            this.colCountry.Text = "Land";
+            // 
+            // colPhone
+            // 
+            this.colPhone.Text = "Telefon";
+            // 
+            // colEmail
+            // 
+            this.colEmail.Text = "E-post";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,9 +156,9 @@
             this.ClientSize = new System.Drawing.Size(596, 332);
             this.Controls.Add(this.btnContactForm);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnChange);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listBox1);
             this.Name = "MainForm";
             this.Text = "Customer registry";
@@ -142,13 +170,17 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colAddress;
         private System.Windows.Forms.Button btnContactForm;
+        private System.Windows.Forms.ColumnHeader colPostadress;
+        private System.Windows.Forms.ColumnHeader colCountry;
+        private System.Windows.Forms.ColumnHeader colPhone;
+        private System.Windows.Forms.ColumnHeader colEmail;
     }
 }
