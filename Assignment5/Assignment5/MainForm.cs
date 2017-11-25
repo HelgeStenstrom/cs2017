@@ -131,12 +131,41 @@ namespace Assignment5
 
         private void btnChange_Click(object sender, EventArgs e)
         {
+            if (listView1.SelectedIndices.Count == 1)
+            {
+                int index = listView1.SelectedIndices[0];
+                if (index < customerManager.Customers.Count)
+                {
+                    // TODO: Kontakt-formuläret startas tomt. 
+                    // TODO: Får den en tom kontakt in, eller struntar den i kontakten?
+                    var aContact = customerManager.GetCustomer(index).Contact;
+                    ContactForm dlg = new ContactForm(aContact);
+                    Contact b = dlg.WorkContact;
+                    DialogResult dialogResult = dlg.ShowDialog();
 
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        showTheContact(dlg);
+                        customerManager.ChangeCustomer(dlg.WorkContact, index);
+                        UpdateTable();
+                    }
+
+                    //UpdateTable();
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            if (listView1.SelectedIndices.Count == 1)
+            {
+                int index = listView1.SelectedIndices[0];
+                if (index < customerManager.Customers.Count)
+                {
+                    customerManager.DeleteCustomer(index);
+                    UpdateTable();
+                }
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

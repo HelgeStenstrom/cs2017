@@ -56,7 +56,7 @@ namespace Assignment5
             InitializeComponent();
             
             _originalContact = contact;
-            _workContact = new Contact();
+            _workContact = new Contact(_originalContact);
 
             InitializeGui();
 
