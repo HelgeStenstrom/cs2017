@@ -70,13 +70,19 @@ namespace Assignment5
             UpdateGuiFromContact();
         }
 
+        /// <summary>
+        /// Load values for the combobox.
+        /// </summary>
         private void InitializeGui()
         {
             cbxCountry.DataSource = Address.GetAllCountryStrings();
             _closeForm = true; 
         }
 
-        private void activateButtons()
+        /// <summary>
+        /// Enable or disable the OK button, depending on if the current contact is valid or not.
+        /// </summary>
+        private void enableOkButtonIfValid()
         {
             if (_workContact.IsValid)
             {
@@ -86,9 +92,11 @@ namespace Assignment5
                 btnOK.Enabled = false;
         }
 
+        /// <summary>
+        /// Fill the GUI with data from the working contact.
+        /// </summary>
         private void UpdateGuiFromContact()
         {
-            // TODO: Varför uppdateras ID vid change contact?
             _skipTextChange = true;
             txtFirstName.Text = _workContact.FirstName;
             txtLastName.Text = _workContact.LastName;
@@ -103,10 +111,13 @@ namespace Assignment5
             cbxCountry.SelectedIndex = (int)_workContact.Address.Country;
 
             // Check if the OK button can be activated
-            activateButtons();
+            enableOkButtonIfValid();
             _skipTextChange = false;
         }
 
+        /// <summary>
+        /// Update the working contact from the GUI.
+        /// </summary>
         private void ReadContactFromGui()
         {
             _workContact.FirstName = txtFirstName.Text;
@@ -121,6 +132,12 @@ namespace Assignment5
             _workContact.Address.Country = (Countries) cbxCountry.SelectedIndex;
         }
 
+        /// <summary>
+        /// Return from the contact form. 
+        /// If successful, copy the work contact to the original contact that the form was called with.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, System.EventArgs e)
         {
             ReadContactFromGui();
@@ -132,15 +149,20 @@ namespace Assignment5
             if (result == DialogResult.OK)
             {
                 _originalContact = _workContact;
-                //_contact = new Contact();
                 _closeForm = true;
-                // throw new NotImplementedException();
+
             }
             else
                 _closeForm = false;
-            // throw new NotImplementedException();
         }
 
+        
+        /// <summary>
+        /// Cancel the contact form. 
+        /// If Cancel was issued by mistake, the user is given a chanse to continue editing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, System.EventArgs e)
         {
             // Hjälpfilen, stycke 8.5
@@ -163,9 +185,14 @@ namespace Assignment5
         {
             if (_skipTextChange) return;
             ReadContactFromGui();
-            activateButtons();
+            enableOkButtonIfValid();
         }
 
+        /// <summary>
+        /// Called by event when the form is going to be closed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_closeForm)

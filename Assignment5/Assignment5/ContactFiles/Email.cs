@@ -1,4 +1,4 @@
-// Helge Stenström 2017
+// Helge StenstrÃ¶m 2017
 // ah7875
 
 namespace Assignment5.ContactFiles
@@ -16,6 +16,10 @@ namespace Assignment5.ContactFiles
 		{
 		}
 
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="theOther"></param>
         public Email(Email theOther)
         {
             this.Personal = theOther.Personal;

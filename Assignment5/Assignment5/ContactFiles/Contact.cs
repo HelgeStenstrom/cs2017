@@ -1,4 +1,4 @@
-// Helge Stenström 2017
+// Helge StenstrÃ¶m 2017
 // ah7875
 
 using System;
@@ -8,6 +8,16 @@ namespace Assignment5.ContactFiles
     public class Contact
     {
         #region Constructors
+
+        /// <summary>
+        /// all-parameter constructor.
+        /// Tests are made that none of the parameters is null.
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="address"></param>
+        /// <param name="phone"></param>
+        /// <param name="email"></param>
         public Contact(string firstName, string lastName, Address address, Phone phone, Email email)
         {
             Address = address ?? throw new ArgumentNullException(nameof(address));
@@ -44,6 +54,9 @@ namespace Assignment5.ContactFiles
             return c;
         }
 
+        /// <summary>
+        /// Default constructor, using default values.
+        /// </summary>
         public Contact() :
             this(string.Empty, string.Empty, new Address(), new Phone(), new Email())
         {
@@ -57,19 +70,31 @@ namespace Assignment5.ContactFiles
         public string LastName { get; set; }
         public Phone Phone { get; set; }
         public string FullName => $"{FirstName} {LastName}";
-        public string RevFullName => $"{LastName}, {FirstName}";
+        public string RevFullName => $"{LastName}, {FirstName}"; 
         #endregion
       
+        /// <summary>
+        /// String representation of a Contact.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{FullName} {Address} {Phone} {Email}";
         }
 
+        /// <summary>
+        /// Calling this method is like reading the IsValid property.
+        /// I returns True if the contact is valid, i.e., it has a name, city and valid country.
+        /// </summary>
+        /// <returns></returns>
         public bool CheckData()
         {
             return IsValid;
         }
 
+        /// <summary>
+        /// True if the contact is valid, i.e., it has a name, city and valid country.
+        /// </summary>
         public bool IsValid
         {
             get

@@ -200,9 +200,9 @@ namespace Assignment5Test
         public void Add_contact()
         {
             cm.AddCustomer(contact);
-            Assert.AreEqual(100, cm.Customers[0].ID);
+            Assert.AreEqual(100, cm.Customers[0].Id);
             cm.AddCustomer(contact);
-            Assert.AreEqual(101, cm.Customers[1].ID);
+            Assert.AreEqual(101, cm.Customers[1].Id);
         }
 
         [TestMethod]
@@ -301,7 +301,7 @@ namespace Assignment5Test
             // First generated customer ID is 100.
             var cust = cm.GetCustomer(1);
             Assert.AreEqual("Gatan", cust.Contact.Address.StreetAddress);
-            Assert.AreEqual(100, cust.ID);
+            Assert.AreEqual(100, cust.Id);
 
 
 
