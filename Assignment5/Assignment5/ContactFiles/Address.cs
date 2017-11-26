@@ -27,7 +27,7 @@ namespace Assignment5.ContactFiles
         }
         
         public Address(string street, string zip, string city):
-                         this(street,        zip,        city, Countries.Sverige)
+                         this(street,        zip,        city, Countries.Invalid_Country)
         {
         }
 
@@ -35,7 +35,7 @@ namespace Assignment5.ContactFiles
         /// Default constructor
         /// </summary>
         public Address():
-            this(string.Empty, string.Empty, string.Empty, Countries.Sverige)
+            this(string.Empty, string.Empty, string.Empty, Countries.Invalid_Country)
         {
         }
 

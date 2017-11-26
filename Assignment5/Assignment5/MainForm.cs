@@ -136,17 +136,20 @@ namespace Assignment5
                 int index = listView1.SelectedIndices[0];
                 if (index < customerManager.Customers.Count)
                 {
-                    // TODO: Kontakt-formuläret startas tomt. 
-                    // TODO: Får den en tom kontakt in, eller struntar den i kontakten?
-                    var aContact = customerManager.GetCustomer(index).Contact;
-                    ContactForm dlg = new ContactForm(aContact);
+                    var aCustomer = customerManager.GetCustomer(index);
+                    var aContact = aCustomer.Contact;
+                    var itsID = aCustomer.ID;
+
+
+                    ContactForm dlg = new ContactForm(aCustomer.Contact);
                     Contact b = dlg.WorkContact;
                     DialogResult dialogResult = dlg.ShowDialog();
 
                     if (dialogResult == DialogResult.OK)
                     {
+                        var changedCustomer = new Customer(b, aCustomer.ID);
                         showTheContact(dlg);
-                        customerManager.ChangeCustomer(dlg.WorkContact, index);
+                        customerManager.ChangeCustomer(changedCustomer, index);
                         UpdateTable();
                     }
 

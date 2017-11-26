@@ -6,6 +6,7 @@ using System;
 using System.Windows.Forms;
 using Assignment5.ContactFiles;
 
+
 namespace Assignment5
 {
     public partial class ContactForm : Form
@@ -72,7 +73,7 @@ namespace Assignment5
         private void InitializeGui()
         {
             cbxCountry.DataSource = Address.GetAllCountryStrings();
-            _closeForm = true; // TODO: förstå varför
+            _closeForm = true; 
         }
 
         private void activateButtons()
@@ -87,7 +88,6 @@ namespace Assignment5
 
         private void UpdateGuiFromContact()
         {
-            // TODO: varför är inte landet rätt vid Change COntackt?
             // TODO: Varför uppdateras ID vid change contact?
             _skipTextChange = true;
             txtFirstName.Text = _workContact.FirstName;
@@ -99,7 +99,8 @@ namespace Assignment5
             txtStreet.Text = _workContact.Address.StreetAddress;
             txtCity.Text = _workContact.Address.City;
             txtZip.Text = _workContact.Address.Zip;
-            cbxCountry.SelectedItem = _workContact.Address.Country;
+
+            cbxCountry.SelectedIndex = (int)_workContact.Address.Country;
 
             // Check if the OK button can be activated
             activateButtons();
