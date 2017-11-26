@@ -20,8 +20,15 @@ namespace Assignment5
         /// </summary>
         private Contact _originalContact;
 
-        // Flag to handle the closing of the form
+        /// <summary>
+        /// Flag to handle the closing of the form
+        /// </summary>
         private bool _closeForm;
+
+        /// <summary>
+        /// Flag used by text changed handler, to determine if the even should be handled.
+        /// </summary>
+        private bool _skipTextChange = false;
 
         /// <summary>
         /// The contact that the form methods work with. 
@@ -54,11 +61,10 @@ namespace Assignment5
         public ContactForm(Contact contact)
         {
             InitializeComponent();
-            
+            InitializeGui();
+
             _originalContact = contact;
             _workContact = new Contact(_originalContact);
-
-            InitializeGui();
 
             UpdateGuiFromContact();
         }
@@ -66,7 +72,7 @@ namespace Assignment5
         private void InitializeGui()
         {
             cbxCountry.DataSource = Address.GetAllCountryStrings();
-            _closeForm = true;
+            _closeForm = true; // TODO: förstå varför
         }
 
         private void activateButtons()
@@ -81,6 +87,9 @@ namespace Assignment5
 
         private void UpdateGuiFromContact()
         {
+            // TODO: varför är inte landet rätt vid Change COntackt?
+            // TODO: Varför uppdateras ID vid change contact?
+            _skipTextChange = true;
             txtFirstName.Text = _workContact.FirstName;
             txtLastName.Text = _workContact.LastName;
             txtPhoneHome.Text = _workContact.Phone.Home;
@@ -92,7 +101,9 @@ namespace Assignment5
             txtZip.Text = _workContact.Address.Zip;
             cbxCountry.SelectedItem = _workContact.Address.Country;
 
+            // Check if the OK button can be activated
             activateButtons();
+            _skipTextChange = false;
         }
 
         private void ReadContactFromGui()
@@ -143,28 +154,15 @@ namespace Assignment5
 //            throw new NotImplementedException();
         }
 
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// When any of Name, City or Country is changed, we need to check if the 
+        /// Contact is valid, i.e., if the OK button can be activated.
+        /// </summary>
+        private void ValidationFields_changed(object sender, EventArgs e)
         {
+            if (_skipTextChange) return;
             ReadContactFromGui();
-            UpdateGuiFromContact();
-        }
-
-        private void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-            ReadContactFromGui();
-            UpdateGuiFromContact();
-        }
-
-        private void txtCity_TextChanged(object sender, EventArgs e)
-        {
-            ReadContactFromGui();
-            UpdateGuiFromContact();
-        }
-
-        private void cbxCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ReadContactFromGui();
-            UpdateGuiFromContact();
+            activateButtons();
         }
 
         private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)

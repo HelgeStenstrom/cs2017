@@ -79,7 +79,7 @@ namespace Assignment5
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(280, 20);
             this.txtLastName.TabIndex = 1;
-            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
+            this.txtLastName.TextChanged += new System.EventHandler(this.ValidationFields_changed);
             // 
             // txtFirstName
             // 
@@ -87,7 +87,7 @@ namespace Assignment5
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(280, 20);
             this.txtFirstName.TabIndex = 0;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.txtFirstName.TextChanged += new System.EventHandler(this.ValidationFields_changed);
             // 
             // label2
             // 
@@ -213,7 +213,7 @@ namespace Assignment5
             this.cbxCountry.Name = "cbxCountry";
             this.cbxCountry.Size = new System.Drawing.Size(280, 21);
             this.cbxCountry.TabIndex = 9;
-            this.cbxCountry.SelectedIndexChanged += new System.EventHandler(this.cbxCountry_SelectedIndexChanged);
+            this.cbxCountry.SelectionChangeCommitted += new System.EventHandler(this.ValidationFields_changed);
             // 
             // txtZip
             // 
@@ -228,7 +228,7 @@ namespace Assignment5
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(280, 20);
             this.txtCity.TabIndex = 7;
-            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
+            this.txtCity.TextChanged += new System.EventHandler(this.ValidationFields_changed);
             // 
             // txtStreet
             // 
