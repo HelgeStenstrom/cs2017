@@ -16,5 +16,25 @@ namespace Assignment6
         {
             InitializeComponent();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void OnFileCLick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("New command executed");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
