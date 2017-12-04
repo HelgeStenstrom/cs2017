@@ -40,6 +40,11 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lstvTasks = new System.Windows.Forms.ListView();
+            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblNow = new System.Windows.Forms.Label();
             this.ttDateTime = new System.Windows.Forms.ToolTip(this.components);
             this.menuMain = new System.Windows.Forms.MenuStrip();
@@ -53,11 +58,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,7 @@
             // 
             // cbxPrio
             // 
+            this.cbxPrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPrio.FormattingEnabled = true;
             this.cbxPrio.Location = new System.Drawing.Point(470, 39);
             this.cbxPrio.Name = "cbxPrio";
@@ -113,9 +114,11 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(562, 20);
             this.txtDescription.TabIndex = 6;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(81, 107);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -126,6 +129,7 @@
             // 
             // btnChange
             // 
+            this.btnChange.Enabled = false;
             this.btnChange.Location = new System.Drawing.Point(236, 107);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(75, 23);
@@ -136,6 +140,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(374, 107);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
@@ -172,6 +177,32 @@
             this.lstvTasks.TabIndex = 0;
             this.lstvTasks.UseCompatibleStateImageBehavior = false;
             this.lstvTasks.View = System.Windows.Forms.View.Details;
+            this.lstvTasks.SelectedIndexChanged += new System.EventHandler(this.lstvTasks_SelectedIndexChanged);
+            // 
+            // colDate
+            // 
+            this.colDate.Text = "Date";
+            this.colDate.Width = 115;
+            // 
+            // colTime
+            // 
+            this.colTime.Text = "Time";
+            // 
+            // colStatus
+            // 
+            this.colStatus.DisplayIndex = 3;
+            this.colStatus.Text = "Status";
+            // 
+            // colPrio
+            // 
+            this.colPrio.DisplayIndex = 2;
+            this.colPrio.Text = "Priority";
+            this.colPrio.Width = 94;
+            // 
+            // colDesc
+            // 
+            this.colDesc.Text = "Description";
+            this.colDesc.Width = 332;
             // 
             // lblNow
             // 
@@ -264,33 +295,8 @@
             // omToolStripMenuItem
             // 
             this.omToolStripMenuItem.Name = "omToolStripMenuItem";
-            this.omToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.omToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.omToolStripMenuItem.Text = "Om...";
-            // 
-            // colDate
-            // 
-            this.colDate.Text = "Date";
-            this.colDate.Width = 115;
-            // 
-            // colTime
-            // 
-            this.colTime.Text = "Time";
-            // 
-            // colPrio
-            // 
-            this.colPrio.DisplayIndex = 2;
-            this.colPrio.Text = "Priority";
-            this.colPrio.Width = 94;
-            // 
-            // colStatus
-            // 
-            this.colStatus.DisplayIndex = 3;
-            this.colStatus.Text = "Status";
-            // 
-            // colDesc
-            // 
-            this.colDesc.Text = "Description";
-            this.colDesc.Width = 332;
             // 
             // frmMain
             // 

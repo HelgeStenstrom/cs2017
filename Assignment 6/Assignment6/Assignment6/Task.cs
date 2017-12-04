@@ -28,5 +28,18 @@ namespace Assignment6
         {
             return $"{Date, -20}{Priority, -10}{Description, -30}";
         }
+
+        /// <summary>
+        /// String representations of all defined priorities, to be used in a cyclic field.
+        /// </summary>
+        public static List<string> GetAllPrioStrings()
+        {
+            List<string> prios = new List<string>();
+            foreach (string prio in Enum.GetNames(typeof(Priority)))
+            {
+                prios.Add(prio.Replace("_", " "));
+            }
+            return prios;
+        }
     }
 }
