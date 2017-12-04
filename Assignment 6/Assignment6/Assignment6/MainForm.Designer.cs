@@ -1,6 +1,6 @@
 ﻿namespace Assignment6
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -32,27 +32,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxPrio = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnChange = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.lblTime = new System.Windows.Forms.Label();
+            this.lstvTasks = new System.Windows.Forms.ListView();
+            this.lblNow = new System.Windows.Forms.Label();
             this.ttDateTime = new System.Windows.Forms.ToolTip(this.components);
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openDatefileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveDatefileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.openDatefileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveDatefileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -68,28 +73,30 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd,   HH:mm";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(121, 41);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(262, 20);
             this.dateTimePicker1.TabIndex = 2;
             this.ttDateTime.SetToolTip(this.dateTimePicker1, "Click to open calendar for date, writ in time here.");
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(371, 47);
+            this.label2.Location = new System.Drawing.Point(411, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Priority";
             // 
-            // comboBox1
+            // cbxPrio
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(470, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cbxPrio.FormattingEnabled = true;
+            this.cbxPrio.Location = new System.Drawing.Point(470, 39);
+            this.cbxPrio.Name = "cbxPrio";
+            this.cbxPrio.Size = new System.Drawing.Size(121, 21);
+            this.cbxPrio.TabIndex = 4;
             // 
             // label3
             // 
@@ -100,43 +107,46 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "To do";
             // 
-            // textBox1
+            // txtDescription
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(562, 20);
-            this.textBox1.TabIndex = 6;
+            this.txtDescription.Location = new System.Drawing.Point(81, 70);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(562, 20);
+            this.txtDescription.TabIndex = 6;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(81, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(81, 107);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button2
+            // btnChange
             // 
-            this.button2.Location = new System.Drawing.Point(236, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Change";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnChange.Location = new System.Drawing.Point(236, 107);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(75, 23);
+            this.btnChange.TabIndex = 8;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Location = new System.Drawing.Point(374, 107);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(374, 107);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.lstvTasks);
             this.groupBox1.Location = new System.Drawing.Point(19, 158);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(624, 184);
@@ -144,24 +154,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ToDo";
             // 
-            // listView1
+            // lstvTasks
             // 
-            this.listView1.Location = new System.Drawing.Point(16, 19);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(590, 143);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lstvTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colDate,
+            this.colTime,
+            this.colStatus,
+            this.colPrio,
+            this.colDesc});
+            this.lstvTasks.FullRowSelect = true;
+            this.lstvTasks.GridLines = true;
+            this.lstvTasks.HideSelection = false;
+            this.lstvTasks.Location = new System.Drawing.Point(16, 19);
+            this.lstvTasks.MultiSelect = false;
+            this.lstvTasks.Name = "lstvTasks";
+            this.lstvTasks.Size = new System.Drawing.Size(590, 143);
+            this.lstvTasks.TabIndex = 0;
+            this.lstvTasks.UseCompatibleStateImageBehavior = false;
+            this.lstvTasks.View = System.Windows.Forms.View.Details;
             // 
-            // lblTime
+            // lblNow
             // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblTime.Location = new System.Drawing.Point(513, 117);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(36, 13);
-            this.lblTime.TabIndex = 11;
-            this.lblTime.Text = "Now!";
+            this.lblNow.AutoSize = true;
+            this.lblNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNow.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblNow.Location = new System.Drawing.Point(513, 117);
+            this.lblNow.Name = "lblNow";
+            this.lblNow.Size = new System.Drawing.Size(36, 13);
+            this.lblNow.TabIndex = 11;
+            this.lblNow.Text = "Now!";
             // 
             // menuMain
             // 
@@ -194,43 +215,43 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(142, 6);
             // 
             // openDatefileToolStripMenuItem
             // 
             this.openDatefileToolStripMenuItem.Name = "openDatefileToolStripMenuItem";
-            this.openDatefileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openDatefileToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.openDatefileToolStripMenuItem.Text = "Open datefile";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(142, 6);
             // 
             // saveDatefileToolStripMenuItem
             // 
             this.saveDatefileToolStripMenuItem.Name = "saveDatefileToolStripMenuItem";
-            this.saveDatefileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveDatefileToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.saveDatefileToolStripMenuItem.Text = "Save datefile";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(142, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // helpToolStripMenuItem
             // 
@@ -246,25 +267,50 @@
             this.omToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.omToolStripMenuItem.Text = "Om...";
             // 
-            // Form1
+            // colDate
+            // 
+            this.colDate.Text = "Date";
+            this.colDate.Width = 115;
+            // 
+            // colTime
+            // 
+            this.colTime.Text = "Time";
+            // 
+            // colPrio
+            // 
+            this.colPrio.DisplayIndex = 2;
+            this.colPrio.Text = "Priority";
+            this.colPrio.Width = 94;
+            // 
+            // colStatus
+            // 
+            this.colStatus.DisplayIndex = 3;
+            this.colStatus.Text = "Status";
+            // 
+            // colDesc
+            // 
+            this.colDesc.Text = "Description";
+            this.colDesc.Width = 332;
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 354);
-            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.lblNow);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnChange);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxPrio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuMain);
             this.MainMenuStrip = this.menuMain;
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.Text = "To Do Reminder";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -279,15 +325,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxPrio;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label lblNow;
+        private System.Windows.Forms.ListView lstvTasks;
         private System.Windows.Forms.ToolTip ttDateTime;
         private System.Windows.Forms.MenuStrip menuMain;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -300,6 +346,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem omToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader colDate;
+        private System.Windows.Forms.ColumnHeader colTime;
+        private System.Windows.Forms.ColumnHeader colStatus;
+        private System.Windows.Forms.ColumnHeader colPrio;
+        private System.Windows.Forms.ColumnHeader colDesc;
     }
 }
 

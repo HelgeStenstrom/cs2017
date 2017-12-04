@@ -6,12 +6,27 @@ using System.Threading.Tasks;
 
 namespace Assignment6
 {
-    class Task
+    public class Task
     {
-        DateTime Date { get; set; }
-        bool IsDone { get; set; }
-        TaskState TaskState { get; set; }
-        string Description { get; set; }
+        public Task(string description, Priority priority, DateTime date, bool isDone)
+        {
+            Description = description ?? throw new ArgumentNullException(nameof(description));
+            Priority = priority;
+            Date = date;
+            IsDone = isDone;
+        }
 
+        public  DateTime Date { get; set; }
+        public bool IsDone { get; set; }
+        public TaskState TaskState { get; set; }
+        public string Description { get; set; }
+
+        public Priority Priority { get; set; }
+        public string PrioString { get => Priority.ToString().Replace('_', ' '); }
+
+        public override string ToString()
+        {
+            return $"{Date, -20}{Priority, -10}{Description, -30}";
+        }
     }
 }

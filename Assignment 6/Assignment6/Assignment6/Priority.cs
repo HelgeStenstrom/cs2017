@@ -7,6 +7,8 @@ namespace Assignment6
 {
     public enum Priority
     {
-        Less_important
+        Less_important,
+        Important,
+        Very_important
     }
 }

@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Assignment6
 {
-    class TaskManager
+    public class TaskManager: List<Task>
     {
         List<Task> _tasks = new List<Task>();
+
+        public void Addx(Task t)
+        {
+            _tasks.Add(t);
+        }
     }
 }
