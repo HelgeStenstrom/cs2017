@@ -16,6 +16,7 @@ namespace Assignment6
         /// The main form has a task manager
         /// </summary>
         private readonly TaskManager _taskManager = new TaskManager();
+        private bool _closeForm = true;
 
         public frmMain()
         {
@@ -33,20 +34,19 @@ namespace Assignment6
             //throw new NotImplementedException();
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("New command executed");
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _taskManager.Clear();
             InitializeGui();
+            UpdateTable();
+           
         }
 
         private void InitializeGui()
         {
             cbxPrio.DataSource = Task.GetAllPrioStrings();
-            // _closeForm = true;
+            txtDescription.Clear();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -150,6 +150,32 @@ namespace Assignment6
             txtDescription.Text = task.Description;
             dateTimePicker1.Value = task.Date;
             cbxPrio.SelectedIndex = (int) task.Priority;
+        }
+
+        private void omToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This is a solution to Assignment 6 i MAH's C# course 2017. \n (c) 2017 Helge Stenström");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons okButton = MessageBoxButtons.OKCancel;
+            DialogResult result = MessageBox.Show("Sure to exit the program",
+                "Think twice!",
+                okButton);
+
+            if (result == DialogResult.OK) _closeForm = true;
+            else _closeForm = false;
+
+            frmMain_FormClosing(sender, e);
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_closeForm)
+                e.Cancel = false; // Close this form
+            else
+                e.Cancel = true; // Do not close (user has chosen Cancel)
         }
     }
 }
