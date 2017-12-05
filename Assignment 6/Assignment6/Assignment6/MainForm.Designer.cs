@@ -164,8 +164,8 @@
             this.lstvTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colDate,
             this.colTime,
-            this.colStatus,
             this.colPrio,
+            this.colStatus,
             this.colDesc});
             this.lstvTasks.FullRowSelect = true;
             this.lstvTasks.GridLines = true;
@@ -190,12 +190,10 @@
             // 
             // colStatus
             // 
-            this.colStatus.DisplayIndex = 3;
-            this.colStatus.Text = "Status";
+            this.colStatus.Text = "Is done";
             // 
             // colPrio
             // 
-            this.colPrio.DisplayIndex = 2;
             this.colPrio.Text = "Priority";
             this.colPrio.Width = 94;
             // 

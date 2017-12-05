@@ -25,12 +25,12 @@ namespace Assignment6
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         private void OnFileCLick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,18 +51,33 @@ namespace Assignment6
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Priority p;
-            p = (Priority) 1;
+            Priority prio;
+            prio = (Priority) 1;
             var sv = cbxPrio.SelectedItem;
-            p = (Priority)cbxPrio.SelectedIndex;
+            prio = (Priority)cbxPrio.SelectedIndex;
             _taskManager.Add(new Task(txtDescription.Text, 
-                                      p,
-                                       dateTimePicker1.Value, 
-                                       false));
+                                      prio,
+                                      dateTimePicker1.Value, 
+                                      false));
             UpdateTable();
         }
 
         private void btnChange_Click(object sender, EventArgs e)
+        {
+            NotImplementedMessage();
+            if (lstvTasks.SelectedIndices.Count == 1)
+            {
+                int index = lstvTasks.SelectedIndices[0];
+                Task task = new Task(txtDescription.Text,
+                                      (Priority)cbxPrio.SelectedIndex,
+                                      dateTimePicker1.Value,
+                                      false);
+                _taskManager[index] = task;
+                UpdateTable();
+            }
+        }
+
+        private static void NotImplementedMessage()
         {
             MessageBoxButtons okButton = MessageBoxButtons.OK;
             DialogResult result = MessageBox.Show("Not implemented",
@@ -72,10 +87,8 @@ namespace Assignment6
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons okButton = MessageBoxButtons.OK;
-            DialogResult result = MessageBox.Show("Not implemented",
-                "Alert!",
-                okButton);
+            _taskManager.RemoveAt(lstvTasks.SelectedIndices[0]);
+            UpdateTable();
         }
 
         /// <summary>
@@ -90,13 +103,17 @@ namespace Assignment6
                 string[] rowStrings = new string[]
                 {
                     t.Date.ToShortDateString(),
-                    t.Date.Hour.ToString(),
+                    $"{t.Date.Hour.ToString()}:{t.Date.Minute.ToString()}",
+                    t.PrioString,
+                    t.IsDone.ToString(),
+                    t.Description
                 };
                 // Create a row of the data
                 ListViewItem row = new ListViewItem(rowStrings);
                 // and add it to the ListView
                 lstvTasks.Items.Add(row);
             }
+            ActivateButtons();
         }
 
         /// <summary>
@@ -111,9 +128,28 @@ namespace Assignment6
 
         private void lstvTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
+            bool activateButtons = ActivateButtons();
+            if (activateButtons)
+            {
+                int index = lstvTasks.SelectedIndices[0];
+                Task task = _taskManager[index];
+                UpdateFormFromTask(task);
+            }
+        }
+
+        private bool ActivateButtons()
+        {
             bool activateButtons = (lstvTasks.SelectedIndices.Count == 1);
             btnChange.Enabled = activateButtons;
             btnDelete.Enabled = activateButtons;
+            return activateButtons;
+        }
+
+        private void UpdateFormFromTask(Task task)
+        {
+            txtDescription.Text = task.Description;
+            dateTimePicker1.Value = task.Date;
+            cbxPrio.SelectedIndex = (int) task.Priority;
         }
     }
 }
