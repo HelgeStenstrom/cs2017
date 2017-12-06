@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿// Helge Stenström 2017
+// ah7875
+
+using System.Collections.Generic;
 
 namespace Assignment6
 {

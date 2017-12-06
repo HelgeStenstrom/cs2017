@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// Helge Stenström 2017
+// ah7875
+
 
 namespace Assignment6
 {

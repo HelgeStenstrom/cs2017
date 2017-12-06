@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Helge Stenström 2017
+// ah7875
+
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assignment6;
 
