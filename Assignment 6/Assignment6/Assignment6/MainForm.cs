@@ -164,10 +164,12 @@ namespace Assignment6
                 "Think twice!",
                 okButton);
 
-            if (result == DialogResult.OK) _closeForm = true;
+            if (result == DialogResult.OK)
+            {
+                _closeForm = true;
+                Application.Exit();
+            }
             else _closeForm = false;
-
-            frmMain_FormClosing(sender, e);
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
