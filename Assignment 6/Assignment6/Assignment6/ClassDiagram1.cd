@@ -1,30 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Assignment6.Form1">
-    <Position X="4" Y="1" Width="1.5" />
-    <Members>
-      <Method Name="Dispose" Hidden="true" />
-      <Method Name="InitializeComponent" Hidden="true" />
-    </Members>
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AICAIA0AACAAABAyAACAAAUCQAA4AEAAMiQAAKAAAAA=</HashCode>
-      <FileName>Form1.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Assignment6.Task">
     <Position X="6" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAgAAAAAAAAAAAEAAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAACAAAAAgAAAEAAAAAAAEAAAAAAEBEAAAAAAAAAA=</HashCode>
       <FileName>Task.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment6.TaskManager">
     <Position X="1.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAoAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAAABAAAA=</HashCode>
       <FileName>TaskManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -36,9 +22,9 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="Assignment6.Priority">
-    <Position X="1.75" Y="0.75" Width="1.5" />
+    <Position X="4" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAQAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Priority.cs</FileName>
     </TypeIdentifier>
   </Enum>

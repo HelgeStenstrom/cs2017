@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace Assignment6
 {
+    /// <summary>
+    /// Data container for a task, more or less.
+    /// </summary>
     public class Task
     {
         /// <summary>
@@ -42,6 +45,10 @@ namespace Assignment6
         public Priority Priority { get; set; }
         public string PrioString { get => Priority.ToString().Replace('_', ' '); }
 
+        /// <summary>
+        /// String representation of a task.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Date, -20}{Priority, -10}{Description, -30}";
