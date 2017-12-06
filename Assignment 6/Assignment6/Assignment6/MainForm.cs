@@ -145,13 +145,14 @@ namespace Assignment6
 
         private void omToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult result = new AboutBox().ShowDialog();
             MessageBox.Show("This is a solution to Assignment 6 i MAH's C# course 2017. \n (c) 2017 Helge Stenström");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBoxButtons okButton = MessageBoxButtons.OKCancel;
-            DialogResult result = MessageBox.Show("Sure to exit the program",
+            DialogResult result = MessageBox.Show("Sure to exit the program?",
                 "Think twice!",
                 okButton);
 

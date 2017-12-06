@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Assignment6")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This is a rather rudimentary task manager.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hewlett-Packard")]
+[assembly: AssemblyCompany("Helge Stenström")]
 [assembly: AssemblyProduct("Assignment6")]
-[assembly: AssemblyCopyright("Copyright © Hewlett-Packard 2017")]
+[assembly: AssemblyCopyright("Copyright © Helge Stenström 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
