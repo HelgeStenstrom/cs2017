@@ -59,5 +59,18 @@ namespace Assignment6
             }
             return prios;
         }
+
+        /// <summary>
+        /// Strings representing a row in a ListView.
+        /// </summary>
+        /// <returns></returns>
+        public string[] RowStrings => new string[]
+                    {
+                    Date.ToShortDateString(),
+                    $"{Date.Hour.ToString()}:{Date.Minute.ToString()}",
+                    PrioString,
+                    IsDone.ToString(),
+                    Description
+                    };
     }
 }

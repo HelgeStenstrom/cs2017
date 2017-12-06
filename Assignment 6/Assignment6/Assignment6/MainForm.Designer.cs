@@ -58,6 +58,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -250,29 +251,31 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(142, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // openDatefileToolStripMenuItem
             // 
             this.openDatefileToolStripMenuItem.Name = "openDatefileToolStripMenuItem";
-            this.openDatefileToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.openDatefileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openDatefileToolStripMenuItem.Text = "Open datefile";
+            this.openDatefileToolStripMenuItem.Click += new System.EventHandler(this.openDatefileToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(142, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // saveDatefileToolStripMenuItem
             // 
             this.saveDatefileToolStripMenuItem.Name = "saveDatefileToolStripMenuItem";
-            this.saveDatefileToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.saveDatefileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveDatefileToolStripMenuItem.Text = "Save datefile";
+            this.saveDatefileToolStripMenuItem.Click += new System.EventHandler(this.saveDatefileToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(142, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -293,9 +296,15 @@
             // omToolStripMenuItem
             // 
             this.omToolStripMenuItem.Name = "omToolStripMenuItem";
-            this.omToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.omToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.omToolStripMenuItem.Text = "Om...";
             this.omToolStripMenuItem.Click += new System.EventHandler(this.omToolStripMenuItem_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMain
             // 
@@ -357,6 +366,7 @@
         private System.Windows.Forms.ColumnHeader colStatus;
         private System.Windows.Forms.ColumnHeader colPrio;
         private System.Windows.Forms.ColumnHeader colDesc;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

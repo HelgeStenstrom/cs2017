@@ -55,6 +55,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="AltTaskManager.cs" />
     <Compile Include="TaskManager.cs" />
     <Compile Include="TaskState.cs" />
     <EmbeddedResource Include="MainForm.resx">

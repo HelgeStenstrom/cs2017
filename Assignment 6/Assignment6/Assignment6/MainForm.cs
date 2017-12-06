@@ -64,7 +64,7 @@ namespace Assignment6
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            NotImplementedMessage();
+            //NotImplementedMessage();
             if (lstvTasks.SelectedIndices.Count == 1)
             {
                 int index = lstvTasks.SelectedIndices[0];
@@ -97,19 +97,10 @@ namespace Assignment6
         private void UpdateTable()
         {
             lstvTasks.Items.Clear();
-            foreach (Task t in _taskManager)
+            foreach (var task in _taskManager.TasksAsStrings)
             {
-                // A list of strings, each for its own column in the view.
-                string[] rowStrings = new string[]
-                {
-                    t.Date.ToShortDateString(),
-                    $"{t.Date.Hour.ToString()}:{t.Date.Minute.ToString()}",
-                    t.PrioString,
-                    t.IsDone.ToString(),
-                    t.Description
-                };
                 // Create a row of the data
-                ListViewItem row = new ListViewItem(rowStrings);
+                ListViewItem row = new ListViewItem(task);
                 // and add it to the ListView
                 lstvTasks.Items.Add(row);
             }
@@ -178,6 +169,23 @@ namespace Assignment6
                 e.Cancel = false; // Close this form
             else
                 e.Cancel = true; // Do not close (user has chosen Cancel)
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var now = DateTime.Now;
+            // TODO: Skriv värdena med inledande nolla, när det behövs
+            lblNow.Text = $"{now.Hour,2}:{now.Minute,2}:{now.Second,2}";
+        }
+
+        private void openDatefileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NotImplementedMessage();
+        }
+
+        private void saveDatefileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NotImplementedMessage();
         }
     }
 }
