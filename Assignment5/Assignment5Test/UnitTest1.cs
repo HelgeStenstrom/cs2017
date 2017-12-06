@@ -14,7 +14,7 @@ namespace Assignment5Test
         public void ToString_forDefaultConstructor()
         {
             var address = new Address();
-            StringAssert.Contains(address.ToString(), "Sverige");
+            StringAssert.Contains(address.ToString(), "Invalid");
             // Assert.AreEqual($"{"Sverige", 53}", address.ToString());
         }
 
@@ -39,7 +39,7 @@ namespace Assignment5Test
             Assert.AreEqual("street", address.StreetAddress);
             Assert.AreEqual("zip", address.Zip);
             Assert.AreEqual("city", address.City);
-            Assert.AreEqual(Countries.Sverige, address.Country);
+            Assert.AreEqual(Countries.Invalid_Country, address.Country);
         }
     }
 
@@ -165,7 +165,7 @@ namespace Assignment5Test
             Contact c = new Contact();
             Customer customer = new Customer(c, 17);
             StringAssert.StartsWith(customer.ToString(), "17");
-            StringAssert.Contains(customer.ToString(), "Sverige");
+            StringAssert.Contains(customer.ToString(), "Invalid");
         }
     }
 
@@ -200,9 +200,8 @@ namespace Assignment5Test
         public void Add_contact()
         {
             cm.AddCustomer(contact);
-            Assert.AreEqual(100, cm.Customers[0].Id);
             cm.AddCustomer(contact);
-            Assert.AreEqual(101, cm.Customers[1].Id);
+            Assert.AreEqual(2, cm.Count);
         }
 
         [TestMethod]

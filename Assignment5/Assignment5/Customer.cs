@@ -14,7 +14,7 @@ namespace Assignment5
         /// <summary>
         /// Return the contact of a Customer.
         /// </summary>
-        public Contact Contact { get;  }
+        public Contact Contact { get; }
 
         #region Properties for colums to display
         // These properties are used to fill cells in a table.
@@ -43,6 +43,19 @@ namespace Assignment5
             Id = id;
             Contact = contact;
         }
+
+        /// <summary>
+        /// Strings used to fill a row in a ListView.
+        /// </summary>
+        public string[] RowStrings => new string[] {
+                    IdString,
+                    Name,
+                    Street,
+                    PostalAddres,
+                    Country,
+                    Phone,
+                    Email
+                    };
 
         /// <summary>
         /// String representation of the customer.

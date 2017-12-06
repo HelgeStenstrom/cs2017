@@ -44,21 +44,10 @@ namespace Assignment5
         private void UpdateTable()
         {
             listView1.Items.Clear();
-            foreach(Customer customer in _customerManager.Customers)
+            foreach(var customer in _customerManager.CustomersAsRows)
             {
-                // A list of strings, each for its own column in the view.
-                string[] rowStrings = new string[]
-                {
-                    customer.IdString,
-                    customer.Name,
-                    customer.Street,
-                    customer.PostalAddres,
-                    customer.Country,
-                    customer.Phone,
-                    customer.Email
-                };
                 // Create a row of the data
-                ListViewItem row = new ListViewItem(rowStrings);
+                ListViewItem row = new ListViewItem(customer);
                 // and add it to the ListView
                 listView1.Items.Add(row);
             }
@@ -107,7 +96,7 @@ namespace Assignment5
             if (listView1.SelectedIndices.Count == 1)
             {
                 int index = listView1.SelectedIndices[0];
-                if (index < _customerManager.Customers.Count)
+                if (index < _customerManager.Count)
                 {
                     var aCustomer = _customerManager.GetCustomer(index);
                     var aContact = aCustomer.Contact;
@@ -140,7 +129,7 @@ namespace Assignment5
             if (listView1.SelectedIndices.Count == 1)
             {
                 int index = listView1.SelectedIndices[0];
-                if (index < _customerManager.Customers.Count)
+                if (index < _customerManager.Count)
                 {
                     _customerManager.DeleteCustomer(index);
                     UpdateTable();

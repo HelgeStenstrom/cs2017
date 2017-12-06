@@ -35,7 +35,23 @@ namespace Assignment5
         /// <summary>
         /// The customer list, as a property.9
         /// </summary>
-        public List<Customer> Customers => _customers;
+        private List<Customer> Customers => _customers;
+
+        /// <summary>
+        /// Data to fill a ListView, one customer per item in the list.
+        /// </summary>
+        public List<string[]> CustomersAsRows
+        {
+            get
+            {
+                List<string[]> l = new List<string[]>();
+                foreach (Customer c in _customers)
+                {
+                    l.Add(c.RowStrings);
+                }
+                return l;
+            }
+        }
 
         /// <summary>
         /// Default constructor, creates a list to hold the customers.
