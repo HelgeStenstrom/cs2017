@@ -31,19 +31,19 @@ namespace Assignment6
         /// </summary>
         public Task(Task old)
         {
-            this.Description = old.Description;
-            this.Priority = old.Priority;
-            this.Date = old.Date;
-            this.IsDone = old.IsDone;
+            Description = old.Description;
+            Priority = old.Priority;
+            Date = old.Date;
+            IsDone = old.IsDone;
         }
 
-        public  DateTime Date { get; set; }
-        public bool IsDone { get; set; }
+        public  DateTime Date { get; }
+        public bool IsDone { get; }
         public TaskState TaskState { get; set; }
-        public string Description { get; set; }
+        public string Description { get; }
 
         public Priority Priority { get; set; }
-        public string PrioString { get => Priority.ToString().Replace('_', ' '); }
+        public string PrioString => Priority.ToString().Replace('_', ' ');
 
         /// <summary>
         /// String representation of a task.
@@ -71,7 +71,7 @@ namespace Assignment6
         /// Strings representing a row in a ListView.
         /// </summary>
         /// <returns></returns>
-        public string[] RowStrings => new string[]
+        public string[] RowStrings => new[]
                     {
                     Date.ToShortDateString(),
                     $"{Date.Hour.ToString()}:{Date.Minute.ToString()}",

@@ -7,14 +7,14 @@ namespace Assignment6
 {
     /// <summary>
     /// The task manager works like a list of tasks, but with some encapsulation.
-    /// Methods mimic the like-named methods of List<>
+    /// Methods mimic the like-named methods of List of task
     /// </summary>
     public class TaskManager 
     {
         /// <summary>
         /// The list of tasks, empty to begin with.
         /// </summary>
-        List<Task> _tasks = new List<Task>();
+        private readonly List<Task> _tasks = new List<Task>();
 
         /// <summary>
         /// Add a task to the list
