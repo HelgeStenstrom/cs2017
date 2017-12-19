@@ -49,13 +49,6 @@ namespace Assignment5
         }
 
         /// <summary>
-        /// Default constructor, will likely not be used.
-        /// </summary>
-        public ContactForm(): this(new Contact())
-        {
-        }
-
-        /// <summary>
         /// Main constructor. to be called with an existing contact.
         /// </summary>
         /// <param name="contact"></param>

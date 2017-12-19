@@ -3,7 +3,7 @@
   <Class Name="Assignment5.ContactFiles.Address">
     <Position X="0.5" Y="2" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAMAAEACAAAAAIAAAAAAAMAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAABAACAAAgMAAEACAAAAAIAAAAAAAAAAAAAABA=</HashCode>
       <FileName>ContactFiles\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -19,6 +19,30 @@
     <TypeIdentifier>
       <HashCode>AAAAAEAAAGAAAIAEAAgAAAAAAIAAAAACAAAAIEAAAAg=</HashCode>
       <FileName>ContactFiles\Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment5.MainForm">
+    <Position X="1" Y="0.5" Width="3.75" />
+    <Members>
+      <Field Name="btnAdd" Hidden="true" />
+      <Field Name="btnChange" Hidden="true" />
+      <Field Name="btnDelete" Hidden="true" />
+      <Field Name="colAddress" Hidden="true" />
+      <Field Name="colCountry" Hidden="true" />
+      <Field Name="colEmail" Hidden="true" />
+      <Field Name="colID" Hidden="true" />
+      <Field Name="colName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAEAEAABACACAAAACRiAACSCIACAgAQAAAQAAIAAAQY=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment5.ContactForm">
+    <Position X="6" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>EACAAAEAAGIAIBEAABSDAMgGAgBAAMAAACUAAAIEAAE=</HashCode>
+      <FileName>ContactForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
